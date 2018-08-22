@@ -23,24 +23,21 @@ server.unifiedServer = function (req, res) {
     let path = parsedUrl.pathname;
 
     // check the router if not found use notFound handler
-    let chosenHandler = typeof(server.router[path]) !== 'undefined' ? server.router[path] : 'handlers.notFound';
+    let chosenHandler = typeof(server.router[path]) !== 'undefined' ? server.router[path] : handlers.notFound;
 
+    chosenHandler(function (statusCode, payload) {
 
+        statusCode = typeof(statusCode) =='number' ? statusCode: 200;
+        payload = typeof(payload) == 'string' ? payload : 'Hello World!\n';
 
+        res.writeHead(statusCode);
+        res.end(payload);
 
-    console.log(chosenHandler);
+    });
 
 
 };
 
-
-// define the request router
-server.router = {
-    '/ping': 'handlers.ping',
-    '/': 'handlers.index',
-    '/about': 'handlers.about',
-    '/resume': 'handlers.resume'
-};
 
 // Server init script
 server.init = function () {
@@ -49,5 +46,23 @@ server.init = function () {
     })
 };
 
+
+let handlers = {};
+
+handlers.ping = function (callback) {
+    callback(200);
+};
+
+handlers.notFound = function (callback) {
+    callback(404, 'Error, page not found');
+};
+
+// define the request router
+server.router = {
+    '/ping': handlers.ping
+    // '/': 'handlers.index',
+    // '/about': 'handlers.about',
+    // '/resume': 'handlers.resume'
+};
 
 module.exports = server;
