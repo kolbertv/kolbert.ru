@@ -17,7 +17,11 @@ server.httpServer = http.createServer(function (req, res) {
 server.unifiedServer = function (req, res) {
 
     // parse url
+
     let parsedUrl = url.parse(req.url, true);
+
+    // console.log(url.parse(req.url));
+    // console.log(parsedUrl);
 
     //get the path
     let path = parsedUrl.pathname;
