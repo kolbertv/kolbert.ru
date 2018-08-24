@@ -1,9 +1,12 @@
+// dependencies
 let path = require('path');
 let fs = require('fs');
 
-
+// containers for all helpers
 let helpers = {};
 
+
+// get the string content of a template
 helpers.getTemplate = function (templateName, callback) {
 
     templateName = typeof(templateName) == 'string' && templateName.length > 0 ? templateName : false;
@@ -26,5 +29,12 @@ helpers.getTemplate = function (templateName, callback) {
 
 };
 
+// take a given string and a data object and find/replace all the keys within it
+helpers.interpolation = function() {
 
+
+
+};
+
+// export the module
 module.exports = helpers;

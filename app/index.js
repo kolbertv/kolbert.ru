@@ -1,5 +1,4 @@
 //Dependencies
-
 let server = require('./lib/server');
 
 // Declare app
@@ -11,12 +10,11 @@ app.init = function () {
 
     // start server
     server.init();
-
 };
 
 // self init
 app.init();
 
-// export the app
 
+// module for export the app
 module.exports = app;
