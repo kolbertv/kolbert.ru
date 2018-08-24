@@ -27,14 +27,26 @@ server.unifiedServer = function (req, res) {
     // check the router if not found use notFound handler
     let chosenHandler = typeof(server.router[pathName]) !== 'undefined' ? server.router[pathName] : handlers.notFound;
 
-    chosenHandler(function (statusCode, payload) {
+    chosenHandler(function (statusCode, payload, contentType) {
 
         statusCode = typeof(statusCode) == 'number' ? statusCode : 200;
-        payload = typeof(payload) == 'string' ? payload : '';
+        contentType = typeof(contentType) == 'string' ? contentType : 'html';
 
-        res.setHeader('Content-Type', 'text/html');
+        let payloadString ='';
+        if (contentType == 'html') {
+            res.setHeader('Content-Type', 'text/html');
+            payloadString = typeof(payload) == 'string' ? payload : '';
+        }
+
+        if (contentType == 'favicon'){
+            res.setHeader('Content-Type', 'image/x-icon');
+            payloadString = typeof(payload) !== 'undefined'? payload : '';
+        }
+
+
+
         res.writeHead(statusCode);
-        res.end(payload);
+        res.end(payloadString);
     });
 };
 
@@ -50,7 +62,10 @@ server.init = function () {
 // define the request router
 server.router = {
     '/ping': handlers.ping,
-    '/': handlers.index
+    '/': handlers.index,
+    '/favicon.png': handlers.faviconPNG,
+    '/favicon.ico': handlers.faviconICO,
+    '/public': handlers.public
     // '/about': 'handlers.about',
     // '/resume': 'handlers.resume'
 };
