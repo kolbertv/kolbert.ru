@@ -2,6 +2,7 @@
 let http = require('http');
 let config = require('./config');
 let url = require('url');
+let handlers = require('./handlers');
 
 // Instantiate he server module object
 let server = {};
@@ -17,29 +18,24 @@ server.httpServer = http.createServer(function (req, res) {
 server.unifiedServer = function (req, res) {
 
     // parse url
-
     let parsedUrl = url.parse(req.url, true);
 
-    // console.log(url.parse(req.url));
-    // console.log(parsedUrl);
 
     //get the path
-    let path = parsedUrl.pathname;
+    let pathName = parsedUrl.pathname;
 
     // check the router if not found use notFound handler
-    let chosenHandler = typeof(server.router[path]) !== 'undefined' ? server.router[path] : handlers.notFound;
+    let chosenHandler = typeof(server.router[pathName]) !== 'undefined' ? server.router[pathName] : handlers.notFound;
 
     chosenHandler(function (statusCode, payload) {
 
-        statusCode = typeof(statusCode) =='number' ? statusCode: 200;
-        payload = typeof(payload) == 'string' ? payload : 'Hello World!\n';
+        statusCode = typeof(statusCode) == 'number' ? statusCode : 200;
+        payload = typeof(payload) == 'string' ? payload : '';
 
+        res.setHeader('Content-Type', 'text/html');
         res.writeHead(statusCode);
         res.end(payload);
-
     });
-
-
 };
 
 
@@ -51,20 +47,10 @@ server.init = function () {
 };
 
 
-let handlers = {};
-
-handlers.ping = function (callback) {
-    callback(200);
-};
-
-handlers.notFound = function (callback) {
-    callback(404, 'Error, page not found');
-};
-
 // define the request router
 server.router = {
-    '/ping': handlers.ping
-    // '/': 'handlers.index',
+    '/ping': handlers.ping,
+    '/': handlers.index
     // '/about': 'handlers.about',
     // '/resume': 'handlers.resume'
 };
