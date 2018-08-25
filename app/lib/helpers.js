@@ -53,11 +53,11 @@ helpers.addUniversalTemplate = function (str, callback) {
 
 };
 
+// get static assets. fileName have and path and file name like /img/logo.png
 helpers.getStaticAsset = function (fileName, callback) {
     fileName = typeof (fileName) == 'string' && fileName.length > 0 ? fileName : false;
-
     if (fileName) {
-        let publicDir = path.join(__dirname, '/../public/');
+        let publicDir = path.join(__dirname, '/../public');
         fs.readFile(publicDir+fileName, function (err, data) {
             if (!err && data) {
                 callback(false, data);

@@ -24,10 +24,20 @@ server.unifiedServer = function (req, res) {
     //get the path
     let pathName = parsedUrl.pathname;
 
+    // console.log(pathName);
+    // console.log(pathName.indexOf('/public/')>-1 ? 'yes' : 'no');
+    // console.log(pathName.replace(/^\/+|\/+$/g, ''));
+
     // check the router if not found use notFound handler
     let chosenHandler = typeof(server.router[pathName]) !== 'undefined' ? server.router[pathName] : handlers.notFound;
 
-    chosenHandler(function (statusCode, payload, contentType) {
+    // if we have public static choose public handler
+    chosenHandler = pathName.indexOf('/public/') > -1 ? handlers.public : chosenHandler;
+
+    let data = {
+      'pathNameFileName' : pathName // pathName and File Name for static assets
+    };
+    chosenHandler(data, function (statusCode, payload, contentType) {
 
         statusCode = typeof(statusCode) == 'number' ? statusCode : 200;
         contentType = typeof(contentType) == 'string' ? contentType : 'html';
@@ -43,6 +53,25 @@ server.unifiedServer = function (req, res) {
             payloadString = typeof(payload) !== 'undefined'? payload : '';
         }
 
+        if (contentType == 'plain') {
+            res.setHeader('Content-Type', 'text/plain');
+            payloadString = typeof(payload) !== 'undefined'? payload : '';
+        }
+
+        if (contentType == 'jpg') {
+            res.setHeader('Content-Type', 'image/jpg');
+            payloadString = typeof(payload) !== 'undefined'? payload : '';
+        }
+
+        if (contentType == 'png') {
+            res.setHeader('Content-Type', 'image/png');
+            payloadString = typeof(payload) !== 'undefined'? payload : '';
+        }
+
+        if (contentType == 'css') {
+            res.setHeader('Content-Type', 'text/css');
+            payloadString = typeof(payload) !== 'undefined'? payload : '';
+        }
 
 
         res.writeHead(statusCode);
@@ -63,8 +92,8 @@ server.init = function () {
 server.router = {
     '/ping': handlers.ping,
     '/': handlers.index,
-    '/favicon.png': handlers.faviconPNG,
-    '/favicon.ico': handlers.faviconICO,
+    '/favicon.png': handlers.favicon,
+    '/favicon.ico': handlers.favicon,
     '/public': handlers.public
     // '/about': 'handlers.about',
     // '/resume': 'handlers.resume'
