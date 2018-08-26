@@ -5,7 +5,6 @@ let fs = require('fs');
 // containers for all helpers
 let helpers = {};
 
-
 // get the string content of a template
 helpers.getTemplate = function (templateName, callback) {
 
@@ -74,7 +73,6 @@ helpers.getStaticAsset = function (fileName, callback) {
 
 // take a given string and a data object and find/replace all the keys within it
 helpers.interpolation = function () {
-
 
 };
 

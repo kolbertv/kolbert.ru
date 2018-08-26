@@ -7,12 +7,10 @@ let handlers = require('./handlers');
 // Instantiate he server module object
 let server = {};
 
-
 // create http server
 server.httpServer = http.createServer(function (req, res) {
     server.unifiedServer(req, res);
 });
-
 
 // common server for http and future https
 server.unifiedServer = function (req, res) {
@@ -20,13 +18,8 @@ server.unifiedServer = function (req, res) {
     // parse url
     let parsedUrl = url.parse(req.url, true);
 
-
     //get the path
     let pathName = parsedUrl.pathname;
-
-    // console.log(pathName);
-    // console.log(pathName.indexOf('/public/')>-1 ? 'yes' : 'no');
-    // console.log(pathName.replace(/^\/+|\/+$/g, ''));
 
     // check the router if not found use notFound handler
     let chosenHandler = typeof(server.router[pathName]) !== 'undefined' ? server.router[pathName] : handlers.notFound;
@@ -93,8 +86,8 @@ server.router = {
     '/ping': handlers.ping,
     '/': handlers.index,
     '/favicon.png': handlers.favicon,
-    '/favicon.ico': handlers.favicon,
-    '/public': handlers.public
+    '/favicon.ico': handlers.favicon
+    // '/public': handlers.public
     // '/about': 'handlers.about',
     // '/resume': 'handlers.resume'
 };

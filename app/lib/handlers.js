@@ -1,10 +1,8 @@
 // dependencies
 let helpers = require('./helpers');
 
-
 // container for all handlers
 let handlers = {};
-
 
 // index handler
 handlers.index = function (data, callback) {
@@ -22,7 +20,6 @@ handlers.index = function (data, callback) {
         }
     });
 };
-
 
 // favicon handler
 handlers.favicon = function (data, callback) {
@@ -61,12 +58,10 @@ handlers.public = function (data, callback) {
     }
 };
 
-
 // ping handler
 handlers.ping = function (data, callback) {
     callback(200, 'status 200');
 };
-
 
 // not found handler
 handlers.notFound = function (data, callback) {
