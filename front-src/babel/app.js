@@ -1,4 +1,4 @@
 "use strict";
 
-var app = {};
+let app = {};
 console.log('Привет из бабеля и файла JS для фронта');

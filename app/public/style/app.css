@@ -1,5 +1,15 @@
-/*style file*/
-
+/*scss*/
 .content {
-    background-color: blue;
-}
+  background-color: red; }
+
+::-webkit-input-placeholder {
+  color: red; }
+
+:-ms-input-placeholder {
+  color: red; }
+
+::-ms-input-placeholder {
+  color: red; }
+
+::placeholder {
+  color: red; }
