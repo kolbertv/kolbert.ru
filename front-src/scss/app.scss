@@ -1,9 +1,263 @@
 /*scss*/
+$borderColorDev: 1px solid green;
+$esm: 400px;
+$esmWidth: auto;
+$sm: 576px;
+$smWidth: 540px;
+$md: 768px;
+$mdWidth: 720px;
+$lg: 992px;
+$lgWidth: 960px;
+$xl: 1200px;
+$xlWidth: 1140 ps;
 
-.content {
-  background-color: red
+.page__wrapper {
+  position: relative;
 }
 
-::placeholder {
-  color: red;
+p, body {
+  margin: 0;
+  padding: 0;
 }
+
+.textColorDev {
+  color: gold;
+}
+
+.page__wrapper {
+  width: 100%;
+  height: auto;
+  //border: $borderColorDev;
+}
+
+.header {
+
+  .mobileMenu {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0 16px;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    height: 50px;
+    z-index: 9999999;
+
+    &__button {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 35px;
+      height: 30px;
+      cursor: pointer;
+
+    }
+
+    &__icon {
+      display: block;
+      position: relative;
+      background: rgba(0, 0, 0, 1);
+      width: 90%;
+      height: 3px;
+      transition: 0.4s;
+
+      &::after,
+      &::before {
+        content: "";
+        display: block;
+        position: absolute;
+        background: rgba(0, 0, 0, 1);
+        width: 100%;
+        height: 3px;
+      }
+      &::after {
+        top: 8px;
+      }
+      &::before {
+        top: -8px;
+      }
+    }
+
+    &__container {
+      position: fixed;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      top: 76px;
+      left: 0;
+      right: 0;
+      z-index: 999;
+      height: 0;
+      opacity: 1;
+      overflow: hidden;
+      background-color: green;
+      transition: 0.2s;
+      transition-delay: 0.2s;
+    }
+
+    &__list {
+      list-style: none;
+      padding-left: 0;
+      margin-top: -50px;
+      transition: 0.5s;
+      transition-delay: 0.5s;
+    }
+
+    &__item {
+      font-size: 20px;
+      padding-bottom: 15px;
+    }
+
+    &__link {
+      text-decoration: none;
+      color: black;
+    }
+
+    &__checkbox {
+      display: none;
+
+      &:checked ~{
+        .mobileMenu {
+          &__nav {
+            opacity: 1;
+            transition-delay: 0s;
+
+          }
+
+          &__container {
+            height: 100%;
+            transition-delay: 0s;
+          }
+
+          &__button {
+            .mobileMenu__icon {
+              background: transparent;
+
+              &::before,
+              &::after{
+                top: 0px;
+              }
+
+              &::after {
+                transform: rotate(-45deg);
+              }
+
+              &::before {
+                transform: rotate(45deg);
+              }
+            }
+          }
+        }
+      }
+    }
+
+
+  }
+
+  &__logoButter {
+    width: 50px;
+    @media (min-width: $sm) and (max-width: $md) {
+      width: auto;
+    }
+  }
+
+  &__menuMobileContainer {
+    // @media  (max-width: $sm)
+    //width: 100%;
+    height: 60px;
+    padding: 8px 12px;
+    //border: $borderColorDev;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    //position: fixed;
+
+    @media (min-width: $sm) and (max-width: $md) {
+      height: 70px;
+      padding: 20px 38px;
+
+    }
+
+    @media (min-width: $md) and (max-width: $lg) {
+      display: none;
+    }
+
+    @media (min-width: $lg) and (max-width: $xl) {
+      display: none;
+    }
+
+    @media (min-width: $xl) {
+      display: none;
+    }
+
+  }
+
+  &__menuContainer {
+    // @media  (max-width: $sm)
+    display: none;
+
+    @media (min-width: $sm) and (max-width: $md) {
+      display: none;
+    }
+
+    @media (min-width: $md) and (max-width: $lg) {
+      display: flex;
+      width: 720px;
+      margin: 0 auto;
+      height: 70px;
+      padding: 20px 38px;
+    }
+
+    @media (min-width: $lg) and (max-width: $xl) {
+      display: flex;
+      width: 960px;
+      margin: 0 auto;
+      height: 70px;
+      padding: 20px 50px;
+    }
+
+    @media (min-width: $xl) {
+      display: flex;
+      width: 1140px;
+      margin: 0 auto;
+      height: 70px;
+      padding: 20px 50px;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    min-height: 400px;
+    background-color: #000;
+
+    @media (min-width: $sm) and (max-width: $md) {
+      min-height: 470px;
+
+    }
+
+    @media (min-width: $md) and (max-width: $lg) {
+      min-height: 600px;
+      margin: -112px 0px;
+
+    }
+
+    @media (min-width: $lg) and (max-width: $xl) {
+      min-height: 700px;
+      margin: -112px 0px;
+
+    }
+
+    @media (min-width: $xl) {
+      min-height: 700px;
+      margin: -112px 0px;
+
+    }
+
+  }
+
+}
+
+
