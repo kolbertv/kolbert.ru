@@ -45,6 +45,8 @@ p, body, nav, img, a {
     justify-content: space-between;
     align-items: center;
     padding: 20px 10px;
+    background-color: white;
+
 
     //border: $borderColorDev;
 
@@ -73,7 +75,7 @@ p, body, nav, img, a {
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    padding: 0 30px;
+    padding: 0 30px 0 0;
     height: 50px;
     z-index: 9999999;
 
@@ -130,18 +132,18 @@ p, body, nav, img, a {
       background-color: white;
       transition: 0.2s;
       transition-delay: 0.2s;
+
     }
 
     &__list {
-      list-style: none;
-      padding-left: 0;
-      margin-top: -50px;
+
+      margin-top: -150px;
       transition: 0.5s;
       transition-delay: 0.5s;
     }
 
     &__item {
-      padding-bottom: 15px;
+      //padding-bottom: 15px;
 
     }
 
@@ -235,7 +237,7 @@ p, body, nav, img, a {
     margin-top: 70px;
     width: 100%;
     min-height: 400px;
-    background-color: #000;
+    background-color: #26262a;
 
     @media (min-width: $sm) and (max-width: $md) {
       min-height: 470px;
