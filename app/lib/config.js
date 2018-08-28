@@ -11,8 +11,8 @@ environments.staging = {
 
 //production mode
 environments.production = {
-    'httpPort': 5000,
-    'httpsPort': 5001,
+    'httpPort': process.env.APP_PORT,
+    'httpsPort': process.env.APP_PORT,
     'envName': 'production',
 };
 
