@@ -21,6 +21,11 @@ p, body, nav, img, a {
   display: block;
 }
 
+a {
+  text-decoration: none;
+  color: white;
+}
+
 .textColorDev {
   color: gold;
 }
@@ -132,6 +137,7 @@ p, body, nav, img, a {
       background-color: white;
       transition: 0.2s;
       transition-delay: 0.2s;
+      border: 1px solid black;
 
     }
 
@@ -148,7 +154,8 @@ p, body, nav, img, a {
     }
 
     &__link {
-      font-size: 20px;
+      font-size: 24px;
+      font-weight: 600;
       text-decoration: none;
       color: black;
       padding-bottom: 5px;
@@ -197,11 +204,13 @@ p, body, nav, img, a {
 
   }
 
-
-
   &__menuContainer {
     // @media  (max-width: $sm)
     display: none;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    height: 70px;
 
     @media (min-width: $sm) and (max-width: $md) {
       display: none;
@@ -210,24 +219,18 @@ p, body, nav, img, a {
     @media (min-width: $md) and (max-width: $lg) {
       display: flex;
       width: 720px;
-      margin: 0 auto;
-      height: 70px;
       padding: 20px 38px;
     }
 
     @media (min-width: $lg) and (max-width: $xl) {
       display: flex;
       width: 960px;
-      margin: 0 auto;
-      height: 70px;
       padding: 20px 50px;
     }
 
     @media (min-width: $xl) {
       display: flex;
       width: 1140px;
-      margin: 0 auto;
-      height: 70px;
       padding: 20px 50px;
     }
   }
@@ -236,8 +239,8 @@ p, body, nav, img, a {
 
     margin-top: 70px;
     width: 100%;
-    min-height: 400px;
-    background-color: #26262a;
+    min-height: 10px;
+    background-color: black;
 
     @media (min-width: $sm) and (max-width: $md) {
       min-height: 470px;
@@ -264,6 +267,38 @@ p, body, nav, img, a {
 
   }
 
+  .menu {
+
+    &__container {
+      display: flex;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      font-weight: 400;
+
+    }
+
+    &__link {
+      margin: 0 1em;
+      transition: 0.1s;
+
+      &:hover {
+        color: white;
+      }
+    }
+
+    &__item {
+
+
+    }
+  }
+
 }
 
+.white {
+  color: white;
+}
 
+.gray {
+  color: #26262a;
+}

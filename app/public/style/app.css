@@ -7,6 +7,10 @@ p, body, nav, img, a {
   padding: 0;
   display: block; }
 
+a {
+  text-decoration: none;
+  color: white; }
+
 .textColorDev {
   color: gold; }
 
@@ -87,13 +91,15 @@ p, body, nav, img, a {
     overflow: hidden;
     background-color: white;
     transition: 0.2s;
-    transition-delay: 0.2s; }
+    transition-delay: 0.2s;
+    border: 1px solid black; }
   .header .mobileMenu__list {
     margin-top: -150px;
     transition: 0.5s;
     transition-delay: 0.5s; }
   .header .mobileMenu__link {
-    font-size: 20px;
+    font-size: 24px;
+    font-weight: 600;
     text-decoration: none;
     color: black;
     padding-bottom: 5px;
@@ -119,7 +125,11 @@ p, body, nav, img, a {
                 transform: rotate(45deg); }
 
 .header__menuContainer {
-  display: none; }
+  display: none;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+  height: 70px; }
   @media (min-width: 576px) and (max-width: 768px) {
     .header__menuContainer {
       display: none; } }
@@ -127,29 +137,23 @@ p, body, nav, img, a {
     .header__menuContainer {
       display: flex;
       width: 720px;
-      margin: 0 auto;
-      height: 70px;
       padding: 20px 38px; } }
   @media (min-width: 992px) and (max-width: 1200px) {
     .header__menuContainer {
       display: flex;
       width: 960px;
-      margin: 0 auto;
-      height: 70px;
       padding: 20px 50px; } }
   @media (min-width: 1200px) {
     .header__menuContainer {
       display: flex;
       width: 1140px;
-      margin: 0 auto;
-      height: 70px;
       padding: 20px 50px; } }
 
 .header__image {
   margin-top: 70px;
   width: 100%;
-  min-height: 400px;
-  background-color: #26262a; }
+  min-height: 10px;
+  background-color: black; }
   @media (min-width: 576px) and (max-width: 768px) {
     .header__image {
       min-height: 470px; } }
@@ -165,3 +169,22 @@ p, body, nav, img, a {
     .header__image {
       min-height: 700px;
       margin: -112px 0px; } }
+
+.header .menu__container {
+  display: flex;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-weight: 400; }
+
+.header .menu__link {
+  margin: 0 1em;
+  transition: 0.1s; }
+  .header .menu__link:hover {
+    color: white; }
+
+.white {
+  color: white; }
+
+.gray {
+  color: #26262a; }
