@@ -1,5 +1,6 @@
 /*scss*/
 $borderColorDev: 1px solid green;
+$borderColorDev: 0px solid green;
 $esm: 400px;
 $esmWidth: auto;
 $sm: 576px;
@@ -9,10 +10,11 @@ $mdWidth: 720px;
 $lg: 992px;
 $lgWidth: 960px;
 $xl: 1200px;
-$xlWidth: 1140 ps;
+$xlWidth: 1140px;
 
 .page__wrapper {
   position: relative;
+  overflow: hidden;
 }
 
 p, body, nav, img, a {
@@ -24,6 +26,14 @@ p, body, nav, img, a {
 a {
   text-decoration: none;
   color: white;
+}
+
+.white {
+  color: white;
+}
+
+.gray {
+  color: #26262a;
 }
 
 .textColorDev {
@@ -52,9 +62,7 @@ a {
     padding: 20px 10px;
     background-color: white;
 
-
     //border: $borderColorDev;
-
 
     @media (min-width: $sm) and (max-width: $md) {
       //height: 60px;
@@ -65,7 +73,6 @@ a {
     @media (min-width: $md) {
       display: none;
     }
-
 
   }
 
@@ -166,7 +173,7 @@ a {
     &__checkbox {
       display: none;
 
-      &:checked ~{
+      &:checked ~ {
         .mobileMenu {
           &__nav {
             opacity: 1;
@@ -184,7 +191,7 @@ a {
               background: transparent;
 
               &::before,
-              &::after{
+              &::after {
                 top: 0px;
               }
 
@@ -200,7 +207,6 @@ a {
         }
       }
     }
-
 
   }
 
@@ -239,7 +245,7 @@ a {
 
     margin-top: 70px;
     width: 100%;
-    min-height: 10px;
+    min-height: 400px;
     background-color: black;
 
     @media (min-width: $sm) and (max-width: $md) {
@@ -289,16 +295,94 @@ a {
 
     &__item {
 
-
     }
   }
 
 }
 
-.white {
-  color: white;
+.imgContainer {
+  &__img {
+    width: 100%;
+  }
 }
 
-.gray {
-  color: #26262a;
+.footer {
+
+  display: block;
+  background-color: #26262a;
+  color: white;
+  border: $borderColorDev;
+  width: auto;
+
+  &__container {
+    border: $borderColorDev;
+    width: $esmWidth;
+    margin: 0 auto;
+    padding: 20px 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @media (min-width: $sm) and (max-width: $md) {
+      width: $smWidth;
+      border: $borderColorDev;
+      padding: 35px 0px;
+    }
+
+    @media (min-width: $md) and (max-width: $lg) {
+      width: $mdWidth;
+      border: $borderColorDev;
+      padding: 35px 0px;
+    }
+
+    @media (min-width: $lg) and (max-width: $xl) {
+      width: $lgWidth;
+      border: $borderColorDev;
+      padding: 50px 0px;
+    }
+
+    @media (min-width: $xl) {
+      width: $xlWidth;
+      border: $borderColorDev;
+      padding: 30px 0px;
+
+    }
+  }
+
+  &__menu {
+    //margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    border: $borderColorDev;
+  }
+
+  &__menu_item {
+
+  }
+
+  &__menu_link {
+    padding: 0.5em 1.2em;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+  }
+
+  &__reserved {
+    font-size: 12px;
+    //text-transform: uppercase;
+    letter-spacing: 0.15em;
+    padding: 10px;
+  }
+
+  &__social {
+    display: flex;
+
+    &_item {
+      padding: 0 10px;
+    }
+  }
+
 }
