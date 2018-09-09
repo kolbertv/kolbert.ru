@@ -1,4 +1,7 @@
 /*scss*/
+.textColorDev {
+  color: black; }
+
 .notActive {
   color: darkgray; }
 
@@ -16,9 +19,6 @@ a {
 
 .gray {
   color: #26262a; }
-
-.textColorDev {
-  color: gold; }
 
 .page__wrapper {
   width: 100%;
@@ -98,8 +98,7 @@ a {
     overflow: hidden;
     background-color: white;
     transition: 0.2s;
-    transition-delay: 0.2s;
-    border: 1px solid black; }
+    transition-delay: 0.2s; }
   .header .mobileMenu__list {
     margin-top: -100px;
     transition: 0.5s;
@@ -201,7 +200,6 @@ a {
   position: absolute;
   background-color: black;
   opacity: 0.5;
-  border: 2px solid red;
   top: 0;
   left: 0;
   right: 0;
@@ -216,7 +214,6 @@ a {
   flex-direction: column;
   align-content: center;
   align-items: center;
-  border: 1px solid green;
   color: white; }
   @media (max-width: 576px) {
     .image__container__image {
@@ -239,9 +236,6 @@ a {
       background-image: url("/public/img/header-3-800.jpg");
       height: 700px;
       background-size: 100%; } }
-
-.content {
-  position: relative; }
 
 .footer {
   display: block;

@@ -21,6 +21,24 @@ handlers.index = function (data, callback) {
     });
 };
 
+// resume handler
+handlers.resume = function(data, callback) {
+    helpers.getTemplate('resume',function (err, str) {
+        if (!err && str) {
+            helpers.addUniversalTemplate(str, function (err, str) {
+                if (!err && str) {
+                    callback(200, str)
+                } else {
+                    callback(500, undefined)
+                }
+            })
+        } else {
+            callback(500, undefined)
+        }
+    })
+};
+
+
 // favicon handler
 handlers.favicon = function (data, callback) {
     helpers.getStaticAsset(data.pathNameFileName, function (err, data) {

@@ -86,10 +86,10 @@ server.router = {
     '/ping': handlers.ping,
     '/': handlers.index,
     '/favicon.png': handlers.favicon,
-    '/favicon.ico': handlers.favicon
+    '/favicon.ico': handlers.favicon,
     // '/public': handlers.public
     // '/about': 'handlers.about',
-    // '/resume': 'handlers.resume'
+    '/resume': handlers.resume
 };
 
 module.exports = server;

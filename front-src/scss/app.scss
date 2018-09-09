@@ -12,6 +12,10 @@ $lgWidth: 960px;
 $xl: 1200px;
 $xlWidth: 1140px;
 
+.textColorDev {
+  color: black;
+}
+
 .notActive {
   color: darkgray;
 }
@@ -41,9 +45,7 @@ a {
   color: #26262a;
 }
 
-.textColorDev {
-  color: gold;
-}
+
 
 .page__wrapper {
   width: 100%;
@@ -150,7 +152,7 @@ a {
       background-color: white;
       transition: 0.2s;
       transition-delay: 0.2s;
-      border: 1px solid black;
+      //border: 1px solid black;
 
     }
 
@@ -323,7 +325,7 @@ a {
   position: absolute;
   background-color: black;
   opacity: 0.5;
-  border: 2px solid red;
+  //border: 2px solid red;
   top: 0;
   left: 0;
   right: 0;
@@ -342,7 +344,7 @@ a {
   align-items: center;
   //height: max(380px);
 
-  border: 1px solid green;
+  //border: 1px solid green;
   color: white;
 
   @media (max-width: $sm) {
@@ -373,9 +375,6 @@ a {
   }
 }
 
-.content {
-  position: relative;
-}
 
 .footer {
 
