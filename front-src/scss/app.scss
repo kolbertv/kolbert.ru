@@ -156,7 +156,7 @@ a {
 
     &__list {
 
-      margin-top: -150px;
+      margin-top: -100px;
       transition: 0.5s;
       transition-delay: 0.5s;
     }
@@ -369,7 +369,7 @@ a {
   @media (min-width: $xl) {
     background-image: url("/public/img/header-3-800.jpg");
     height: 700px;
-    width: 100%;
+    background-size: 100%;
   }
 }
 
