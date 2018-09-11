@@ -38,6 +38,60 @@ handlers.resume = function(data, callback) {
     })
 };
 
+// resume contacts
+handlers.contact = function(data, callback) {
+    helpers.getTemplate('contact',function (err, str) {
+        if (!err && str) {
+            helpers.addUniversalTemplate(str, function (err, str) {
+                if (!err && str) {
+                    callback(200, str)
+                } else {
+                    callback(500, undefined)
+                }
+            })
+        } else {
+            callback(500, undefined)
+        }
+    })
+};
+
+// portfolio
+handlers.portfolio = function(data, callback) {
+    helpers.getTemplate('portfolio',function (err, str) {
+        if (!err && str) {
+            helpers.addUniversalTemplate(str, function (err, str) {
+                if (!err && str) {
+                    callback(200, str)
+                } else {
+                    callback(500, undefined)
+                }
+            })
+        } else {
+            callback(500, undefined)
+        }
+    })
+};
+
+// blog
+handlers.blog = function(data, callback) {
+    helpers.getTemplate('blog',function (err, str) {
+        if (!err && str) {
+            helpers.addUniversalTemplate(str, function (err, str) {
+                if (!err && str) {
+                    callback(200, str)
+                } else {
+                    callback(500, undefined)
+                }
+            })
+        } else {
+            callback(500, undefined)
+        }
+    })
+};
+
+
+
+
 
 // favicon handler
 handlers.favicon = function (data, callback) {

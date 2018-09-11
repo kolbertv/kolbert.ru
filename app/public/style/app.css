@@ -292,3 +292,19 @@ a {
     display: flex; }
     .footer__social_item {
       padding: 0 10px; }
+
+@media (min-width: 576px) and (max-width: 768px) {
+  .content {
+    margin-top: 30px; } }
+
+@media (min-width: 768px) and (max-width: 992px) {
+  .content {
+    margin-top: 110px; } }
+
+@media (min-width: 992px) and (max-width: 1200px) {
+  .content {
+    margin-top: 110px; } }
+
+@media (min-width: 1200px) {
+  .content {
+    margin-top: 110px; } }

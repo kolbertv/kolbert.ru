@@ -89,7 +89,10 @@ server.router = {
     '/favicon.ico': handlers.favicon,
     // '/public': handlers.public
     // '/about': 'handlers.about',
-    '/resume': handlers.resume
+    '/resume': handlers.resume,
+    '/contact': handlers.contact,
+    '/portfolio': handlers.portfolio,
+    '/blog': handlers.blog
 };
 
 module.exports = server;

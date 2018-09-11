@@ -455,5 +455,25 @@ a {
       padding: 0 10px;
     }
   }
+}
+
+.content {
+
+  @media (min-width: $sm) and (max-width: $md) {
+    margin-top: 30px;
+  }
+
+  @media (min-width: $md) and (max-width: $lg) {
+    margin-top: 110px;
+  }
+
+  @media (min-width: $lg) and (max-width: $xl) {
+    margin-top: 110px;
+  }
+
+  @media (min-width: $xl) {
+    margin-top: 110px;
+
+  }
 
 }
