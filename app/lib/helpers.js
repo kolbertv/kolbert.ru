@@ -5,6 +5,12 @@ let fs = require('fs');
 // containers for all helpers
 let helpers = {};
 
+helpers.showTemplate = function(data, callback) {
+
+
+};
+
+
 // get the string content of a template
 helpers.getTemplate = function (templateName, callback) {
 

@@ -15,11 +15,16 @@ server.httpServer = http.createServer(function (req, res) {
 // common server for http and future https
 server.unifiedServer = function (req, res) {
 
+
     // parse url
     let parsedUrl = url.parse(req.url, true);
+    // console.log(parsedUrl.query);
+
+    // console.log(parsedUrl);
 
     //get the path
     let pathName = parsedUrl.pathname;
+
 
     // check the router if not found use notFound handler
     let chosenHandler = typeof(server.router[pathName]) !== 'undefined' ? server.router[pathName] : handlers.notFound;

@@ -6,6 +6,8 @@ let handlers = {};
 
 // index handler
 handlers.index = function (data, callback) {
+
+    console.log(data);
     helpers.getTemplate('index', function (err, str) {
         if (!err && str) {
             helpers.addUniversalTemplate(str, function (err, str) {
@@ -88,8 +90,6 @@ handlers.blog = function(data, callback) {
         }
     })
 };
-
-
 
 
 

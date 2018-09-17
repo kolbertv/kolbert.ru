@@ -26,5 +26,8 @@
     "gulp-nodemon": "^2.2.1",
     "gulp-sass": "^4.0.1",
     "gulp-util": "^3.0.8"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.4"
   }
 }
