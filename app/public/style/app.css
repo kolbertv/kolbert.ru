@@ -291,10 +291,14 @@ a {
   .footer__social {
     display: flex; }
     .footer__social_item {
-      padding: 0 10px; }
+      padding: 0 15px;
+      margin-top: 10px; }
       .footer__social_item span {
-        font-size: 16px;
+        font-size: 24px;
         color: gainsboro; }
+      .footer__social_item span:hover {
+        color: white;
+        transition: all .3s ease-out; }
 
 .content::before {
   content: ".";

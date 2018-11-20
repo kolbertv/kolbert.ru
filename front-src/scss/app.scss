@@ -29,6 +29,7 @@ p, body, nav, img, a {
   margin: 0;
   padding: 0;
   display: block;
+  //font-family: 'Roboto', sans-serif;
 }
 
 
@@ -272,6 +273,8 @@ a {
     }
 
     &__item {
+      //font-family: 'Roboto', sans-serif;
+
 
     }
   }
@@ -452,12 +455,18 @@ a {
     display: flex;
 
     &_item {
-      padding: 0 10px;
+      padding: 0 15px;
+      margin-top: 10px;
 
-      span {
+      & span {
         //font-family: "FontAwesome";
-        font-size: 16px;
+        font-size: 24px;
         color: gainsboro;
+      }
+
+      & span:hover {
+        color: white;
+        transition: all .3s ease-out;
       }
 
     }
