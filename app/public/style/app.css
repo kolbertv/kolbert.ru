@@ -292,6 +292,9 @@ a {
     display: flex; }
     .footer__social_item {
       padding: 0 10px; }
+      .footer__social_item span {
+        font-size: 16px;
+        color: gainsboro; }
 
 .content::before {
   content: ".";

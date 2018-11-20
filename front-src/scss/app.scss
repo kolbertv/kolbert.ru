@@ -453,6 +453,13 @@ a {
 
     &_item {
       padding: 0 10px;
+
+      span {
+        //font-family: "FontAwesome";
+        font-size: 16px;
+        color: gainsboro;
+      }
+
     }
   }
 }
