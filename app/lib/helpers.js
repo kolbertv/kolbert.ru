@@ -78,7 +78,9 @@ helpers.getStaticAsset = function (fileName, callback) {
 
 
 // take a given string and a data object and find/replace all the keys within it
-helpers.interpolation = function () {
+helpers.interpolation = function (str, data) {
+
+
 
 };
 

@@ -33,103 +33,75 @@ server.unifiedServer = function (req, res) {
     let headers = req.headers;
     // console.log(headers);
 
-
-    // get the payload, if any
-    let buffer = 'buffer: ';
-
-    if (method === 'post') {
-
-        // let body = '';
-        // req.on('data', chunk => {
-        //     body += chunk.toString(); // convert Buffer to string
-        //     console.log('req.on data: ' + body);
-        // });
-        //
-        // req.on('end',  function () {
-        //     console.log('req.on end: ' + body);
-        //     buffer = (body);
-        // });
-
-        console.log(getDataFromBuffer(req));
-
-        // getDataFromBuffer(req, result => {
-        //     console.log(result);
-        //     buffer = result;
-        // });
-
-    }
-
-
-
-    function getDataFromBuffer(req) {
-        let body = '';
-        req.on('data', chunk => {
-            body += chunk.toString(); // convert Buffer to string
-            // console.log('req.on data: ' + body);
-        });
-        req.on('end',  function () {
-            // console.log('req.on end: ' + body);
-            return(parse(body));
-        });
-    }
-
-
-
     //get the path
     let pathName = parsedUrl.pathname;
 
 
-    // check the router if not found use notFound handler
-    let chosenHandler = typeof(server.router[pathName]) !== 'undefined' ? server.router[pathName] : handlers.notFound;
+    // get the payload, if any
+    let buffer = '';
 
-    // if we have public static choose public handler
-    chosenHandler = pathName.indexOf('/public/') > -1 ? handlers.public : chosenHandler;
-
-    let data = {
-        'pathNameFileName': pathName, // pathName and File Name for static assets
-        'method': method,
-        'payload': buffer
-    };
-    chosenHandler(data, function (statusCode, payload, contentType) {
-
-        statusCode = typeof(statusCode) == 'number' ? statusCode : 200;
-        contentType = typeof(contentType) == 'string' ? contentType : 'html';
-
-        let payloadString = '';
-        if (contentType == 'html') {
-            res.setHeader('Content-Type', 'text/html');
-            payloadString = typeof(payload) == 'string' ? payload : '';
-        }
-
-        if (contentType == 'favicon') {
-            res.setHeader('Content-Type', 'image/x-icon');
-            payloadString = typeof(payload) !== 'undefined' ? payload : '';
-        }
-
-        if (contentType == 'plain') {
-            res.setHeader('Content-Type', 'text/plain');
-            payloadString = typeof(payload) !== 'undefined' ? payload : '';
-        }
-
-        if (contentType == 'jpg') {
-            res.setHeader('Content-Type', 'image/jpg');
-            payloadString = typeof(payload) !== 'undefined' ? payload : '';
-        }
-
-        if (contentType == 'png') {
-            res.setHeader('Content-Type', 'image/png');
-            payloadString = typeof(payload) !== 'undefined' ? payload : '';
-        }
-
-        if (contentType == 'css') {
-            res.setHeader('Content-Type', 'text/css');
-            payloadString = typeof(payload) !== 'undefined' ? payload : '';
-        }
-
-
-        res.writeHead(statusCode);
-        res.end(payloadString);
+    req.on('data', chunk => {
+        buffer += chunk.toString(); // convert Buffer to string
     });
+
+    req.on('end', function () {
+
+
+        // check the router if not found use notFound handler
+        let chosenHandler = typeof(server.router[pathName]) !== 'undefined' ? server.router[pathName] : handlers.notFound;
+
+        let data = {
+            'pathNameFileName': pathName, // pathName and File Name for static assets
+            'method': method,
+            'payload': parse(buffer)
+        };
+
+        // if we have public static choose public handler
+        chosenHandler = pathName.indexOf('/public/') > -1 ? handlers.public : chosenHandler;
+
+        chosenHandler(data, function (statusCode, payload, contentType) {
+
+            statusCode = typeof(statusCode) == 'number' ? statusCode : 200;
+            contentType = typeof(contentType) == 'string' ? contentType : 'html';
+
+            let payloadString = '';
+            if (contentType == 'html') {
+                res.setHeader('Content-Type', 'text/html');
+                payloadString = typeof(payload) == 'string' ? payload : '';
+            }
+
+            if (contentType == 'favicon') {
+                res.setHeader('Content-Type', 'image/x-icon');
+                payloadString = typeof(payload) !== 'undefined' ? payload : '';
+            }
+
+            if (contentType == 'plain') {
+                res.setHeader('Content-Type', 'text/plain');
+                payloadString = typeof(payload) !== 'undefined' ? payload : '';
+            }
+
+            if (contentType == 'jpg') {
+                res.setHeader('Content-Type', 'image/jpg');
+                payloadString = typeof(payload) !== 'undefined' ? payload : '';
+            }
+
+            if (contentType == 'png') {
+                res.setHeader('Content-Type', 'image/png');
+                payloadString = typeof(payload) !== 'undefined' ? payload : '';
+            }
+
+            if (contentType == 'css') {
+                res.setHeader('Content-Type', 'text/css');
+                payloadString = typeof(payload) !== 'undefined' ? payload : '';
+            }
+
+
+            res.writeHead(statusCode);
+            res.end(payloadString);
+        });
+
+    });
+
 };
 
 
