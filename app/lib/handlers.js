@@ -6,8 +6,7 @@ let handlers = {};
 
 // index handler
 handlers.index = function (data, callback) {
-
-    console.log(data);
+    // console.log(data);
     helpers.getTemplate('index', function (err, str) {
         if (!err && str) {
             helpers.addUniversalTemplate(str, function (err, str) {
@@ -134,6 +133,20 @@ handlers.public = function (data, callback) {
 handlers.ping = function (data, callback) {
     callback(200, 'status 200');
 };
+
+// test handler
+handlers.test = function (data, callback) {
+    helpers.getTemplate('test', function (err, str) {
+        console.log(data);
+        // console.log(str);
+        if (!err && str) {
+            callback(200, str);
+        } else {
+            callback(500);
+        }
+    });
+};
+
 
 // not found handler
 handlers.notFound = function (data, callback) {

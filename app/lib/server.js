@@ -1,8 +1,12 @@
+"use strict";
+
 // Dependencies
 let http = require('http');
 let config = require('./config');
 let url = require('url');
 let handlers = require('./handlers');
+const {parse} = require('querystring');
+let StringDecoder = require('string_decoder').StringDecoder;
 
 // Instantiate he server module object
 let server = {};
@@ -14,13 +18,62 @@ server.httpServer = http.createServer(function (req, res) {
 
 // common server for http and future https
 server.unifiedServer = function (req, res) {
-
+    // console.log(req);
 
     // parse url
     let parsedUrl = url.parse(req.url, true);
     // console.log(parsedUrl.query);
-
     // console.log(parsedUrl);
+
+
+    // get http method
+    let method = req.method.toLowerCase();
+    // console.log(method);
+
+    let headers = req.headers;
+    // console.log(headers);
+
+
+    // get the payload, if any
+    let buffer = 'buffer: ';
+
+    if (method === 'post') {
+
+        // let body = '';
+        // req.on('data', chunk => {
+        //     body += chunk.toString(); // convert Buffer to string
+        //     console.log('req.on data: ' + body);
+        // });
+        //
+        // req.on('end',  function () {
+        //     console.log('req.on end: ' + body);
+        //     buffer = (body);
+        // });
+
+        console.log(getDataFromBuffer(req));
+
+        // getDataFromBuffer(req, result => {
+        //     console.log(result);
+        //     buffer = result;
+        // });
+
+    }
+
+
+
+    function getDataFromBuffer(req) {
+        let body = '';
+        req.on('data', chunk => {
+            body += chunk.toString(); // convert Buffer to string
+            // console.log('req.on data: ' + body);
+        });
+        req.on('end',  function () {
+            // console.log('req.on end: ' + body);
+            return(parse(body));
+        });
+    }
+
+
 
     //get the path
     let pathName = parsedUrl.pathname;
@@ -33,42 +86,44 @@ server.unifiedServer = function (req, res) {
     chosenHandler = pathName.indexOf('/public/') > -1 ? handlers.public : chosenHandler;
 
     let data = {
-      'pathNameFileName' : pathName // pathName and File Name for static assets
+        'pathNameFileName': pathName, // pathName and File Name for static assets
+        'method': method,
+        'payload': buffer
     };
     chosenHandler(data, function (statusCode, payload, contentType) {
 
         statusCode = typeof(statusCode) == 'number' ? statusCode : 200;
         contentType = typeof(contentType) == 'string' ? contentType : 'html';
 
-        let payloadString ='';
+        let payloadString = '';
         if (contentType == 'html') {
             res.setHeader('Content-Type', 'text/html');
             payloadString = typeof(payload) == 'string' ? payload : '';
         }
 
-        if (contentType == 'favicon'){
+        if (contentType == 'favicon') {
             res.setHeader('Content-Type', 'image/x-icon');
-            payloadString = typeof(payload) !== 'undefined'? payload : '';
+            payloadString = typeof(payload) !== 'undefined' ? payload : '';
         }
 
         if (contentType == 'plain') {
             res.setHeader('Content-Type', 'text/plain');
-            payloadString = typeof(payload) !== 'undefined'? payload : '';
+            payloadString = typeof(payload) !== 'undefined' ? payload : '';
         }
 
         if (contentType == 'jpg') {
             res.setHeader('Content-Type', 'image/jpg');
-            payloadString = typeof(payload) !== 'undefined'? payload : '';
+            payloadString = typeof(payload) !== 'undefined' ? payload : '';
         }
 
         if (contentType == 'png') {
             res.setHeader('Content-Type', 'image/png');
-            payloadString = typeof(payload) !== 'undefined'? payload : '';
+            payloadString = typeof(payload) !== 'undefined' ? payload : '';
         }
 
         if (contentType == 'css') {
             res.setHeader('Content-Type', 'text/css');
-            payloadString = typeof(payload) !== 'undefined'? payload : '';
+            payloadString = typeof(payload) !== 'undefined' ? payload : '';
         }
 
 
@@ -97,7 +152,9 @@ server.router = {
     '/resume': handlers.resume,
     '/contact': handlers.contact,
     '/portfolio': handlers.portfolio,
-    '/blog': handlers.blog
+    '/blog': handlers.blog,
+    '/test': handlers.test
+
 };
 
 module.exports = server;
