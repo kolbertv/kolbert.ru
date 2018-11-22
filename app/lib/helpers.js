@@ -5,7 +5,7 @@ let fs = require('fs');
 // containers for all helpers
 let helpers = {};
 
-helpers.showTemplate = function(data, callback) {
+helpers.showTemplate = function (data, callback) {
 
 
 };
@@ -21,6 +21,7 @@ helpers.getTemplate = function (templateName, callback) {
         let templatesDir = path.join(__dirname, '/../templates/');
         fs.readFile(templatesDir + templateName + '.html', 'utf8', function (err, str) {
             if (!err && str && str.length > 0) {
+
                 callback(false, str);
             } else {
                 callback('No template could be found');
@@ -63,7 +64,7 @@ helpers.getStaticAsset = function (fileName, callback) {
     fileName = typeof (fileName) == 'string' && fileName.length > 0 ? fileName : false;
     if (fileName) {
         let publicDir = path.join(__dirname, '/../public');
-        fs.readFile(publicDir+fileName, function (err, data) {
+        fs.readFile(publicDir + fileName, function (err, data) {
             if (!err && data) {
                 callback(false, data);
             } else {
@@ -80,7 +81,26 @@ helpers.getStaticAsset = function (fileName, callback) {
 // take a given string and a data object and find/replace all the keys within it
 helpers.interpolation = function (str, data) {
 
+    str = typeof(str) == 'string' && str.length > 0 ? str : '';
+    data = typeof(data) == 'object' && data !== null ? data : {};
 
+    // add the globals data
+
+    for (let keyName in config.templateGlobals) {
+        if (config.templateGlobals.hasOwnProperty(keyName)) {
+            data['global.' + keyName] = config.templateGlobals[keyName];
+        }
+    }
+
+    for (let key in data) {
+        if (data.hasOwnProperty(key) && typeof(data[key]) == 'string') {
+            let replace = data[key];
+            let find = '{' + key + '}';
+            str = str.replace(find, replace);
+        }
+    }
+
+    return str;
 
 };
 
