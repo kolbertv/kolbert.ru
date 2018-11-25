@@ -35,6 +35,9 @@ server.unifiedServer = function (req, res) {
 
     //get the path
     let pathName = parsedUrl.pathname;
+    // console.log(pathName);
+    let pageName = pathName.replace('/', '');
+    // console.log(pageName);
 
 
     // get the payload, if any
@@ -51,6 +54,7 @@ server.unifiedServer = function (req, res) {
         let chosenHandler = typeof(server.router[pathName]) !== 'undefined' ? server.router[pathName] : handlers.notFound;
 
         let data = {
+            'pageName': pageName, // page name for routing
             'pathNameFileName': pathName, // pathName and File Name for static assets
             'method': method,
             'payload': parse(buffer)
@@ -72,26 +76,31 @@ server.unifiedServer = function (req, res) {
 
             if (contentType == 'favicon') {
                 res.setHeader('Content-Type', 'image/x-icon');
+                res.setHeader('Cache-Control', 'max-age=86400');
                 payloadString = typeof(payload) !== 'undefined' ? payload : '';
             }
 
             if (contentType == 'plain') {
                 res.setHeader('Content-Type', 'text/plain');
+                res.setHeader('Cache-Control', 'private, max-age=86400');
                 payloadString = typeof(payload) !== 'undefined' ? payload : '';
             }
 
             if (contentType == 'jpg') {
                 res.setHeader('Content-Type', 'image/jpg');
+                res.setHeader('Cache-Control', 'max-age=86400');
                 payloadString = typeof(payload) !== 'undefined' ? payload : '';
             }
 
             if (contentType == 'png') {
                 res.setHeader('Content-Type', 'image/png');
+                res.setHeader('Cache-Control', 'max-age=86400');
                 payloadString = typeof(payload) !== 'undefined' ? payload : '';
             }
 
             if (contentType == 'css') {
                 res.setHeader('Content-Type', 'text/css');
+                res.setHeader('Cache-Control', 'max-age=86400');
                 payloadString = typeof(payload) !== 'undefined' ? payload : '';
             }
 

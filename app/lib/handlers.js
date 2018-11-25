@@ -1,5 +1,6 @@
 // dependencies
 let helpers = require('./helpers');
+let { performance } = require('perf_hooks');
 
 // container for all handlers
 let handlers = {};
@@ -11,7 +12,9 @@ handlers.index = function (data, callback) {
         if (!err && str) {
             helpers.addUniversalTemplate(str, function (err, str) {
                 if (!err && str) {
-                    callback(200, str);
+
+                    let finalString = helpers.setStyle(str, '');
+                    callback(200, finalString);
                 } else {
                     callback(500, undefined);
                 }
@@ -24,11 +27,13 @@ handlers.index = function (data, callback) {
 
 // resume handler
 handlers.resume = function(data, callback) {
-    helpers.getTemplate('resume',function (err, str) {
+    helpers.getTemplate(data.pageName,function (err, str) {
         if (!err && str) {
             helpers.addUniversalTemplate(str, function (err, str) {
                 if (!err && str) {
-                    callback(200, str)
+
+                    let finalString = helpers.setStyle(str, data.pageName);
+                    callback(200, finalString)
                 } else {
                     callback(500, undefined)
                 }
@@ -41,11 +46,12 @@ handlers.resume = function(data, callback) {
 
 // resume contacts
 handlers.contact = function(data, callback) {
-    helpers.getTemplate('contact',function (err, str) {
+    helpers.getTemplate(data.pageName,function (err, str) {
         if (!err && str) {
             helpers.addUniversalTemplate(str, function (err, str) {
                 if (!err && str) {
-                    callback(200, str)
+                    let finalString = helpers.setStyle(str, data.pageName);
+                    callback(200, finalString);
                 } else {
                     callback(500, undefined)
                 }
@@ -58,11 +64,12 @@ handlers.contact = function(data, callback) {
 
 // portfolio
 handlers.portfolio = function(data, callback) {
-    helpers.getTemplate('portfolio',function (err, str) {
+    helpers.getTemplate(data.pageName,function (err, str) {
         if (!err && str) {
             helpers.addUniversalTemplate(str, function (err, str) {
                 if (!err && str) {
-                    callback(200, str)
+                    let finalString = helpers.setStyle(str, data.pageName);
+                    callback(200, finalString);
                 } else {
                     callback(500, undefined)
                 }
@@ -75,11 +82,12 @@ handlers.portfolio = function(data, callback) {
 
 // blog
 handlers.blog = function(data, callback) {
-    helpers.getTemplate('blog',function (err, str) {
+    helpers.getTemplate(data.pageName,function (err, str) {
         if (!err && str) {
             helpers.addUniversalTemplate(str, function (err, str) {
                 if (!err && str) {
-                    callback(200, str)
+                    let finalString = helpers.setStyle(str, data.pageName);
+                    callback(200, finalString);
                 } else {
                     callback(500, undefined)
                 }
@@ -134,11 +142,13 @@ handlers.ping = function (data, callback) {
     callback(200, 'status 200');
 };
 
+
+
 // test handler
 handlers.test = function (data, callback) {
-    helpers.getTemplate('test', function (err, str) {
+    helpers.getTemplate(data.pageName, function (err, str) {
         console.log(data);
-        // console.log(str);
+                // console.log(str);
         if (!err && str) {
             callback(200, str);
         } else {

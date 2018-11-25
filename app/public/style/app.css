@@ -5,10 +5,13 @@
 .notActive {
   color: darkgray; }
 
-p, body, nav, img, a {
+p, body, nav, img, a, h2, h1, h3 {
   margin: 0;
   padding: 0;
   display: block; }
+
+body {
+  z-index: 0; }
 
 a {
   text-decoration: none;
@@ -35,7 +38,7 @@ a {
   align-items: center;
   padding: 20px 10px;
   background-color: white;
-  z-index: 99999999; }
+  z-index: 100; }
   @media (min-width: 576px) and (max-width: 768px) {
     .header__menuMobileContainer {
       padding: 20px 10px; } }
@@ -137,7 +140,7 @@ a {
   margin: 0 auto;
   height: 70px;
   position: relative;
-  z-index: 99999999; }
+  z-index: 100; }
   @media (min-width: 576px) and (max-width: 768px) {
     .header__menuContainer {
       display: none; } }
@@ -294,6 +297,8 @@ a {
       padding: 0 15px;
       margin-top: 10px; }
       .footer__social_item span {
+        font-family: "Fontello";
+        font-style: normal;
         font-size: 24px;
         color: gainsboro; }
       .footer__social_item span:hover {

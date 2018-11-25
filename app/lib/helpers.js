@@ -77,6 +77,26 @@ helpers.getStaticAsset = function (fileName, callback) {
 
 };
 
+//set style file to page
+
+helpers.setStyle = function (str, styleFileName) {
+
+    styleFileName = typeof(styleFileName) == 'string' && styleFileName.length > 0 ? styleFileName : false;
+    str = typeof(str) == 'string' && str.length > 0 ? str : false;
+
+    if (styleFileName && str) {
+                let replace = '<link rel="stylesheet" href="../public/style/' + styleFileName + '.css">';
+                let find = '{stylesheet.fileName}';
+                str = str.replace(find, replace);
+        }
+
+     if (!styleFileName) {
+         str = str.replace('{stylesheet.fileName}', '');
+     }
+
+    return str;
+};
+
 
 // take a given string and a data object and find/replace all the keys within it
 helpers.interpolation = function (str, data) {
