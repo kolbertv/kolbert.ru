@@ -46,6 +46,7 @@ handlers.resume = function(data, callback) {
 
 // resume contacts
 handlers.contact = function(data, callback) {
+    console.log(data);
     helpers.getTemplate(data.pageName,function (err, str) {
         if (!err && str) {
             helpers.addUniversalTemplate(str, function (err, str) {

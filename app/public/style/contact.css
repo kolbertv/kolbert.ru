@@ -22,8 +22,7 @@
 .contact__box {
   width: 60%;
   margin-bottom: 40px;
-  height: 300px;
-  border: 2px solid #353439;
+  border: 2px solid #26262a;
   padding: 40px;
   color: rgba(26, 26, 26, 0.75);
   min-height: 160px; }
@@ -101,10 +100,12 @@
     transition: all .2s ease-out; }
 
 .mw-title {
-  margin-bottom: 20px; }
+  margin-bottom: 20px;
+  font-size: 20px; }
 
 .mw-field {
-  margin-bottom: 20px; }
+  margin-bottom: 20px;
+  border: 2px solid #26262a; }
 
 .field_item {
   width: 100%;

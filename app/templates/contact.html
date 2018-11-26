@@ -1,77 +1,59 @@
 <div class="contact" xmlns="http://www.w3.org/1999/html">
 
-    <div class="contact__content">
-
-        <!--div.contact- -->
-
+     <div class="contact__content">
 
         <div class="contact__box" id="contact__box_calc">
-
             <h2 class="contact__box__title">Запрос на расчет</h2>
             <p class="contact__box__content">
                 Расчет сосудов и аппаратов; </br>
                 Расчет деталей трубопроводов;</br>
                 Расчет рам для блочно-модульного оборудования</br>
             </p>
-
             <span class="contact__box_button">Отправить запрос</span>
-
         </div>
-
         <div class="contact__box" id="contact__box_common">
             <h2 class="contact__box__title">Общие вопросы</h2>
             <p class="contact__box__content">Общие вопросы по работе сайта и сервисам,
                 коментарии, выполненным работам.
             </p>
-
             <span class="contact__box_button">Задать вопрос</span>
-
         </div>
-
-
     </div>
-
     <div class="contact-mw" id="contact-mw">
         <div class="mw-background"></div>
         <div class="mw-inner" id="mw-inner">
             <div class="mw-content">
-                <div class="mw-wrapper">
-
-                    <div class="mw-title" id="mw-title"></div>
-                    <fieldset class="mw-field">
-                        <legend>Имя и Фамилия</legend>
-                        <div class="field_name_wrapper">
-                            <input type="text" name="fname" class="field_item-name" placeholder="Имя">
-                            <input type="text" name="lname" class="field_item-name" placeholder="Фамилия">
-
-                        </div>
-
-                    </fieldset>
-                    <fieldset class="mw-field">
-                        <legend>Электропочта для связи</legend>
-                        <input type="email" name="email" class="field_item" placeholder="mail@yandex.ru">
-
-                    </fieldset>
-                    <fieldset class="mw-field">
-                        <legend>Номер телефона</legend>
-                        <input type="tel" name="phone" class="field_item" placeholder="+7(999)999-99-99">
-
-                    </fieldset>
-                    <fieldset class="mw-field">
-                        <legend id="textarea-legend">Описание задачи (чем подробнее, тем лучше)</legend>
-                        <textarea name="textarea" id="textarea" class="field_item" rows="5"></textarea>
-
-                    </fieldset>
-                    <fieldset class="mw-field" id="url-field">
-                        <legend>Сылка на облако с файлами(документы, чертежи и т.д.)</legend>
-                        <input type="url" name="url" class="field_item">
-                    </fieldset>
-
-
-                    <button>Отправить запрос</button>
-
-                </div>
-                <div class="mw-button" id="mw-button">x</div>
+                <form action="/contact" method="post">
+                    <div class="mw-wrapper">
+                        <div class="mw-title" id="mw-title"></div>
+                        <input type="text" name="title" style="visibility: hidden">
+                        <fieldset class="mw-field">
+                            <legend>Имя и Фамилия</legend>
+                            <div class="field_name_wrapper">
+                                <input type="text" name="fname" class="field_item-name" placeholder="Имя">
+                                <input type="text" name="lname" class="field_item-name" placeholder="Фамилия">
+                            </div>
+                        </fieldset>
+                        <fieldset class="mw-field">
+                            <legend>Электропочта для связи</legend>
+                            <input type="email" name="email" class="field_item" placeholder="mail@yandex.ru">
+                        </fieldset>
+                        <fieldset class="mw-field">
+                            <legend>Номер телефона</legend>
+                            <input type="tel" name="phone" class="field_item" placeholder="+7(999)999-99-99">
+                        </fieldset>
+                        <fieldset class="mw-field">
+                            <legend id="textarea-legend">Описание задачи (чем подробнее, тем лучше)</legend>
+                            <textarea name="textarea" id="textarea" class="field_item" rows="5"></textarea>
+                        </fieldset>
+                        <fieldset class="mw-field" id="url-field">
+                            <legend>Сылка на облако(яндекс/гугл диск и др) с файлами(документы, чертежи и т.д.)</legend>
+                            <input type="url" name="url" class="field_item">
+                        </fieldset>
+                        <button>Отправить запрос</button>
+                    </div>
+                    <div class="mw-button" id="mw-button">x</div>
+                </form>
             </div>
         </div>
     </div>
@@ -98,7 +80,6 @@
             document.getElementById('body').style.overflow = 'hidden';
             document.getElementById('url-field').style.display = 'none';
         });
-
 
 
     </script>

@@ -50,8 +50,8 @@ $xlWidth: 1140px;
       margin-bottom: 0px;
     }
 
-    height: 300px;
-    border: 2px solid #353439;
+    //height: 300px;
+    border: 2px solid #26262a;
     padding: 40px;
     color: rgba(26, 26, 26, .75);
     min-height: 160px;
@@ -148,10 +148,12 @@ $xlWidth: 1140px;
 
 .mw-title {
   margin-bottom: 20px;
+  font-size: 20px;
 }
 
 .mw-field {
   margin-bottom: 20px;
+  border: 2px solid #26262a;
 
 }
 
@@ -172,3 +174,4 @@ $xlWidth: 1140px;
 input {
   display: block;
 }
+
