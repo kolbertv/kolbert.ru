@@ -88,7 +88,7 @@ $xlWidth: 1140px;
 }
 
 #contact-mw {
-  display: block;
+  display: none;
 }
 
 .mw-background {
@@ -136,7 +136,39 @@ $xlWidth: 1140px;
   width: 25px;
   height: 25px;
   text-align: center;
-  border: 1px solid red;
+  border: 1px solid gray;
+  color: gray;
+
+  &:hover {
+    color: white;
+    background-color: #26262a;
+    transition: all .2s ease-out;
+  }
+}
+
+.mw-title {
+  margin-bottom: 20px;
+}
+
+.mw-field {
+  margin-bottom: 20px;
 
 }
 
+.field_item {
+  width: 100%;
+  resize: vertical;
+}
+
+.field_item-name {
+  width: 48%;
+}
+
+.field_name_wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+input {
+  display: block;
+}

@@ -1,0 +1,17 @@
+body {
+  margin: 0;
+  padding: 0; }
+
+.block-menu {
+  width: 100%;
+  border-bottom: 1px solid #cccccc;
+  display: flex;
+  padding: 20px; }
+  .block-menu_gray {
+    background-color: #f0f0f0; }
+
+.block-img {
+  width: 100%;
+  height: 500px; }
+  .block-img_gray {
+    background-color: #f0f0f0; }

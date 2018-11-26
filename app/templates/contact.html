@@ -2,6 +2,8 @@
 
     <div class="contact__content">
 
+        <!--div.contact- -->
+
 
         <div class="contact__box" id="contact__box_calc">
 
@@ -16,10 +18,10 @@
 
         </div>
 
-        <div class="contact__box">
-
+        <div class="contact__box" id="contact__box_common">
             <h2 class="contact__box__title">Общие вопросы</h2>
-            <p class="contact__box__content">Общие вопросы по работе сайта и сервисам, коментарии, выполненным работам.
+            <p class="contact__box__content">Общие вопросы по работе сайта и сервисам,
+                коментарии, выполненным работам.
             </p>
 
             <span class="contact__box_button">Задать вопрос</span>
@@ -35,12 +37,37 @@
             <div class="mw-content">
                 <div class="mw-wrapper">
 
+                    <div class="mw-title" id="mw-title"></div>
+                    <fieldset class="mw-field">
+                        <legend>Имя и Фамилия</legend>
+                        <div class="field_name_wrapper">
+                            <input type="text" name="fname" class="field_item-name" placeholder="Имя">
+                            <input type="text" name="lname" class="field_item-name" placeholder="Фамилия">
 
-                    <div class="mw-title">Форма запроса расчета на прочность</div>
-                    <div class="mw-title">Имя и Фамилия</div>
-                    <div class="mw-title">Электропочта для связи</div>
-                    <div class="mw-title">Номер телефона</div>
-                    <div class="mw-title">Описание задачи (чем подробнее, тем лучше)</div>
+                        </div>
+
+                    </fieldset>
+                    <fieldset class="mw-field">
+                        <legend>Электропочта для связи</legend>
+                        <input type="email" name="email" class="field_item" placeholder="mail@yandex.ru">
+
+                    </fieldset>
+                    <fieldset class="mw-field">
+                        <legend>Номер телефона</legend>
+                        <input type="tel" name="phone" class="field_item" placeholder="+7(999)999-99-99">
+
+                    </fieldset>
+                    <fieldset class="mw-field">
+                        <legend id="textarea-legend">Описание задачи (чем подробнее, тем лучше)</legend>
+                        <textarea name="textarea" id="textarea" class="field_item" rows="5"></textarea>
+
+                    </fieldset>
+                    <fieldset class="mw-field" id="url-field">
+                        <legend>Сылка на облако с файлами(документы, чертежи и т.д.)</legend>
+                        <input type="url" name="url" class="field_item">
+                    </fieldset>
+
+
                     <button>Отправить запрос</button>
 
                 </div>
@@ -49,7 +76,7 @@
         </div>
     </div>
 
-    <script type="text/javascript">
+    <script type="text/javascript" async>
 
         document.getElementById('mw-button').addEventListener('click', function () {
             document.getElementById('contact-mw').style.display = 'none';
@@ -58,8 +85,20 @@
 
         document.getElementById('contact__box_calc').addEventListener('click', function () {
             document.getElementById('contact-mw').style.display = 'block';
+            document.getElementById('mw-title').innerText = 'Форма запроса расчета на прочность';
+            document.getElementById('textarea-legend').innerText = 'Описание задачи (чем подробнее, тем лучше)';
             document.getElementById('body').style.overflow = 'hidden';
-        })
+            document.getElementById('url-field').style.display = 'block';
+        });
+
+        document.getElementById('contact__box_common').addEventListener('click', function () {
+            document.getElementById('contact-mw').style.display = 'block';
+            document.getElementById('mw-title').innerText = 'Форма общих вопросов';
+            document.getElementById('textarea-legend').innerText = 'Задать вопрос (написать коментарий)';
+            document.getElementById('body').style.overflow = 'hidden';
+            document.getElementById('url-field').style.display = 'none';
+        });
+
 
 
     </script>
