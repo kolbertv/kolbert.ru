@@ -1,1 +1,34 @@
 // portfolio style file
+$esm: 400px;
+$esmWidth: auto;
+$sm: 576px;
+$smWidth: 540px;
+$md: 768px;
+$mdWidth: 720px;
+$lg: 992px;
+$lgWidth: 960px;
+$xl: 1200px;
+$xlWidth: 1140px;
+
+
+.portfolio {
+
+  &__content {
+    margin: 0 auto;
+    max-width: $xlWidth;
+    height: 500px;
+    border: 2px solid red;
+    display: flex;
+    justify-content: space-between;
+
+
+  }
+
+}
+
+.portfolio__item {
+  width: 24%;
+  height: 200px;
+  border: 2px solid green;
+
+}

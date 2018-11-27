@@ -1,6 +1,9 @@
 // dependencies
 let helpers = require('./helpers');
-let { performance } = require('perf_hooks');
+let nodemailer = require('nodemailer');
+let xoauth2 = require('xoauth2');
+let auth = require('../config/configOAuth');
+let {performance} = require('perf_hooks');
 
 // container for all handlers
 let handlers = {};
@@ -26,8 +29,8 @@ handlers.index = function (data, callback) {
 };
 
 // resume handler
-handlers.resume = function(data, callback) {
-    helpers.getTemplate(data.pageName,function (err, str) {
+handlers.resume = function (data, callback) {
+    helpers.getTemplate(data.pageName, function (err, str) {
         if (!err && str) {
             helpers.addUniversalTemplate(str, function (err, str) {
                 if (!err && str) {
@@ -45,9 +48,35 @@ handlers.resume = function(data, callback) {
 };
 
 // resume contacts
-handlers.contact = function(data, callback) {
-    console.log(data);
-    helpers.getTemplate(data.pageName,function (err, str) {
+handlers.contact = function (data, callback) {
+
+    if (data.method == 'post') {
+        let transport = nodemailer.createTransport({
+            service: auth.dev.service,
+            // secure: false,
+            auth: {
+                user: auth.dev.id,
+                pass: auth.dev.token
+            }
+        });
+
+        let fromFull = data.payload.lname + ' ' + data.payload.fname + ' ' + data.payload.email;
+        let textFull = data.payload. textarea + '. Сылка на облако:' + data.payload.url + ' Телефон для связи: ' + data.payload.phone;
+        transport.sendMail({
+            // from: auth.dev.id,
+            from: fromFull,
+            to: auth.dev.user,
+            envelope: {
+                from: auth.dev.id,
+                to: auth.dev.user,
+            },
+            subject: data.payload.title,
+            text: textFull,
+        });
+    }
+
+
+    helpers.getTemplate(data.pageName, function (err, str) {
         if (!err && str) {
             helpers.addUniversalTemplate(str, function (err, str) {
                 if (!err && str) {
@@ -64,8 +93,8 @@ handlers.contact = function(data, callback) {
 };
 
 // portfolio
-handlers.portfolio = function(data, callback) {
-    helpers.getTemplate(data.pageName,function (err, str) {
+handlers.portfolio = function (data, callback) {
+    helpers.getTemplate(data.pageName, function (err, str) {
         if (!err && str) {
             helpers.addUniversalTemplate(str, function (err, str) {
                 if (!err && str) {
@@ -82,8 +111,8 @@ handlers.portfolio = function(data, callback) {
 };
 
 // blog
-handlers.blog = function(data, callback) {
-    helpers.getTemplate(data.pageName,function (err, str) {
+handlers.blog = function (data, callback) {
+    helpers.getTemplate(data.pageName, function (err, str) {
         if (!err && str) {
             helpers.addUniversalTemplate(str, function (err, str) {
                 if (!err && str) {
@@ -98,7 +127,6 @@ handlers.blog = function(data, callback) {
         }
     })
 };
-
 
 
 // favicon handler
@@ -144,12 +172,11 @@ handlers.ping = function (data, callback) {
 };
 
 
-
 // test handler
 handlers.test = function (data, callback) {
     helpers.getTemplate(data.pageName, function (err, str) {
         console.log(data);
-                // console.log(str);
+        // console.log(str);
         if (!err && str) {
             callback(200, str);
         } else {

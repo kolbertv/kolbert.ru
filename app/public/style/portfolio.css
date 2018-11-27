@@ -1,0 +1,12 @@
+.portfolio__content {
+  margin: 0 auto;
+  max-width: 1140px;
+  height: 500px;
+  border: 2px solid red;
+  display: flex;
+  justify-content: space-between; }
+
+.portfolio__item {
+  width: 24%;
+  height: 200px;
+  border: 2px solid green; }

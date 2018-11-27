@@ -25,7 +25,9 @@
     "gulp-babel": "^7.0.1",
     "gulp-nodemon": "^2.2.1",
     "gulp-sass": "^4.0.1",
-    "gulp-util": "^3.0.8"
+    "gulp-util": "^3.0.8",
+    "nodemailer": "^4.7.0",
+    "xoauth2": "^1.2.0"
   },
   "devDependencies": {
     "@fortawesome/fontawesome-free": "^5.5.0",

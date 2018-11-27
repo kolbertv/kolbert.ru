@@ -99,6 +99,16 @@
     background-color: #26262a;
     transition: all .2s ease-out; }
 
+.mw-button-send {
+  background-color: white;
+  border: 1px solid #26262a;
+  padding: 5px;
+  cursor: pointer; }
+  .mw-button-send:hover {
+    color: white;
+    background-color: #26262a;
+    transition: all .2s ease-out; }
+
 .mw-title {
   margin-bottom: 20px;
   font-size: 20px; }
