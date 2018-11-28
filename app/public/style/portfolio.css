@@ -1,12 +1,49 @@
+a {
+  color: dimgray; }
+
 .portfolio__content {
   margin: 0 auto;
   max-width: 1140px;
-  height: 500px;
-  border: 2px solid red;
   display: flex;
-  justify-content: space-between; }
+  justify-content: space-between;
+  flex-direction: column; }
+
+.portfolio__container__item {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row; }
 
 .portfolio__item {
-  width: 24%;
-  height: 200px;
-  border: 2px solid green; }
+  width: 30%;
+  min-width: 100px;
+  min-height: 150px;
+  border: 2px solid green;
+  margin-bottom: 40px; }
+  .portfolio__item:hover {
+    cursor: pointer;
+    background-color: #f0f0f0; }
+
+.portfolio__year {
+  background-color: #edeeef;
+  height: 100px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 40px; }
+
+.year__container {
+  display: flex;
+  justify-content: center; }
+
+.year__item {
+  margin: 0 20px; }
+  .year__item a {
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: 600; }
+    .year__item a:hover {
+      color: black;
+      transition: all .3s ease-out; }
+  .year__item_active {
+    color: black; }

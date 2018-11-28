@@ -10,25 +10,101 @@ $lgWidth: 960px;
 $xl: 1200px;
 $xlWidth: 1140px;
 
+a {
+  color: dimgray;
+}
 
 .portfolio {
+
+  //padding: 40px 0;
+
+  @media (min-width: $sm) and (max-width: $md) {
+    //padding-top: 30px;
+  }
+
+  @media (min-width: $md) and (max-width: $lg) {
+    //padding-top: 112px;
+  }
+
+  @media (min-width: $lg) and (max-width: $xl) {
+    //padding-top: 112px;
+  }
+
+  @media (min-width: $xl) {
+    //padding-top: 112px;
+  }
 
   &__content {
     margin: 0 auto;
     max-width: $xlWidth;
-    height: 500px;
-    border: 2px solid red;
+    //height: 500px;
+    //border: 2px solid red;
     display: flex;
     justify-content: space-between;
+    flex-direction: column;
+  }
 
+  &__container__item {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    //padding-bottom: 40px;
+  }
 
+  &__item {
+    width: 30%;
+    min-width: 100px;
+    min-height: 150px;
+    border: 2px solid green;
+    margin-bottom: 40px;
+
+    &:hover {
+      cursor: pointer;
+      background-color: #f0f0f0;
+    }
+
+  }
+
+  &__year {
+    background-color: #edeeef;
+    height: 100px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 40px;
   }
 
 }
 
-.portfolio__item {
-  width: 24%;
-  height: 200px;
-  border: 2px solid green;
+
+
+.year {
+  &__container {
+    display: flex;
+    justify-content: center;
+
+  }
+
+  &__item {
+    margin: 0 20px;
+
+    & a {
+      //color: dimgray;
+      text-transform: uppercase;
+      //font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+
+      &:hover {
+        color: black;
+        transition: all .3s ease-out;
+      }
+    }
+
+    &_active {
+      color: black;
+    }
+  }
 
 }

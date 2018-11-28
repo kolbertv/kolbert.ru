@@ -270,9 +270,11 @@ a {
     &__link {
       margin: 0 1em;
       transition: 0.1s;
+      color: white;
 
       &:hover {
-        color: white;
+        color: dimgray;
+        transition: all .2s ease-out;
       }
     }
 
@@ -282,6 +284,23 @@ a {
 
     }
   }
+
+  @media (min-width: $sm) and (max-width: $md) {
+    padding-bottom: 30px;
+  }
+
+  @media (min-width: $md) and (max-width: $lg) {
+    padding-bottom: 112px;
+  }
+
+  @media (min-width: $lg) and (max-width: $xl) {
+    padding-bottom: 112px;
+  }
+
+  @media (min-width: $xl) {
+    padding-bottom: 112px;
+  }
+
 
 }
 
@@ -446,6 +465,12 @@ a {
     font-size: 12px;
     text-transform: uppercase;
     letter-spacing: 0.15em;
+    color: gainsboro;
+
+    &:hover {
+      color: dimgray;
+      transition: all .2s ease-out;
+    }
   }
 
   &__reserved {
@@ -488,19 +513,19 @@ a {
   }
 
   @media (min-width: $sm) and (max-width: $md) {
-    margin-top: 30px;
+    //margin-top: 30px;
   }
 
   @media (min-width: $md) and (max-width: $lg) {
-    margin-top: 110px;
+    //margin-top: 110px;
   }
 
   @media (min-width: $lg) and (max-width: $xl) {
-    margin-top: 110px;
+    //margin-top: 110px;
   }
 
   @media (min-width: $xl) {
-    margin-top: 110px;
+    //margin-top: 110px;
 
   }
 

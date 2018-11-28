@@ -1,4 +1,6 @@
 // Container for all configuration variables
+"use strict";
+
 let environments = {};
 
 // development mode

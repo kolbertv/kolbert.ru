@@ -1,4 +1,6 @@
 //Dependencies
+"use strict";
+
 let server = require('./lib/server');
 
 // Declare app

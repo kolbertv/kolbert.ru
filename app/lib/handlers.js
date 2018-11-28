@@ -1,4 +1,6 @@
 // dependencies
+"use strict";
+
 let helpers = require('./helpers');
 let nodemailer = require('nodemailer');
 let xoauth2 = require('xoauth2');

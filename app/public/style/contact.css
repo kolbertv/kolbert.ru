@@ -1,7 +1,3 @@
-@media (min-width: 768px) {
-  .contact {
-    margin-top: 115px; } }
-
 .contact__map {
   height: 400px;
   width: 100%; }
