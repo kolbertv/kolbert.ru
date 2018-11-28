@@ -52,6 +52,7 @@ handlers.resume = function (data, callback) {
 // resume contacts
 handlers.contact = function (data, callback) {
 
+
     if (data.method == 'post') {
         let transport = nodemailer.createTransport({
             service: auth.dev.service,
