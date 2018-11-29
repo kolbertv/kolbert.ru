@@ -86,7 +86,8 @@ a {
 
 }
 
-
+.year__container {}
+.year__item {}
 
 .year {
   &__container {
@@ -136,6 +137,10 @@ a {
 .container_hidden {
 
   display: none;
+
+  @media (min-width: $sm) {
+    display: flex;
+  }
 
 
 
