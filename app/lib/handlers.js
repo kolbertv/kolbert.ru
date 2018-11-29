@@ -3,7 +3,6 @@
 
 let helpers = require('./helpers');
 let nodemailer = require('nodemailer');
-let xoauth2 = require('xoauth2');
 let auth = require('../config/configOAuth');
 let {performance} = require('perf_hooks');
 

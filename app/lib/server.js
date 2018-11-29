@@ -18,7 +18,7 @@ server.httpServer = http.createServer(function (req, res) {
 
 // common server for http and future https
 server.unifiedServer = function (req, res) {
-    // console.log(req);
+    console.log(req.headers['user-agent']);
 
     // parse url
     let parsedUrl = url.parse(req.url, true);
