@@ -10,13 +10,23 @@ a {
 
 .portfolio__container__item {
   display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: space-around;
-  flex-direction: row;
   padding-bottom: 40px; }
+  @media (min-width: 576px) {
+    .portfolio__container__item {
+      flex-direction: row; } }
 
 .portfolio__item {
   position: relative;
-  width: 30%; }
+  width: 70%; }
+  @media (max-width: 576px) {
+    .portfolio__item {
+      margin: 20px 0; } }
+  @media (min-width: 576px) {
+    .portfolio__item {
+      width: 30%; } }
   .portfolio__item:hover {
     cursor: pointer;
     background-color: #f0f0f0; }
@@ -38,7 +48,10 @@ a {
   justify-content: center; }
 
 .year__item {
-  margin: 0 20px; }
+  margin: 0 10px; }
+  @media (min-width: 576px) {
+    .year__item {
+      margin: 0 20px; } }
   .year__item a {
     text-transform: uppercase;
     font-size: 16px;
