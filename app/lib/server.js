@@ -18,7 +18,7 @@ server.httpServer = http.createServer(function (req, res) {
 
 // common server for http and future https
 server.unifiedServer = function (req, res) {
-    console.log(req.headers['user-agent']);
+    // console.log(req.headers['user-agent']);
 
     // parse url
     let parsedUrl = url.parse(req.url, true);
@@ -36,6 +36,15 @@ server.unifiedServer = function (req, res) {
     //get the path
     let pathName = parsedUrl.pathname;
     // console.log(pathName);
+
+
+    let re = /(\w+)/g;
+    let m= re.exec(pathName);
+    console.log(m);
+    console.log(parsedUrl.pathname.match(re));
+
+
+
     let pageName = pathName.replace('/', '');
     // console.log(pageName);
 
@@ -52,6 +61,8 @@ server.unifiedServer = function (req, res) {
 
         // check the router if not found use notFound handler
         let chosenHandler = typeof(server.router[pathName]) !== 'undefined' ? server.router[pathName] : handlers.notFound;
+
+
 
         let data = {
             'pageName': pageName, // page name for routing

@@ -96,6 +96,7 @@ handlers.contact = function (data, callback) {
 
 // portfolio
 handlers.portfolio = function (data, callback) {
+    // console.log(data);
     helpers.getTemplate(data.pageName, function (err, str) {
         if (!err && str) {
             helpers.addUniversalTemplate(str, function (err, str) {
