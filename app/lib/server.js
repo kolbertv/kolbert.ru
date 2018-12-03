@@ -28,26 +28,27 @@ server.unifiedServer = function (req, res) {
 
     // get http method
     let method = req.method.toLowerCase();
-    // console.log(method);
 
     let headers = req.headers;
-    // console.log(headers);
 
     //get the path
     let pathName = parsedUrl.pathname;
     // console.log(pathName);
+    let urlArray = parsedUrl.pathname.match(/(\w+)/g);
 
-
-    let re = /(\w+)/g;
-    let m= re.exec(pathName);
-    console.log(m);
-    console.log(parsedUrl.pathname.match(re));
-
-
-
-    let pageName = pathName.replace('/', '');
-    // console.log(pageName);
-
+    let pageName = '';
+    let pageName1 = '';
+    // console.log('содержимое массива '+urlArray);
+    if (urlArray !== null) {
+        pageName = urlArray[0];
+        if (urlArray[1] !== undefined){
+            pageName1 = urlArray[1];
+        } else {
+            pageName1 = null;
+        }
+    } else {
+        pageName = pathName.replace('/', '');
+    }
 
     // get the payload, if any
     let buffer = '';
@@ -60,19 +61,18 @@ server.unifiedServer = function (req, res) {
 
 
         // check the router if not found use notFound handler
-        let chosenHandler = typeof(server.router[pathName]) !== 'undefined' ? server.router[pathName] : handlers.notFound;
+        let chosenHandler = typeof(server.router[pageName]) !== 'undefined' ? server.router[pageName] : handlers.notFound;
 
-
+        // if we have public static choose public handler
+        chosenHandler = pathName.indexOf('/public/') > -1 ? handlers.public : chosenHandler;
 
         let data = {
             'pageName': pageName, // page name for routing
+            'pageName1': pageName1,
             'pathNameFileName': pathName, // pathName and File Name for static assets
             'method': method,
             'payload': parse(buffer)
         };
-
-        // if we have public static choose public handler
-        chosenHandler = pathName.indexOf('/public/') > -1 ? handlers.public : chosenHandler;
 
         chosenHandler(data, function (statusCode, payload, contentType) {
 
@@ -115,7 +115,6 @@ server.unifiedServer = function (req, res) {
                 payloadString = typeof(payload) !== 'undefined' ? payload : '';
             }
 
-
             res.writeHead(statusCode);
             res.end(payloadString);
         });
@@ -135,17 +134,17 @@ server.init = function () {
 
 // define the request router
 server.router = {
-    '/ping': handlers.ping,
-    '/': handlers.index,
-    '/favicon.png': handlers.favicon,
-    '/favicon.ico': handlers.favicon,
+    'ping': handlers.ping,
+    '': handlers.index,
+    'favicon.png': handlers.favicon,
+    'favicon.ico': handlers.favicon,
     // '/public': handlers.public
     // '/about': 'handlers.about',
-    '/resume': handlers.resume,
-    '/contact': handlers.contact,
-    '/portfolio': handlers.portfolio,
-    '/blog': handlers.blog,
-    '/test': handlers.test
+    'resume': handlers.resume,
+    'contact': handlers.contact,
+    'portfolio': handlers.portfolio,
+    'blog': handlers.blog,
+    'test': handlers.test
 
 };
 

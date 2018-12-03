@@ -96,7 +96,7 @@ handlers.contact = function (data, callback) {
 
 // portfolio
 handlers.portfolio = function (data, callback) {
-    // console.log(data);
+    console.log(data);
     helpers.getTemplate(data.pageName, function (err, str) {
         if (!err && str) {
             helpers.addUniversalTemplate(str, function (err, str) {
@@ -134,7 +134,7 @@ handlers.blog = function (data, callback) {
 
 // favicon handler
 handlers.favicon = function (data, callback) {
-    helpers.getStaticAsset(data.pathNameFileName, function (err, data) {
+    helpers.getStaticAsset('/'+data.pathNameFileName, function (err, data) {
         if (!err && data) {
             callback(200, data, 'favicon');
         } else {
@@ -145,7 +145,9 @@ handlers.favicon = function (data, callback) {
 
 // public handlers
 handlers.public = function (data, callback) {
-    let trimmedPath = data.pathNameFileName.replace('/public', '').trim();
+    // console.log(data);
+    let trimmedPath = data.pathNameFileName.replace('public', '').trim();
+    // console.log('path' + trimmedPath.length);
     if (trimmedPath.length > 0) {
         helpers.getStaticAsset(trimmedPath, function (err, data) {
             if (!err && data) {
