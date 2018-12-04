@@ -179,13 +179,30 @@ handlers.ping = function (data, callback) {
 
 // test handler
 handlers.test = function (data, callback) {
+
+    helpers.readData('data.json', (err, data)=>{
+
+        if (!err) {
+            console.log(data['2018'][0].unique[0].name);
+
+            for (let a in data) {
+                console.log(data[a]);
+            }
+
+            console.log(data.length);
+        } else {
+            console.log(err);
+            callback(500);
+        }
+    });
+
     helpers.getTemplate(data.pageName, function (err, str) {
-        console.log(data);
+        // console.log(data);
         // console.log(str);
         if (!err && str) {
             callback(200, str);
         } else {
-            callback(500);
+            callback(404);
         }
     });
 };

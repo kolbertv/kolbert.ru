@@ -126,5 +126,23 @@ helpers.interpolation = function (str, data) {
 
 };
 
+helpers.readData = function(fileName, callback) {
+    fileName = typeof (fileName) == 'string' && fileName.length > 0 ? fileName : false;
+    if (fileName) {
+        let publicDir = path.join(__dirname, '/../data/');
+        fs.readFile(publicDir+fileName, 'utf8', (err, data)=> {
+            if (!err && data) {
+                let dataJSON = JSON.parse(data);
+                callback(false, dataJSON);
+            } else {
+                callback('File not found');
+            }
+        });
+    } else {
+        callback('A valid file name was not specified')
+    }
+
+};
+
 // export the module
 module.exports = helpers;

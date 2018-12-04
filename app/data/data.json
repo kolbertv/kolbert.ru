@@ -2,55 +2,67 @@
   "2018": [
     {
       "name": "Сепаратор",
-      "img": "/public/img.jpg",
-      "unique": {
-        "name": "Марка стали",
-        "description": "SA 533, SA 508"
-      }
+      "img": "/public/filtr-1.jpg",
+      "unique": [
+        {
+          "name": "Марка стали",
+          "description": "SA 533, SA 508"
+        }
+      ]
     },
     {
       "name": "Сепаратор",
-      "img": "/public/img.jpg",
-      "unique": {
-        "name": "Марка стали",
-        "description": "SA 533, SA 508"
-      }
+      "img": "/public/filtr-1.jpg",
+      "unique": [
+        {
+          "name": "Марка стали",
+          "description": "SA 533, SA 508"
+        }
+      ]
     }
   ],
   "2017": [
     {
       "name": "Сепаратор",
-      "img": "/public/img.jpg",
-      "unique": {
-        "name": "Марка стали",
-        "description": "SA 533, SA 508"
-      }
+      "img": "/public/filtr-1.jpg",
+      "unique": [
+        {
+          "name": "Марка стали",
+          "description": "SA 533, SA 508"
+        }
+      ]
     },
     {
       "name": "Сепаратор",
-      "img": "/public/img.jpg",
-      "unique": {
-        "name": "Марка стали",
-        "description": "SA 533, SA 508"
-      }
+      "img": "/public/filtr-1.jpg",
+      "unique": [
+        {
+          "name": "Марка стали",
+          "description": "SA 533, SA 508"
+        }
+      ]
     }
   ],
   "2016": [
     {
       "name": "Сепаратор",
-      "img": "/public/img.jpg",
-      "unique": {
-        "name": "Марка стали",
-        "description": "SA 533, SA 508"
-      }
+      "img": "/public/filtr-1.jpg",
+      "unique": [
+        {
+          "name": "Марка стали",
+          "description": "SA 533, SA 508"
+        }
+      ]
     },
     {
       "name": "Сепаратор",
-      "img": "/public/img.jpg",
-      "unique": {
-        "name": "Марка стали",
-        "description": "SA 533, SA 508"
-      }
+      "img": "/public/filtr-1.jpg",
+      "unique": [
+        {
+          "name": "Марка стали",
+          "description": "SA 533, SA 508"
+        }
+      ]
     }
   ]
 }
