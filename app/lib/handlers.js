@@ -1,5 +1,5 @@
 // dependencies
-"use strict";
+"use strict"
 
 let helpers = require('./helpers');
 let nodemailer = require('nodemailer');
@@ -63,7 +63,7 @@ handlers.contact = function (data, callback) {
         });
 
         let fromFull = data.payload.lname + ' ' + data.payload.fname + ' ' + data.payload.email;
-        let textFull = data.payload. textarea + '. Сылка на облако:' + data.payload.url + ' Телефон для связи: ' + data.payload.phone;
+        let textFull = data.payload.textarea + '. Сылка на облако:' + data.payload.url + ' Телефон для связи: ' + data.payload.phone;
         transport.sendMail({
             // from: auth.dev.id,
             from: fromFull,
@@ -134,7 +134,7 @@ handlers.blog = function (data, callback) {
 
 // favicon handler
 handlers.favicon = function (data, callback) {
-    helpers.getStaticAsset('/'+data.pathNameFileName, function (err, data) {
+    helpers.getStaticAsset('/' + data.pathNameFileName, function (err, data) {
         if (!err && data) {
             callback(200, data, 'favicon');
         } else {
@@ -180,31 +180,47 @@ handlers.ping = function (data, callback) {
 // test handler
 handlers.test = function (data, callback) {
 
-    helpers.readData('data.json', (err, data)=>{
+    console.log(data);
 
-        if (!err) {
-            console.log(data['2018'][0].unique[0].name);
+    let obj = {
 
-            for (let a in data) {
-                console.log(data[a]);
+        id: 1,
+        name: 'Сепаратор',
+        img: '/public/filtr-1.jpg',
+        unique: [
+            {
+                name: 'Сталь',
+                description: 'SA 533, SA 508'
             }
+        ],
+        delete: null
+    };
 
-            console.log(data.length);
+    helpers.readData('data.json', (err, loadData) => {
+
+
+        if (!err && loadData) {
+
+
+            let aaa = loadData['2018']
+
+            callback(200, JSON.stringify(loadData));
+
         } else {
-            console.log(err);
+
             callback(500);
         }
     });
 
-    helpers.getTemplate(data.pageName, function (err, str) {
-        // console.log(data);
-        // console.log(str);
-        if (!err && str) {
-            callback(200, str);
-        } else {
-            callback(404);
-        }
-    });
+    // helpers.getTemplate(data.pageName, function (err, str) {
+    //     // console.log(data);
+    //     // console.log(str);
+    //     if (!err && str) {
+    //         callback(200, str);
+    //     } else {
+    //         callback(404);
+    //     }
+    // });
 };
 
 

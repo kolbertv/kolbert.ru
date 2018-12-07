@@ -63,7 +63,6 @@ a {
     position: relative;
     width: 70%;
 
-
     @media (max-width: $sm) {
       margin: 20px 0;
     }
@@ -85,7 +84,7 @@ a {
 
     & img {
 
-        height: inherit;
+      height: inherit;
       opacity: 0.9;
     }
 
@@ -103,8 +102,11 @@ a {
 
 }
 
-.year__container {}
-.year__item {}
+.year__container {
+}
+
+.year__item {
+}
 
 .year {
   &__container {
@@ -119,7 +121,6 @@ a {
     @media (min-width: $sm) {
       margin: 0 20px;
     }
-
 
     & a {
       //color: dimgray;
@@ -161,7 +162,5 @@ a {
   @media (min-width: $sm) {
     display: flex;
   }
-
-
 
 }
