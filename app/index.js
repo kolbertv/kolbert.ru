@@ -18,6 +18,5 @@ app.init = function () {
 app.init();
 
 
-
 // module for export the app
 module.exports = app;

@@ -87,14 +87,14 @@ helpers.setStyle = function (str, styleFileName) {
     str = typeof(str) == 'string' && str.length > 0 ? str : false;
 
     if (styleFileName && str) {
-                let replace = '<link rel="stylesheet" href="../public/style/' + styleFileName + '.css">';
-                let find = '{stylesheet.fileName}';
-                str = str.replace(find, replace);
-        }
+        let replace = '<link rel="stylesheet" href="../public/style/' + styleFileName + '.css">';
+        let find = '{stylesheet.fileName}';
+        str = str.replace(find, replace);
+    }
 
-     if (!styleFileName) {
-         str = str.replace('{stylesheet.fileName}', '');
-     }
+    if (!styleFileName) {
+        str = str.replace('{stylesheet.fileName}', '');
+    }
 
     return str;
 };
@@ -126,11 +126,11 @@ helpers.interpolation = function (str, data) {
 
 };
 
-helpers.readData = function(fileName, callback) {
+helpers.readData = function (fileName, callback) {
     fileName = typeof (fileName) == 'string' && fileName.length > 0 ? fileName : false;
     if (fileName) {
         let publicDir = path.join(__dirname, '/../data/');
-        fs.readFile(publicDir+fileName, 'utf8', (err, data)=> {
+        fs.readFile(publicDir + fileName, 'utf8', (err, data) => {
             if (!err && data) {
                 let dataJSON = JSON.parse(data);
                 callback(false, dataJSON);
@@ -143,6 +143,15 @@ helpers.readData = function(fileName, callback) {
     }
 
 };
+
+helpers.saveDate = function (data, callback) {
+
+    data = typeof (data) == 'object' && data !==null ? data : {}
+
+
+
+}
+
 
 // export the module
 module.exports = helpers;
