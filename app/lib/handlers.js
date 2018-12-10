@@ -6,6 +6,9 @@ let nodemailer = require('nodemailer');
 let auth = require('../config/configOAuth');
 let {performance} = require('perf_hooks');
 
+let gallery = require('./gallery')
+
+
 // container for all handlers
 let handlers = {};
 
@@ -62,10 +65,9 @@ handlers.contact = function (data, callback) {
             }
         });
 
-        let fromFull = data.payload.lname + ' ' + data.payload.fname + ' ' + data.payload.email;
-        let textFull = data.payload.textarea + '. Сылка на облако:' + data.payload.url + ' Телефон для связи: ' + data.payload.phone;
+        let fromFull = `${data.payload.lname}  ${data.payload.fname}  ${data.payload.email}`;
+        let textFull = `${data.payload.textarea}. Сылка на облако: ${data.payload.url}. Телефон для связи: ${data.payload.phone}`;
         transport.sendMail({
-            // from: auth.dev.id,
             from: fromFull,
             to: auth.dev.user,
             envelope: {
@@ -96,13 +98,12 @@ handlers.contact = function (data, callback) {
 
 // portfolio
 handlers.portfolio = function (data, callback) {
-    console.log(data);
     helpers.getTemplate(data.pageName, function (err, str) {
         if (!err && str) {
             helpers.addUniversalTemplate(str, function (err, str) {
                 if (!err && str) {
-                    let finalString = helpers.setStyle(str, data.pageName);
-                    callback(200, finalString);
+                    let styleString = helpers.setStyle(str, data.pageName);
+                    callback(200, styleString);
                 } else {
                     callback(500, undefined)
                 }
@@ -180,47 +181,24 @@ handlers.ping = function (data, callback) {
 // test handler
 handlers.test = function (data, callback) {
 
-    console.log(data);
 
-    let obj = {
+    let myGallery = new gallery()
+    console.log(myGallery.show())
 
-        id: 1,
-        name: 'Сепаратор',
-        img: '/public/filtr-1.jpg',
-        unique: [
-            {
-                name: 'Сталь',
-                description: 'SA 533, SA 508'
-            }
-        ],
-        delete: null
-    };
+    helpers.getTemplate(data.pageName, function (err, str) {
 
-    helpers.readData('data.json', (err, loadData) => {
-
-
-        if (!err && loadData) {
-
-
-            let aaa = loadData['2018']
-
-            callback(200, JSON.stringify(loadData));
-
+        if (!err && str) {
+            helpers.readData('data.json', (err, loadData) => {
+               if (!err && loadData) {
+                   let json = JSON.stringify(loadData[data.pageName1]);
+                   let fullString = str + json;
+                   callback(200, fullString);
+               } else callback(404)
+            });
         } else {
-
-            callback(500);
+            callback(404);
         }
     });
-
-    // helpers.getTemplate(data.pageName, function (err, str) {
-    //     // console.log(data);
-    //     // console.log(str);
-    //     if (!err && str) {
-    //         callback(200, str);
-    //     } else {
-    //         callback(404);
-    //     }
-    // });
 };
 
 
