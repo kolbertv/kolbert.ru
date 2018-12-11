@@ -4,9 +4,8 @@
 let helpers = require('./helpers');
 let nodemailer = require('nodemailer');
 let auth = require('../config/configOAuth');
+let gallery = require('./gallery');
 let {performance} = require('perf_hooks');
-
-let gallery = require('./gallery')
 
 
 // container for all handlers
@@ -98,6 +97,7 @@ handlers.contact = function (data, callback) {
 
 // portfolio
 handlers.portfolio = function (data, callback) {
+    console.log(data);
     helpers.getTemplate(data.pageName, function (err, str) {
         if (!err && str) {
             helpers.addUniversalTemplate(str, function (err, str) {
@@ -182,18 +182,42 @@ handlers.ping = function (data, callback) {
 handlers.test = function (data, callback) {
 
 
-    let myGallery = new gallery()
-    console.log(myGallery.show())
+    let options = {
+        fileName: 'data.json',
+        amount: 4,
+        amountPerPage: 4,
+        str: ''
+
+    };
+
+
+    // gallery.readFileProm('../data/data.json')
+    //     .then(data =>{console.log(data)})
+    //     .catch(err=>{console.log(err)});
+
+    // gallery.readFileAsync('../data/data.json')
+    //     .then(data=>{console.log(data)})
+    //     .catch(err=> {console.log(err)});
+
+    // gallery()
 
     helpers.getTemplate(data.pageName, function (err, str) {
 
         if (!err && str) {
             helpers.readData('data.json', (err, loadData) => {
-               if (!err && loadData) {
-                   let json = JSON.stringify(loadData[data.pageName1]);
-                   let fullString = str + json;
-                   callback(200, fullString);
-               } else callback(404)
+                if (!err && loadData) {
+                    let json = JSON.stringify(loadData[data.pageName1]);
+                    let fullString = str + json;
+
+                    gallery.readFileAsync('../data/data.json')
+                        .then(data => {return JSON.parse(data)})
+                        .then(JSONdata => {console.log(JSONdata[data.pageName1])})
+                        .then(callback(200, 'чето вышло'))
+
+
+
+                    // callback(200, fullString);
+                } else callback(404)
             });
         } else {
             callback(404);
