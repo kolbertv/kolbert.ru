@@ -7,16 +7,10 @@ let fs = require('fs');
 // containers for all helpers
 let helpers = {};
 
-helpers.showTemplate = function (data, callback) {
-
-
-};
-
-
 // get the string content of a template
 helpers.getTemplate = function (templateName, callback) {
 
-    templateName = typeof(templateName) == 'string' && templateName.length > 0 ? templateName : false;
+    templateName = typeof(templateName) === 'string' && templateName.length > 0 ? templateName : false;
 
     if (templateName) {
 
@@ -36,7 +30,7 @@ helpers.getTemplate = function (templateName, callback) {
 };
 
 helpers.addUniversalTemplate = function (str, callback) {
-    str = typeof(str) == 'string' && str.length > 0 ? str : '';
+    str = typeof(str) === 'string' && str.length > 0 ? str : '';
 
     // get header
     helpers.getTemplate('_header', function (err, headerString) {
@@ -63,7 +57,7 @@ helpers.addUniversalTemplate = function (str, callback) {
 
 // get static assets. fileName have and path and file name like /img/logo.png
 helpers.getStaticAsset = function (fileName, callback) {
-    fileName = typeof (fileName) == 'string' && fileName.length > 0 ? fileName : false;
+    fileName = typeof (fileName) === 'string' && fileName.length > 0 ? fileName : false;
     if (fileName) {
         let publicDir = path.join(__dirname, '/../public');
         fs.readFile(publicDir + fileName, function (err, data) {
@@ -80,11 +74,9 @@ helpers.getStaticAsset = function (fileName, callback) {
 };
 
 //set style file to page
-
 helpers.setStyle = function (str, styleFileName) {
-
-    styleFileName = typeof(styleFileName) == 'string' && styleFileName.length > 0 ? styleFileName : false;
-    str = typeof(str) == 'string' && str.length > 0 ? str : false;
+    styleFileName = typeof(styleFileName) === 'string' && styleFileName.length > 0 ? styleFileName : false;
+    str = typeof(str) === 'string' && str.length > 0 ? str : false;
 
     if (styleFileName && str) {
         let replace = '<link rel="stylesheet" href="../public/style/' + styleFileName + '.css">';
@@ -101,33 +93,33 @@ helpers.setStyle = function (str, styleFileName) {
 
 
 // take a given string and a data object and find/replace all the keys within it
-helpers.interpolation = function (str, data) {
-
-    str = typeof(str) == 'string' && str.length > 0 ? str : '';
-    data = typeof(data) == 'object' && data !== null ? data : {};
-
-    // add the globals data
-
-    for (let keyName in config.templateGlobals) {
-        if (config.templateGlobals.hasOwnProperty(keyName)) {
-            data['global.' + keyName] = config.templateGlobals[keyName];
-        }
-    }
-
-    for (let key in data) {
-        if (data.hasOwnProperty(key) && typeof(data[key]) == 'string') {
-            let replace = data[key];
-            let find = '{' + key + '}';
-            str = str.replace(find, replace);
-        }
-    }
-
-    return str;
-
-};
+// helpers.interpolation = function (str, data) {
+//
+//     str = typeof(str) == 'string' && str.length > 0 ? str : '';
+//     data = typeof(data) == 'object' && data !== null ? data : {};
+//
+//     // add the globals data
+//
+//     for (let keyName in config.templateGlobals) {
+//         if (config.templateGlobals.hasOwnProperty(keyName)) {
+//             data['global.' + keyName] = config.templateGlobals[keyName];
+//         }
+//     }
+//
+//     for (let key in data) {
+//         if (data.hasOwnProperty(key) && typeof(data[key]) == 'string') {
+//             let replace = data[key];
+//             let find = '{' + key + '}';
+//             str = str.replace(find, replace);
+//         }
+//     }
+//
+//     return str;
+//
+// };
 
 helpers.readData = function (fileName, callback) {
-    fileName = typeof (fileName) == 'string' && fileName.length > 0 ? fileName : false;
+    fileName = typeof (fileName) === 'string' && fileName.length > 0 ? fileName : false;
     if (fileName) {
         let publicDir = path.join(__dirname, '/../data/');
         fs.readFile(publicDir + fileName, 'utf8', (err, data) => {
@@ -144,13 +136,38 @@ helpers.readData = function (fileName, callback) {
 
 };
 
-helpers.saveDate = function (data, callback) {
 
-    data = typeof (data) == 'object' && data !==null ? data : {}
+/**
+ * @param str string the string in which the search will be performed
+ * @param data object key and data witch will be find and will change
+ * @returns {*} string of result or string of error
+ */
 
+/**
+ * obj = {
+ *  'styleFileName': 'someFile'
+ *}
+ */
+helpers.substitute = (str, data) => {
+    str = typeof(str) === 'string' && str.length > 0 ? str : false;
+    data = typeof(data) === 'object' ? data : false;
 
-
-}
+    if (str && data) {
+        data['stylesheet.fileName'] = data['styleFileName'] ?
+            `<link rel="stylesheet" href="../public/style/${data.styleFileName}.css">` : '';
+        for (let key in data) {
+            // console.log(data)
+            if (data.hasOwnProperty(key) && typeof (data[key] === 'string')) {
+                let replace = data[key];
+                let find = `{${key}}`;
+                str = str.replace(find, replace);
+            }
+        }
+    } else {
+        return 'data for substitute was not set'
+    }
+    return str
+};
 
 
 // export the module

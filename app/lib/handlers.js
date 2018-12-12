@@ -97,13 +97,24 @@ handlers.contact = function (data, callback) {
 
 // portfolio
 handlers.portfolio = function (data, callback) {
-    console.log(data);
+    // console.log(data);
     helpers.getTemplate(data.pageName, function (err, str) {
         if (!err && str) {
             helpers.addUniversalTemplate(str, function (err, str) {
                 if (!err && str) {
-                    let styleString = helpers.setStyle(str, data.pageName);
-                    callback(200, styleString);
+                    gallery.show('/../data/data.json', data.pageName1)
+                        .then(galleryData => {
+                            return helpers.substitute(str, {
+                                'styleFileName': data.pageName,
+                                'gallery.content': galleryData
+                            })
+                        })
+                        .then(fullStr => {
+                            callback(200, fullStr)
+                        })
+                        .catch(err => {
+                            callback(500, undefined)
+                        })
                 } else {
                     callback(500, undefined)
                 }
@@ -177,48 +188,23 @@ handlers.ping = function (data, callback) {
     callback(200, 'status 200');
 };
 
-
 // test handler
 handlers.test = function (data, callback) {
-
-
-    let options = {
-        fileName: 'data.json',
-        amount: 4,
-        amountPerPage: 4,
-        str: ''
-
-    };
-
-
-    // gallery.readFileProm('../data/data.json')
-    //     .then(data =>{console.log(data)})
-    //     .catch(err=>{console.log(err)});
-
-    // gallery.readFileAsync('../data/data.json')
-    //     .then(data=>{console.log(data)})
-    //     .catch(err=> {console.log(err)});
-
-    // gallery()
-
     helpers.getTemplate(data.pageName, function (err, str) {
-
         if (!err && str) {
-            helpers.readData('data.json', (err, loadData) => {
-                if (!err && loadData) {
-                    let json = JSON.stringify(loadData[data.pageName1]);
-                    let fullString = str + json;
-
-                    gallery.readFileAsync('../data/data.json')
-                        .then(data => {return JSON.parse(data)})
-                        .then(JSONdata => {console.log(JSONdata[data.pageName1])})
-                        .then(callback(200, 'чето вышло'))
-
-
-
-                    // callback(200, fullString);
-                } else callback(404)
-            });
+            gallery.show('/../data/data.json', data.pageName1)
+                .then(data => {
+                    return helpers.substitute(str, {
+                        'gallery.content': data
+                    })
+                })
+                .then(data => {
+                    callback(200, data)
+                })
+                .catch(err => {
+                    // console.log(err);
+                    callback(404);
+                });
         } else {
             callback(404);
         }

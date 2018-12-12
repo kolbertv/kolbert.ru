@@ -75,6 +75,9 @@ server.unifiedServer = function (req, res) {
         };
 
         chosenHandler(data, function (statusCode, payload, contentType) {
+            // console.log(statusCode);
+            // console.log(payload);
+            // console.log(contentType);
 
             statusCode = typeof(statusCode) == 'number' ? statusCode : 200;
             contentType = typeof(contentType) == 'string' ? contentType : 'html';

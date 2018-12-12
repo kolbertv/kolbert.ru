@@ -1,99 +1,29 @@
 'use strict';
 
 let path = require('path');
-let fs = require('fs');
 let {readFile} = require('fs');
 let {promisify} = require('util');
 
 // let gallery = {};
 
-let gallery = {
-    // func() {},
-    // promise() {},
-    // readFileProm() {},
-    // async readFileAsync() {}
-};
+let gallery = {};
 
-function readData(options, callback) {
-    options = typeof(options) == "object" && options !== null ? options : {};
-    if (options) {
-        let publicDir = path.join(__dirname, '/../data');
-        fs.readFile(publicDir + options.fileName, 'utf8', (err, loadData) => {
-            if (!err && loadData) {
-                let json = JSON.stringify(loadData);
-                callback(false, json)
-            } else {
-                callback('File not found')
-            }
-        })
-    } else {
-        callback('valid file name or other options not specified')
-    }
-}
 
-let optionsDeafult = {
-    amount: 3,
-    amountPerPage: 10,
-    str: '',
-    fileName: 'data.json'
-};
-
-gallery.func = function (data, callback) {
-    data = typeof (data) === 'object' ? data : false;
-    if (data) {
-
-        let publicDir = path.join(__dirname, '/../data');
-
-        let options = Object.assign(optionsDeafult, data);
-        callback(optionsDeafult);
-
-    } else {
-        callback('Options was not set properly');
-
-    }
-
-};
-
-gallery.promise = (data) => {
-    const promise = new Promise((resolve, reject) => {
-        data = typeof (data) === 'object' ? data : {};
-        if (data) {
-            let options = Object.assign(optionsDeafult, data);
-            console.log(options);
-            let publicDir = path.join(__dirname, '/../data');
-            try {
-                fs.readFile(publicDir + options.fileName, 'utf8', (err, data) => {
-                    if (err) {
-                        reject(err)
-                    } else {
-                        resolve(data)
-                    }
-                })
-            } catch (e) {
-                reject(e)
-
-            }
-
-        }
-    });
-    return promise;
-};
-
-gallery.readFileProm = (fileName) => {
-    fileName = typeof (fileName) === 'string' && fileName.length > 0 ? fileName : false;
-    if (fileName) {
-        return new Promise((resolve, reject) => {
-            try {
-                let fullPath = path.join(__dirname, fileName);
-                fs.readFile(fullPath, 'utf8', (err, data) => {
-                    if (err) reject(err); else resolve(data);
-                })
-            } catch (err) {
-                reject(err)
-            }
-        })
-    } else throw ('file was not set');
-};
+// gallery.readFileProm = (fileName) => {
+//     fileName = typeof (fileName) === 'string' && fileName.length > 0 ? fileName : false;
+//     if (fileName) {
+//         return new Promise((resolve, reject) => {
+//             try {
+//                 let fullPath = path.join(__dirname, fileName);
+//                 fs.readFile(fullPath, 'utf8', (err, data) => {
+//                     if (err) reject(err); else resolve(data);
+//                 })
+//             } catch (err) {
+//                 reject(err)
+//             }
+//         })
+//     } else throw ('valid file name was not set');
+// };
 
 
 gallery.readFileAsync = async (fileName) => {
@@ -109,32 +39,54 @@ gallery.readFileAsync = async (fileName) => {
     } else throw ('valid file name was not set');
 };
 
-gallery.createTemplate = async (data, template) => {
 
+gallery.show = async (fileName, pageName) => {
+    fileName = typeof (fileName) === 'string' && fileName.length > 0 ? fileName : false;
+    pageName = pageName ? pageName : '/';
+    if (fileName) {
+        try {
+            let readFilePromisify = promisify(readFile);
+            let fullPathFileName = path.join(__dirname, fileName);
+            let dataFile = await readFilePromisify(fullPathFileName, {encoding: 'utf8'});
+            let dataJSONFromFile = JSON.parse(dataFile);
+            let dataJSON = [];
+            if (pageName === 'all') {
+                  for ( let key in dataJSONFromFile) {
+                    for (let i=0; i< dataJSONFromFile[key].length; i ++) {
+                        dataJSON.push(dataJSONFromFile[key][i])
+                    }
+
+                }
+            } else {
+                dataJSON = JSON.parse(dataFile)[pageName];
+            }
+            let amountItemWrapper = Math.ceil(dataJSON.length / 3);
+            let protfolioContainerItems = '';
+            let itemsPos = 0;
+            for (let i = 0; i < amountItemWrapper; i++) {
+                protfolioContainerItems = protfolioContainerItems + '<div class="portfolio__container__item">';
+                for (let j = 0; j < 3; j++) {
+                    let template = `<div class="portfolio__item">
+                        <img src="/public/img/${dataJSON[itemsPos].img}" alt="">
+                        <p>${dataJSON[itemsPos].name}</p>
+                        <div class="item__descipt">
+                            <p>Дополнительные данные:</p>
+                            <p>${dataJSON[itemsPos].unique[0].name}</p>
+                            <p>${dataJSON[itemsPos].unique[0].description}</p>
+                        </div>
+                    </div>`;
+                    protfolioContainerItems = protfolioContainerItems + template;
+                    itemsPos++;
+                    if (itemsPos === dataJSON.length) break;
+                }
+                protfolioContainerItems = protfolioContainerItems + '</div>';
+            }
+            return protfolioContainerItems
+        } catch (err) {
+            return (err)
+        }
+    } else throw ('valid file name was not set');
 };
-
-
-
-// gallery = async (str, year) => {
-//     str = typeof (str) === 'string' && str.length > 0 ? str : '';
-//     year = typeof (year) === 'string' && year.length > 0 ? year : '';
-//
-//     if (str.length > 0 && year.length > 0) {
-//         // при условии чть есть данные и задан год
-//
-//
-//
-//         return 'при условии чть есть данные и задан год'
-//     } else if (str.length > 0 && year === '') {
-//         // есть данные, но год не задан для страницы с примерами
-//
-//         return 'есть данные, но год не задан для страницы с примерами'
-//     } else {
-//         // нет нужных входных параметров
-//         return 'нет входных данных для отображения галереи'
-//     }
-//
-// };
 
 
 module.exports = gallery;
