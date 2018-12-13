@@ -31,7 +31,7 @@ let path = {
 
 let serverConfig = {
     proxy: 'http://localhost:3000',
-    tunnel: true
+    // tunnel: true
 };
 
 gulp.task('style:build', function () {
