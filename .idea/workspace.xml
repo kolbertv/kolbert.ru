@@ -2,10 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e6b5e646-d5e9-4909-9b04-427d53366cdd" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/front-src/scss/index.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/public/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/1.docx" beforeDir="false" afterPath="$PROJECT_DIR$/1.docx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/lib/handlers.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/lib/handlers.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/public/style/portfolio.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/public/style/portfolio.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/templates/portfolio.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/portfolio.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulpfile.js" beforeDir="false" afterPath="$PROJECT_DIR$/gulpfile.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-src/scss/portfolio.scss" beforeDir="false" afterPath="$PROJECT_DIR$/front-src/scss/portfolio.scss" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -18,14 +22,14 @@
     <favorites_list name="kolbert.ru" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.4489796">
+    <splitter split-orientation="horizontal" split-proportion="0.33756167">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="gallery.js" pinned="false" current-in-tab="true">
+          <file leaf-file-name="gallery.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/app/lib/gallery.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="608">
-                  <caret line="91" column="25" selection-start-line="91" selection-start-column="25" selection-end-line="91" selection-end-column="25" />
+                <state relative-caret-position="-299">
+                  <caret line="20" column="30" selection-start-line="20" selection-start-column="30" selection-end-line="20" selection-end-column="30" />
                 </state>
               </provider>
             </entry>
@@ -35,6 +39,15 @@
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="1863">
                   <caret line="81" column="36" selection-start-line="81" selection-start-column="36" selection-end-line="81" selection-end-column="36" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/app/templates/index.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="184">
+                  <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
                 </state>
               </provider>
             </entry>
@@ -55,17 +68,17 @@
           <file leaf-file-name="handlers.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/app/lib/handlers.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="704">
-                  <caret line="125" selection-start-line="125" selection-end-line="125" />
+                <state relative-caret-position="483">
+                  <caret line="30" column="7" lean-forward="true" selection-start-line="30" selection-start-column="7" selection-end-line="30" selection-end-column="7" />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="gulpfile.js" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/gulpfile.js">
+          <file leaf-file-name="index.scss" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/front-src/scss/index.scss">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="484">
-                  <caret line="34" column="2" lean-forward="true" selection-start-line="34" selection-start-column="2" selection-end-line="34" selection-end-column="2" />
+                <state relative-caret-position="46">
+                  <caret line="2" selection-start-line="2" selection-end-line="2" />
                 </state>
               </provider>
             </entry>
@@ -82,8 +95,26 @@
           <file leaf-file-name="portfolio.html" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/app/templates/portfolio.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="322">
-                  <caret line="14" column="38" lean-forward="true" selection-start-line="14" selection-start-column="38" selection-end-line="14" selection-end-column="38" />
+                <state relative-caret-position="144">
+                  <caret line="88" lean-forward="true" selection-start-line="88" selection-end-line="88" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="portfolio.scss" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/front-src/scss/portfolio.scss">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="529">
+                  <caret line="74" column="23" selection-start-line="74" selection-start-column="23" selection-end-line="74" selection-end-column="23" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="_header.html" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/app/templates/_header.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="-276">
+                  <caret line="15" column="25" lean-forward="true" selection-start-line="15" selection-start-column="25" selection-end-line="15" selection-end-column="25" />
                 </state>
               </provider>
             </entry>
@@ -101,7 +132,7 @@
             <entry file="file://$PROJECT_DIR$/app/templates/test.html">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="207">
-                  <caret line="9" column="7" lean-forward="true" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
+                  <caret line="9" column="7" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
                 </state>
               </provider>
             </entry>
@@ -115,10 +146,10 @@
       <list>
         <option value="HTML File" />
         <option value="CSS File" />
-        <option value="SCSS File" />
         <option value="package_json" />
         <option value="tsconfig.json" />
         <option value="JavaScript File" />
+        <option value="SCSS File" />
       </list>
     </option>
   </component>
@@ -131,7 +162,6 @@
         <option value="$PROJECT_DIR$/app/inde.js" />
         <option value="$PROJECT_DIR$/app/public/app.css" />
         <option value="$PROJECT_DIR$/app/public/app.js" />
-        <option value="$PROJECT_DIR$/app/templates/index.html" />
         <option value="$PROJECT_DIR$/front-src/scss/blog.scss" />
         <option value="$PROJECT_DIR$/app/templates/_footer.html" />
         <option value="$PROJECT_DIR$/app/public/style/app.css" />
@@ -146,18 +176,20 @@
         <option value="$PROJECT_DIR$/app/data/package.json" />
         <option value="$PROJECT_DIR$/app/lib/config.js" />
         <option value="$PROJECT_DIR$/app/index.js" />
-        <option value="$PROJECT_DIR$/front-src/scss/portfolio.scss" />
         <option value="$PROJECT_DIR$/.eslintrc.js" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/app/public/js/app.js" />
         <option value="$PROJECT_DIR$/app/templates/test.html" />
         <option value="$PROJECT_DIR$/app/lib/server.js" />
-        <option value="$PROJECT_DIR$/app/lib/handlers.js" />
         <option value="$PROJECT_DIR$/app/lib/helpers.js" />
         <option value="$PROJECT_DIR$/app/data/data.json" />
         <option value="$PROJECT_DIR$/app/lib/gallery.js" />
-        <option value="$PROJECT_DIR$/app/templates/portfolio.html" />
         <option value="$PROJECT_DIR$/gulpfile.js" />
+        <option value="$PROJECT_DIR$/app/templates/portfolio.html" />
+        <option value="$PROJECT_DIR$/front-src/scss/portfolio.scss" />
+        <option value="$PROJECT_DIR$/app/templates/index.html" />
+        <option value="$PROJECT_DIR$/app/lib/handlers.js" />
+        <option value="$PROJECT_DIR$/front-src/scss/index.scss" />
       </list>
     </option>
   </component>
@@ -231,6 +263,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -259,13 +292,42 @@
               <item name="kolbert.ru" type="b2602c69:ProjectViewProjectNode" />
               <item name="kolbert.ru" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="kolbert.ru" type="b2602c69:ProjectViewProjectNode" />
+              <item name="kolbert.ru" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+              <item name="style" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="kolbert.ru" type="b2602c69:ProjectViewProjectNode" />
+              <item name="kolbert.ru" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="kolbert.ru" type="b2602c69:ProjectViewProjectNode" />
+              <item name="kolbert.ru" type="462c0819:PsiDirectoryNode" />
+              <item name="front-src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="kolbert.ru" type="b2602c69:ProjectViewProjectNode" />
+              <item name="kolbert.ru" type="462c0819:PsiDirectoryNode" />
+              <item name="front-src" type="462c0819:PsiDirectoryNode" />
+              <item name="babel" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="kolbert.ru" type="b2602c69:ProjectViewProjectNode" />
+              <item name="kolbert.ru" type="462c0819:PsiDirectoryNode" />
+              <item name="front-src" type="462c0819:PsiDirectoryNode" />
+              <item name="scss" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -397,6 +459,8 @@
       <workItem from="1544593898381" duration="25100000" />
       <workItem from="1544638041252" duration="1380000" />
       <workItem from="1544644663552" duration="635000" />
+      <workItem from="1544681900819" duration="1645000" />
+      <workItem from="1544695993945" duration="3709000" />
     </task>
     <task id="LOCAL-00001" summary="personal page is begin :)">
       <created>1534946701062</created>
@@ -472,7 +536,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="302946000" />
+    <option name="totallyTimeSpent" value="308300000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -484,24 +548,25 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1869" height="1096" extended-state="6" />
+    <frame x="-8" y="-8" width="1867" height="1216" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Gulp" order="2" sideWeight="0.24085006" side_tool="true" weight="0.15478165" />
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.5688817" visible="true" weight="0.1082275" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.4997236" weight="0.32776618" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50082916" side_tool="true" weight="0.25211665" />
-      <window_info anchor="right" id="Database" order="3" />
+      <window_info anchor="bottom" id="Migrations" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.6124931" weight="0.16507937" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.27187207" />
+      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.4991708" visible="true" weight="0.16839135" />
+      <window_info id="Gulp" order="2" sideWeight="0.24085006" side_tool="true" weight="0.15478165" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.5688817" visible="true" weight="0.21472053" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="right" id="Database" order="3" />
       <window_info id="Structure" order="1" sideWeight="0.4311183" side_tool="true" weight="0.14040907" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="7" sideWeight="0.4991708" visible="true" weight="0.24444444" />
       <window_info id="Favorites" order="2" sideWeight="0.38617885" side_tool="true" weight="0.14372581" />
       <window_info anchor="bottom" auto_hide="true" id="Debug" order="3" type="SLIDING" weight="0.32985386" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Migrations" order="8" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -573,20 +638,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/lib/helpers.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1275">
-          <caret line="75" column="5" selection-start-line="75" selection-start-column="5" selection-end-line="75" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/lib/server.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="493">
@@ -726,20 +777,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/config/.gitignore" />
-    <entry file="file://$PROJECT_DIR$/app/templates/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front-src/scss/app.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="215">
-          <caret line="262" column="22" selection-start-line="262" selection-start-column="22" selection-end-line="262" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/templates/contact.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="574">
@@ -769,13 +806,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/data/package.json" />
-    <entry file="file://$PROJECT_DIR$/front-src/scss/portfolio.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="213">
-          <caret line="123" selection-start-line="123" selection-end-line="123" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/lib/config.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
@@ -819,17 +849,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/_header.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/templates/test.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="207">
-          <caret line="9" column="7" lean-forward="true" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
+          <caret line="9" column="7" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
         </state>
       </provider>
     </entry>
@@ -837,13 +860,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1863">
           <caret line="81" column="36" selection-start-line="81" selection-start-column="36" selection-end-line="81" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/lib/gallery.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="608">
-          <caret line="91" column="25" selection-start-line="91" selection-start-column="25" selection-end-line="91" selection-end-column="25" />
         </state>
       </provider>
     </entry>
@@ -861,24 +877,69 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/gulpfile.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="437">
+          <caret line="34" column="2" selection-start-line="34" selection-start-column="2" selection-end-line="34" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/lib/gallery.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-299">
+          <caret line="20" column="30" selection-start-line="20" selection-start-column="30" selection-end-line="20" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/templates/portfolio.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="14" column="38" lean-forward="true" selection-start-line="14" selection-start-column="38" selection-end-line="14" selection-end-column="38" />
+        <state relative-caret-position="144">
+          <caret line="88" lean-forward="true" selection-start-line="88" selection-end-line="88" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front-src/scss/portfolio.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="529">
+          <caret line="74" column="23" selection-start-line="74" selection-start-column="23" selection-end-line="74" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/lib/handlers.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="704">
-          <caret line="125" selection-start-line="125" selection-end-line="125" />
+        <state relative-caret-position="483">
+          <caret line="30" column="7" lean-forward="true" selection-start-line="30" selection-start-column="7" selection-end-line="30" selection-end-column="7" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gulpfile.js">
+    <entry file="file://$PROJECT_DIR$/app/public/style/index.css">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front-src/scss/app.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="484">
-          <caret line="34" column="2" lean-forward="true" selection-start-line="34" selection-start-column="2" selection-end-line="34" selection-end-column="2" />
+        <state relative-caret-position="1526">
+          <caret line="262" column="22" selection-start-line="262" selection-start-column="22" selection-end-line="262" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front-src/scss/index.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="46">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/_header.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-276">
+          <caret line="15" column="25" lean-forward="true" selection-start-line="15" selection-start-column="25" selection-end-line="15" selection-end-column="25" />
         </state>
       </provider>
     </entry>

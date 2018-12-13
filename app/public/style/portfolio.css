@@ -12,21 +12,22 @@ a {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-around;
-  padding-bottom: 40px; }
+  justify-content: space-around; }
   @media (min-width: 576px) {
     .portfolio__container__item {
       flex-direction: row; } }
 
 .portfolio__item {
   position: relative;
-  width: 70%; }
+  width: 90%; }
   @media (max-width: 576px) {
     .portfolio__item {
-      margin: 20px 0; } }
+      margin: 20px 0;
+      padding-bottom: 40px; } }
   @media (min-width: 576px) {
     .portfolio__item {
-      width: 30%; } }
+      width: 30%;
+      padding-bottom: 60px; } }
   .portfolio__item:hover {
     cursor: pointer;
     background-color: #f0f0f0; }
@@ -66,7 +67,7 @@ a {
   position: absolute;
   background-color: black;
   z-index: 10;
-  bottom: 0;
+  bottom: 60px;
   right: 0;
   opacity: 0.5;
   color: white;

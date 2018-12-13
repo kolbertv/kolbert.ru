@@ -19,7 +19,7 @@ handlers.index = function (data, callback) {
             helpers.addUniversalTemplate(str, function (err, str) {
                 if (!err && str) {
 
-                    let finalString = helpers.setStyle(str, '');
+                    let finalString = helpers.setStyle(str, 'index');
                     callback(200, finalString);
                 } else {
                     callback(500, undefined);

@@ -55,20 +55,25 @@ a {
 
     }
     justify-content: space-around;
-    padding-bottom: 40px;
+    //padding-bottom: 50px;
   }
 
   &__item {
     //width: 30%;
     position: relative;
-    width: 70%;
+    width: 90%;
+    //padding-bottom: 60px;
 
     @media (max-width: $sm) {
       margin: 20px 0;
+      padding-bottom: 40px;
     }
 
     @media (min-width: $sm) {
       width: 30%;
+      //font-size: 15px;
+      padding-bottom: 60px;
+
     }
 
     //height: 20vw;
@@ -146,7 +151,7 @@ a {
   position: absolute;
   background-color: black;
   z-index: 10;
-  bottom: 0;
+  bottom: 60px;
   right: 0;
   opacity: 0.5;
   color: white;
