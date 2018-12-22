@@ -5,7 +5,9 @@ let http = require('http');
 let config = require('./config');
 let url = require('url');
 let handlers = require('./handlers');
-const {parse} = require('querystring');
+const {
+    parse
+} = require('querystring');
 let StringDecoder = require('string_decoder').StringDecoder;
 
 // Instantiate he server module object
@@ -41,7 +43,7 @@ server.unifiedServer = function (req, res) {
     // console.log('содержимое массива '+urlArray);
     if (urlArray !== null) {
         pageName = urlArray[0];
-        if (urlArray[1] !== undefined){
+        if (urlArray[1] !== undefined) {
             pageName1 = urlArray[1];
         } else {
             pageName1 = null;
@@ -61,7 +63,7 @@ server.unifiedServer = function (req, res) {
 
 
         // check the router if not found use notFound handler
-        let chosenHandler = typeof(server.router[pageName]) !== 'undefined' ? server.router[pageName] : handlers.notFound;
+        let chosenHandler = typeof (server.router[pageName]) !== 'undefined' ? server.router[pageName] : handlers.notFound;
 
         // if we have public static choose public handler
         chosenHandler = pathName.indexOf('/public/') > -1 ? handlers.public : chosenHandler;
@@ -79,43 +81,43 @@ server.unifiedServer = function (req, res) {
             // console.log(payload);
             // console.log(contentType);
 
-            statusCode = typeof(statusCode) == 'number' ? statusCode : 200;
-            contentType = typeof(contentType) == 'string' ? contentType : 'html';
+            statusCode = typeof (statusCode) == 'number' ? statusCode : 200;
+            contentType = typeof (contentType) == 'string' ? contentType : 'html';
 
             let payloadString = '';
             if (contentType == 'html') {
                 res.setHeader('Content-Type', 'text/html');
-                payloadString = typeof(payload) == 'string' ? payload : '';
+                payloadString = typeof (payload) == 'string' ? payload : '';
             }
 
             if (contentType == 'favicon') {
                 res.setHeader('Content-Type', 'image/x-icon');
                 res.setHeader('Cache-Control', 'max-age=86400');
-                payloadString = typeof(payload) !== 'undefined' ? payload : '';
+                payloadString = typeof (payload) !== 'undefined' ? payload : '';
             }
 
             if (contentType == 'plain') {
                 res.setHeader('Content-Type', 'text/plain');
                 res.setHeader('Cache-Control', 'private, max-age=86400');
-                payloadString = typeof(payload) !== 'undefined' ? payload : '';
+                payloadString = typeof (payload) !== 'undefined' ? payload : '';
             }
 
             if (contentType == 'jpg') {
                 res.setHeader('Content-Type', 'image/jpg');
                 res.setHeader('Cache-Control', 'max-age=86400');
-                payloadString = typeof(payload) !== 'undefined' ? payload : '';
+                payloadString = typeof (payload) !== 'undefined' ? payload : '';
             }
 
             if (contentType == 'png') {
                 res.setHeader('Content-Type', 'image/png');
                 res.setHeader('Cache-Control', 'max-age=86400');
-                payloadString = typeof(payload) !== 'undefined' ? payload : '';
+                payloadString = typeof (payload) !== 'undefined' ? payload : '';
             }
 
             if (contentType == 'css') {
                 res.setHeader('Content-Type', 'text/css');
                 res.setHeader('Cache-Control', 'max-age=86400');
-                payloadString = typeof(payload) !== 'undefined' ? payload : '';
+                payloadString = typeof (payload) !== 'undefined' ? payload : '';
             }
 
             res.writeHead(statusCode);
@@ -131,7 +133,7 @@ server.unifiedServer = function (req, res) {
 server.init = function () {
     server.httpServer.listen(config.httpPort, function () {
         console.log('The HTTP server is runnig on port: ' + config.httpPort);
-    })
+    });
 };
 
 

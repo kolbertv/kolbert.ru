@@ -5,7 +5,9 @@ let helpers = require('./helpers');
 let nodemailer = require('nodemailer');
 let auth = require('../config/configOAuth');
 let gallery = require('./gallery');
-let {performance} = require('perf_hooks');
+let {
+    performance
+} = require('perf_hooks');
 
 
 // container for all handlers
