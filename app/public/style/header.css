@@ -9,8 +9,14 @@ body, a, p, h1, h2, h3, h4 {
 .header {
   background-color: #26262a;
   height: 100px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center; }
   .header__wrapper {
     border: 1px solid red;
@@ -18,8 +24,14 @@ body, a, p, h1, h2, h3, h4 {
     width: 1000px; }
 
 .header-line {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
   justify-content: space-between;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center; }
   .header-line__logo {
     width: 70px;

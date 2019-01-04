@@ -46,23 +46,33 @@ h3 {
     width: 33%; } }
 
 .skills, .works, .education {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   line-height: 1.8em;
   margin-bottom: 0px; }
   @media (max-width: 400px) {
     .skills, .works, .education {
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: column;
       flex-direction: column;
       padding: 0px 10px; } }
   @media (min-width: 400px) and (max-width: 576px) {
     .skills, .works, .education {
       margin-top: 30px;
       padding: 0px 10px;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: column;
       flex-direction: column; } }
   @media (min-width: 576px) and (max-width: 768px) {
     .skills, .works, .education {
       margin: 20px auto;
       width: auto;
       margin-top: 60px;
+      -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
       justify-content: space-between;
       padding: 0px 10px; } }
   @media (min-width: 768px) and (max-width: 992px) {

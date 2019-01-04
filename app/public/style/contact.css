@@ -4,13 +4,21 @@
 
 .contact__content {
   margin: 0px auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -ms-flex-pack: distribute;
   justify-content: space-around;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   max-width: 1200px;
   padding: 90px 0px; }
   @media (max-width: 576px) {
     .contact__content {
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: column;
       flex-direction: column;
       padding: 0;
       padding: 50px 0; } }
@@ -30,6 +38,8 @@
 .contact__box:hover {
   background-color: #26262a;
   color: white;
+  -webkit-transition: all .2s ease-out;
+  -o-transition: all .2s ease-out;
   transition: all .2s ease-out;
   cursor: pointer; }
 
@@ -93,6 +103,8 @@
   .mw-button:hover {
     color: white;
     background-color: #26262a;
+    -webkit-transition: all .2s ease-out;
+    -o-transition: all .2s ease-out;
     transition: all .2s ease-out; }
 
 .mw-button-send {
@@ -103,6 +115,8 @@
   .mw-button-send:hover {
     color: white;
     background-color: #26262a;
+    -webkit-transition: all .2s ease-out;
+    -o-transition: all .2s ease-out;
     transition: all .2s ease-out; }
 
 .mw-title {
@@ -121,7 +135,11 @@
   width: 48%; }
 
 .field_name_wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
   justify-content: space-between; }
 
 input {
