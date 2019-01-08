@@ -1,16 +1,45 @@
 /*scss*/
+.container {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+  padding-left: 15px;
+  padding-right: 15px; }
+  @media (min-width: 576px) {
+    .container {
+      max-width: 540px; } }
+  @media (min-width: 768px) {
+    .container {
+      max-width: 720px; } }
+  @media (min-width: 992px) {
+    .container {
+      max-width: 962px; } }
+  @media (min-width: 1200px) {
+    .container {
+      max-width: 1140px; } }
+
 .textColorDev {
   color: black; }
 
 .notActive {
   color: darkgray; }
 
-p, body, nav, img, a, h2, h1, h3 {
+p,
+body,
+nav,
+img,
+a,
+h2,
+h1,
+h3 {
   margin: 0;
   padding: 0;
   display: block; }
 
 body {
+  position: relative;
+  width: 100%;
+  height: auto;
   z-index: 0; }
 
 a {
@@ -230,9 +259,9 @@ a {
   color: white; }
   .header .menu__link:hover {
     color: dimgray;
-    -webkit-transition: all .2s ease-out;
-    -o-transition: all .2s ease-out;
-    transition: all .2s ease-out; }
+    -webkit-transition: all 0.2s ease-out;
+    -o-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out; }
 
 @media (min-width: 576px) and (max-width: 768px) {
   .header {
@@ -394,9 +423,9 @@ a {
     color: gainsboro; }
     .footer__menu_link:hover {
       color: dimgray;
-      -webkit-transition: all .2s ease-out;
-      -o-transition: all .2s ease-out;
-      transition: all .2s ease-out; }
+      -webkit-transition: all 0.2s ease-out;
+      -o-transition: all 0.2s ease-out;
+      transition: all 0.2s ease-out; }
   .footer__reserved {
     font-size: 12px;
     letter-spacing: 0.15em;
@@ -415,12 +444,31 @@ a {
         color: gainsboro; }
       .footer__social_item span:hover {
         color: white;
-        -webkit-transition: all .3s ease-out;
-        -o-transition: all .3s ease-out;
-        transition: all .3s ease-out; }
+        -webkit-transition: all 0.3s ease-out;
+        -o-transition: all 0.3s ease-out;
+        transition: all 0.3s ease-out; }
 
 .content::before {
   content: ".";
   display: block;
   height: 0;
   overflow: hidden; }
+
+.masterheader {
+  margin-bottom: 50px;
+  height: 530px;
+  background-color: #26262a;
+  background-image: url(/public/img/header-3-800.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  position: relative; }
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #26262a;
+  opacity: 0.6; }

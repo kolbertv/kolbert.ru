@@ -1,0 +1,26 @@
+@import "media.scss";
+
+.container {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+    padding-left: 15px;
+    padding-right: 15px;
+
+    @media (min-width: $sm) {
+        max-width: 540px;
+    }
+
+    @media (min-width: $md) {
+        max-width: 720px;
+    }
+
+    @media (min-width: $lg) {
+        max-width: 962px;
+    }
+
+    @media (min-width: $xl) {
+        max-width: 1140px;
+    }
+
+}

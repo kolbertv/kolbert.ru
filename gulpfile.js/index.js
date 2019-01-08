@@ -39,7 +39,9 @@ const path = {
         dest: "app/public/js"
     },
     watch: {
-        html: "app/templates/**/*.html"
+        html: "app/templates/**/*.html",
+        ejs: "app/views/**/*.ejs",
+        scssIncludes: "front-src/scss/includes/*.scss"
     }
 };
 
@@ -109,11 +111,22 @@ let htmlWatch = () => {
     return src(path.watch.html).pipe(browserSync.stream());
 };
 
+let ejsWatch = () => {
+    return src(path.watch.ejs).pipe(browserSync.stream());
+};
+
+let scssIncludesWatch = () => {
+    return src(path.watch.scssIncludes).pipe(browserSync.stream());
+};
+
 let defaultTask = cb => {
+
     server();
     watch(path.style.src, styleBuild);
     watch(path.js.src, jsBuild);
     watch(path.watch.html, htmlWatch);
+    watch(path.watch.ejs, ejsWatch);
+    watch(path.watch.scssIncludes, scssIncludesWatch);
 
     cb();
 };
