@@ -1,1 +1,11 @@
 /node_modules/
+app/public/js/app.js
+app/public/style/app.css
+app/public/style/blog.css
+app/public/style/contact.css
+app/public/style/header.css
+app/public/style/index.css
+app/public/style/portfolio.css
+app/public/style/resume.css
+app/public/style/map/app.css.map
+app/public/style/map/portfolio.css.map

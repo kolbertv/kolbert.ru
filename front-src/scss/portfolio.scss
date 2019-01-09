@@ -10,20 +10,54 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    // margin-bottom: 40px;
   }
-
 
   &__item {
 
-    margin: 10px 10px;
+    margin: 0px 10px;
+    margin-bottom: 20px;
     height: 300px;
-    width: 250px;
-    background-color: green;
+    width: 240px;
+    // background-color: green;
     border: 1px solid red;
-
+    // background-image: url('/public/img/фильтр-1.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
 
   }
 
+  &__menu {
+    display: flex;
+    justify-content: center;
+
+  }
+
+}
+
+.menu {
+  &__container {
+    display: flex;
+    list-style: none;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 10px 0px;
+  }
+
+  &__item {
+    padding: 10px 20px;
 
 
+    & a {
+      font-size: 14px;
+      letter-spacing: 1px;
+      font-weight: 800;
+      color: dimgray;
+
+      &:hover {
+        color: black;
+      }
+    }
+  }
 }
