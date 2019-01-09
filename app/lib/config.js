@@ -5,7 +5,7 @@ let environments = {};
 
 // development mode
 environments.staging = {
-    'httpPort': 3000,
+    'httpPort': 2999,
     'httpsPort': 3001,
     'envName': 'staging',
 

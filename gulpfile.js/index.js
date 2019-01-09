@@ -25,7 +25,7 @@ const uglify = require("gulp-uglify");
 // const imageopt = require('gulp-image-optimization')  //критически опасные ошибки в модуле
 
 let serverConfig = {
-    proxy: "http://localhost:3000"
+    proxy: "http://localhost:2999"
     //tunnel: true
 };
 
@@ -53,7 +53,7 @@ let styleBuild = () => {
     return (
         src(path.style.src)
         .pipe(plumber())
-        // .pipe(sourcemap.init())
+        .pipe(sourcemap.init())
         .pipe(
             sass({
                 // outputStyle: 'compressed'
@@ -73,12 +73,14 @@ let styleBuild = () => {
             })
         )
         // .pipe(csscomb())
+        .pipe(sourcemap.write('/map'))
         .pipe(dest(path.style.dest))
         // .pipe(csso())
         // .pipe(rename({
         // extname: '.min.css'
         // }))
         // .pipe(sourcemap.write('/maps'))
+        // .pipe(sourcemap.write())
         // .pipe(dest(path.style.dest))
         .pipe(browserSync.stream())
     );
@@ -88,7 +90,7 @@ let jsBuild = () => {
     return (
         src(path.js.src)
         .pipe(plumber())
-        // .pipe(sourcemap.init())
+        .pipe(sourcemap.init())
         .pipe(
             babel().on("error", err => {
                 console.log(`JavaScript ОШИБКА: ${err.name}`);
@@ -96,6 +98,7 @@ let jsBuild = () => {
                 console.log(err.codeFrame);
             })
         )
+        .pipe(sourcemap.write())
         .pipe(dest(path.js.dest))
         // .pipe(uglify())
         // .pipe(rename({
@@ -126,7 +129,7 @@ let defaultTask = cb => {
     watch(path.js.src, jsBuild);
     watch(path.watch.html, htmlWatch);
     watch(path.watch.ejs, ejsWatch);
-    watch(path.watch.scssIncludes, scssIncludesWatch);
+    watch(path.watch.scssIncludes, styleBuild);
 
     cb();
 };

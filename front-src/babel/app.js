@@ -4,9 +4,16 @@ let app = {};
 
 console.log('Привет из бабеля и файла JS для фронта');
 
-document.getElementById('mobileMenuCheckbox').onclick = function () {
-    document.querySelector('body').style.overflow = this.checked ? 'hidden' : 'auto';
-};
+// document.getElementById('mobileMenuCheckbox').onclick = function () {
+//     document.querySelector('body').style.overflow = this.checked ? 'hidden' : 'auto';
+// };
+
+document.getElementById('navbar__button').onclick = () => {
+
+    document.getElementById('navbar__container').classList.toggle('container_toggle');
+
+}
+
 
 // let menuContainer = document.getElementById('menu__container');
 //
@@ -27,4 +34,3 @@ document.getElementById('mobileMenuCheckbox').onclick = function () {
 //         event.target.style.color = '#5555';
 //     }
 // });
-

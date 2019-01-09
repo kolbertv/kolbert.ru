@@ -1,14 +1,19 @@
-<%- include('includes/header.ejs')%>
-<link rel="stylesheet" href="../public/style/resume.css">
+<!DOCTYPE html>
+<html lang="ru">
 
+<head>
+    <%- include('includes/head.ejs')%>
+    <link rel="stylesheet" href="./public/style/resume.css">
 </head>
 
 <body id="body">
 
+<%-  include('includes/navbar.ejs') %>
+    
+<%- include('includes/header.ejs')%>
+
     <!--Page wrapper-->
     <div class="page__wrapper">
-
-        <%- include('includes/navi.ejs')%>
 
         <!--Page specific content-->
         <div class="content">
@@ -224,6 +229,5 @@
 
     <script src="../public/js/app.js"></script>
 </body>
-
 
 </html>

@@ -8,7 +8,8 @@ const router = express.Router();
 
 router.use((req, res, next) => {
     res.status(404).render('404', {
-        title: '404 страница не найдена'
+        title: 'страница не найдена',
+        path: '/'
     })
 });
 

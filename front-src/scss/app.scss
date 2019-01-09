@@ -1,6 +1,8 @@
-/*scss*/
+/* app scss*/
 @import "includes/media.scss";
 @import "includes/container.scss";
+@import "includes/header.scss";
+@import "includes/navbar.scss";
 
 $borderColorDev: 1px solid green;
 $borderColorDev: 0px solid green;
@@ -25,7 +27,8 @@ img,
 a,
 h2,
 h1,
-h3 {
+h3,
+ul {
   margin: 0;
   padding: 0;
   display: block;
@@ -470,8 +473,8 @@ a {
       }
 
       & span:hover {
-        color: white;
-        transition: all 0.3s ease-out;
+        color: dimgray;
+        transition: all 0.2s ease-out;
       }
     }
   }
@@ -485,25 +488,4 @@ a {
     overflow: hidden;
   }
 
-}
-
-.masterheader {
-  margin-bottom: 50px;
-  height: 530px;
-  background-color: #26262a;
-  background-image: url(/public/img/header-3-800.jpg);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  position: relative;
-}
-
-.overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  background-color: #26262a;
-  opacity: 0.6;
 }
