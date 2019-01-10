@@ -1,5 +1,6 @@
 const Product = require('../models/product')
 
+
 exports.getAddProduct = (req, res, next) => {
     res.render('add-work', {
         pageTitle: 'Добавить новую работу в базу данных',
@@ -23,12 +24,14 @@ exports.postAddProduct = (req, res, next) => {
 }
 
 exports.getProducts = (req, res, next) => {
-    const products = Product.fetchAll();
-    res.render('portfolio', {
-        title: '- перечень выполненных работ',
-        path: '/portfolio',
-        yearId: req.params.id,
-        prod: products,
-        hasProducts: products.length > 0
+    Product.fetchAll(products => {
+        res.render('portfolio', {
+            title: '- перечень выполненных работ',
+            path: '/portfolio',
+            yearId: req.params.id,
+            prod: products,
+            hasProducts: products.length > 0
+        });
     });
+
 }

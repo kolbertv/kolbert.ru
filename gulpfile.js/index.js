@@ -25,8 +25,8 @@ const uglify = require("gulp-uglify");
 // const imageopt = require('gulp-image-optimization')  //критически опасные ошибки в модуле
 
 let serverConfig = {
-    proxy: "http://localhost:2999"
-    //tunnel: true
+    proxy: "http://localhost:2999",
+    tunnel: true
 };
 
 const path = {
