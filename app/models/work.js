@@ -3,10 +3,10 @@ const path = require('path')
 
 const p = path.join(path.dirname(process.mainModule.filename),
     'data',
-    'products.json'
+    'works.json'
 );
 
-const getProductsFromFile = cb => {
+const getWorksFromFile = cb => {
     fs.readFile(p, (err, fileContent) => {
         if (err) {
             cb([])
@@ -17,7 +17,7 @@ const getProductsFromFile = cb => {
 }
 
 
-module.exports = class Product {
+module.exports = class Work {
     constructor(title, descript, feature, url, year) {
         this.title = title;
         this.descript = descript;
@@ -27,15 +27,15 @@ module.exports = class Product {
     }
 
     save() {
-        getProductsFromFile(products => {
-            products.push(this)
-            fs.writeFile(p, JSON.stringify(products), (err) => {
+        getWorksFromFile(works => {
+            works.push(this)
+            fs.writeFile(p, JSON.stringify(works), (err) => {
                 console.log(err)
             })
         })
     }
 
     static fetchAll(cb) {
-        getProductsFromFile(cb)
+        getWorksFromFile(cb)
     }
 }
