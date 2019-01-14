@@ -4,11 +4,9 @@ exports.getAddWork = (req, res, next) => {
     res.render('add-work', {
         pageTitle: 'Добавить новую работу в базу данных',
         path: '/admin/add-work',
-        formCSS: true,
-        productCSS: true,
-        activeAddProduct: true
     })
 }
+
 
 exports.postAddWork = (req, res, next) => {
     const work = new Work(

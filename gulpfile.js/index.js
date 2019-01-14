@@ -14,15 +14,15 @@ const rename = require("gulp-rename");
 const sourcemap = require('gulp-sourcemaps')
 
 const sass = require("gulp-sass");
-// const csscomb = require('gulp-csscomb') //критически опасные ошибки в модуле
+// const csscomb = require('gulp-csscomb') //критически ошибки в модуле
 const autoprefixer = require("gulp-autoprefixer");
 const csso = require("gulp-csso");
 
 const babel = require("gulp-babel");
 const uglify = require("gulp-uglify");
 
-// const tinypng = require('gulp-tinypng')  //критически опасные ошибки в модуле лучше https://tinypng.com
-// const imageopt = require('gulp-image-optimization')  //критически опасные ошибки в модуле
+// const tinypng = require('gulp-tinypng')  //критически ошибки в модуле лучше https://tinypng.com
+// const imageopt = require('gulp-image-optimization')  //критически ошибки в модуле
 
 let serverConfig = {
     proxy: "http://localhost:2999",

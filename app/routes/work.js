@@ -22,7 +22,7 @@ router.get("/resume", (req, res, next) => {
 router.get("/portfolio/:id", workController.getWorks);
 
 router.get("/blog", (req, res, next) => {
-    res.send("blog");
+    res.send("Страница блога находица в разработке");
 });
 
 

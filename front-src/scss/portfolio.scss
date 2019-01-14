@@ -23,6 +23,7 @@
         background-repeat: no-repeat;
         background-position: center;
         background-size: cover;
+        position: relative;
     }
 
     &__menu {
@@ -79,4 +80,13 @@
 
 .menu__item__active {
     color: black;
+}
+
+.portfolio__admin {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    display: flex;
+    width: 180px;
+    justify-content: space-between;
 }

@@ -56,25 +56,31 @@
 
             <% for (product of prod) { %>
 
-            <% if (product.year === yearId) { %> 
+            <% if (product.year === yearId) { %>
             <div class="portfolio__item" style="background-image: url('<%= product.url %>');">
-            <div class="portfolio__description">
-                <p>
-                    <%= product.descript %>
-                </p>
-                <p>
-                    <%= product.title %>
-                </p>
-                <p>
-                    <%= product.feature %>
-                </p>
+                <div class="portfolio__description">
+                    <p>
+                        <%= product.descript %>
+                    </p>
+                    <p>
+                        <%= product.title %>
+                    </p>
+                    <p>
+                        <%= product.feature %>
+                    </p>
+                </div>
+                <div class="portfolio__admin">
+                    <form action="/admin/delete-work" method="POST">
+                        <button class="portfolio__adminButton">Удалить</button>
+                    </form>
+                    <a href="/admin/edit-work">Редактировать</a>
+                </div>
             </div>
+            <% } %>
+            <% } %>
         </div>
-        <% } %>
-        <% } %>
-    </div>
 
-    <% } %>
+        <% } %>
     </div>
 
     <%- include('includes/rc.ejs')%>

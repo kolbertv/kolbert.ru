@@ -24,6 +24,7 @@ module.exports = class Work {
         this.feature = feature;
         this.url = url;
         this.year = year;
+        this.id = 1;
     }
 
     save() {
