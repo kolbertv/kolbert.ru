@@ -24,10 +24,9 @@ module.exports = class Work {
         this.feature = feature;
         this.url = url;
         this.year = year;
-        this.id = 1;
     }
-
     save() {
+        this.id = Math.random().toString();
         getWorksFromFile(works => {
             works.push(this)
             fs.writeFile(p, JSON.stringify(works), (err) => {

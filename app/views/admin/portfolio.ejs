@@ -3,26 +3,22 @@
 
 <head>
 
-    <%- include('includes/head.ejs')%>
-    <link rel="stylesheet" href="../public/style/portfolio.css">
+    <link rel="stylesheet" href="../../public/style/portfolio.css">
 
 </head>
 
 <body id="body">
 
-    <%- include('includes/navbar.ejs') %>
-
-    <%- include('includes/header.ejs')%>
-
     <div class="container">
         <div class="portfolio__menu">
             <ul class="menu__container">
-                <li class="menu__item"><a href="/portfolio/exampl">ПРИМЕРЫ</a></li>
-                <li class="menu__item"><a href="/portfolio/2018">2018г.</a></li>
-                <li class="menu__item"><a href="/portfolio/2017">2017г.</a></li>
-                <li class="menu__item"><a href="/portfolio/2016">2016г.</a></li>
-                <li class="menu__item"><a href="/portfolio/2015">2015г.</a></li>
-                <li class="menu__item"><a href="/portfolio/2014">2014г.</a></li>
+                <li class="menu__item"><a href="/admin/add-work">Добавиь работу</a></li>
+                <li class="menu__item"><a href="/admin/portfolio/exampl">ПРИМЕРЫ</a></li>
+                <li class="menu__item"><a href="/admin/portfolio/2018">2018г.</a></li>
+                <li class="menu__item"><a href="/admin/portfolio/2017">2017г.</a></li>
+                <li class="menu__item"><a href="/admin/portfolio/2016">2016г.</a></li>
+                <li class="menu__item"><a href="/admin/portfolio/2015">2015г.</a></li>
+                <li class="menu__item"><a href="/admin/portfolio/2014">2014г.</a></li>
             </ul>
 
         </div>
@@ -33,10 +29,7 @@
             </h3>
 
         </div>
-
-
         <% if (yearId =='exampl') { %>
-
         <div class="portfolio__container">
             <div class="portfolio__item" style="background-image: url('/public/img/фильтр-1.png');">
                 <div class="portfolio__description">
@@ -49,13 +42,9 @@
             <div class="portfolio__item" style="background-image: url('/public/img/фильтр-1.png');"></div>
             <div class="portfolio__item" style="background-image: url('/public/img/фильтр-1.png');"></div>
         </div>
-
         <% } else { %>
-
         <div class="portfolio__container">
-
             <% for (product of prod) { %>
-
             <% if (product.year === yearId) { %>
             <div class="portfolio__item" style="background-image: url('<%= product.url %>');">
                 <div class="portfolio__description">
@@ -69,7 +58,12 @@
                         <%= product.feature %>
                     </p>
                 </div>
-
+                <div class="portfolio__admin">
+                    <form action="/admin/delete-work/<%= product.id %>" method="POST">
+                        <button class="portfolio__adminButton">Удалить</button>
+                    </form>
+                    <a href="/admin/edit-work/<%= product.id %>" style="color:white">Редактировать</a>
+                </div>
             </div>
             <% } %>
             <% } %>
@@ -78,10 +72,7 @@
         <% } %>
     </div>
 
-    <%- include('includes/rc.ejs')%>
-    <%- include('includes/footer.ejs')%>
-
-    <script src="../public/js/app.js"></script>
+    <script src="../../public/js/app.js"></script>
 
 </body>
 
