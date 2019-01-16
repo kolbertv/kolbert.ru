@@ -11,6 +11,7 @@ exports.getAddWork = (req, res, next) => {
 
 exports.postAddWork = (req, res, next) => {
     const work = new Work(
+        null,
         req.body.title,
         req.body.descript,
         req.body.feature,
@@ -18,7 +19,7 @@ exports.postAddWork = (req, res, next) => {
         req.body.year
     )
     work.save();
-    res.redirect("/admin/add-work");
+    res.redirect(`/admin/portfolio/${req.body.year}`);
 }
 
 exports.listAddWork = (req, res, next) => {
@@ -33,12 +34,36 @@ exports.listAddWork = (req, res, next) => {
     });
 }
 
-exports.editAddWork = (req, res, next) => {
-    console.log(req.params.year)
-    console.log(req.params.id)
+exports.indexAddWork = (req, res, next) => {
+    res.redirect("/admin/portfolio/exampl")
+}
+
+exports.editWork = (req, res, next) => {
+    Work.findById(req.params.id, work => {
+        res.render('admin/edit-work', {
+            work: work,
+            edit: true
+        })
+
+    })
+}
+
+exports.postEditWork = (req, res, next) => {
+    const work = new Work(
+        req.body.id,
+        req.body.title,
+        req.body.descript,
+        req.body.feature,
+        req.body.url,
+        req.body.year
+    )
+    work.save();
+    res.redirect(`/admin/portfolio/${req.body.year}`);
+
 }
 
 
-exports.indexAddWork = (req, res, next) => {
-    res.redirect("/admin/portfolio/exampl")
+exports.deleteWork = (req, res, next) => {
+    Work.deleteById(req.body.workId)
+    res.redirect(`/admin/portfolio/${req.body.year}`);
 }

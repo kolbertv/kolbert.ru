@@ -59,10 +59,12 @@
                     </p>
                 </div>
                 <div class="portfolio__admin">
-                    <form action="/admin/delete-work/<%= product.id %>" method="POST">
+                    <form action="/admin/delete-work/" method="POST">
+                        <input type="hidden" value="<%= product.id %>" name="workId">
+                        <input type="hidden" value="<%= product.year %>" name="year">
                         <button class="portfolio__adminButton">Удалить</button>
                     </form>
-                    <a href="/admin/edit-work/<%= product.id %>" style="color:white">Редактировать</a>
+                    <a href="/admin/edit-work/<%= product.year %>/<%= product.id %>" style="color:white">Редактировать</a>
                 </div>
             </div>
             <% } %>

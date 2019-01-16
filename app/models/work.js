@@ -18,24 +18,54 @@ const getWorksFromFile = cb => {
 
 
 module.exports = class Work {
-    constructor(title, descript, feature, url, year) {
+    constructor(id, title, descript, feature, url, year) {
+        this.id = id;
         this.title = title;
         this.descript = descript;
         this.feature = feature;
         this.url = url;
         this.year = year;
     }
+
     save() {
-        this.id = Math.random().toString();
         getWorksFromFile(works => {
-            works.push(this)
-            fs.writeFile(p, JSON.stringify(works), (err) => {
-                console.log(err)
-            })
+
+            if (this.id) {
+                const existWorkIndex = works.findIndex(work => work.id === this.id)
+                const updatedWorks = [...works]
+                updatedWorks[existWorkIndex] = this;
+                fs.writeFile(p, JSON.stringify(updatedWorks), (err) => {
+                    console.log(err)
+                })
+            } else {
+                this.id = Math.random().toString();
+                works.push(this)
+                fs.writeFile(p, JSON.stringify(works), (err) => {
+                    console.log(err)
+                })
+            }
         })
     }
 
     static fetchAll(cb) {
         getWorksFromFile(cb)
+    }
+
+    static findById(id, cb) {
+        getWorksFromFile(works => {
+            const work = works.find(p => p.id === id)
+            cb(work)
+        })
+    }
+
+    static deleteById(id) {
+        getWorksFromFile(works => {
+            const updatedWorks = works.filter(work => work.id !== id)
+            fs.writeFile(p, JSON.stringify(updatedWorks), err => {
+                console.log(err)
+            })
+
+        })
+
     }
 }
