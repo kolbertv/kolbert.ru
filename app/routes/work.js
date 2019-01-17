@@ -27,7 +27,10 @@ router.get("/blog", (req, res, next) => {
 
 
 router.get("/contact", (req, res, next) => {
-    res.send("contact");
+    res.render('contact', {
+        title: ' - контактные данные',
+        path: '/contact'
+    });
 });
 
 module.exports = router
