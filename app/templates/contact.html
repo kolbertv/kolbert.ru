@@ -1,0 +1,98 @@
+<div class="contact">
+
+     <div class="contact__content">
+
+        <div class="contact__box" id="contact__box_calc">
+            <h2 class="contact__box__title">Запрос на расчет</h2>
+            <p class="contact__box__content">
+                Расчет сосудов и аппаратов; </br>
+                Расчет деталей трубопроводов;</br>
+                Расчет рам для блочно-модульного оборудования</br>
+            </p>
+            <span class="contact__box_button">Отправить запрос</span>
+        </div>
+        <div class="contact__box" id="contact__box_common">
+            <h2 class="contact__box__title">Общие вопросы</h2>
+            <p class="contact__box__content">Общие вопросы по работе сайта и сервисам,
+                коментарии, выполненным работам.
+            </p>
+            <span class="contact__box_button">Задать вопрос</span>
+        </div>
+    </div>
+    <div class="contact-mw" id="contact-mw">
+        <div class="mw-background"></div>
+        <div class="mw-inner" id="mw-inner">
+            <div class="mw-content">
+                <form action="/contact" method="post">
+                    <div class="mw-wrapper">
+                        <div class="mw-title" id="mw-title"></div>
+                        <input type="text" name="title" style="visibility: hidden" id="mw-title-i">
+                        <fieldset class="mw-field">
+                            <legend>Имя и Фамилия</legend>
+                            <div class="field_name_wrapper">
+                                <input type="text" name="fname" class="field_item-name" placeholder="Имя">
+                                <input type="text" name="lname" class="field_item-name" placeholder="Фамилия">
+                            </div>
+                        </fieldset>
+                        <fieldset class="mw-field">
+                            <legend>Электропочта для связи</legend>
+                            <input type="email" name="email" class="field_item" placeholder="mail@yandex.ru">
+                        </fieldset>
+                        <fieldset class="mw-field">
+                            <legend>Номер телефона</legend>
+                            <input type="tel" name="phone" class="field_item" placeholder="+7(999)999-99-99">
+                        </fieldset>
+                        <fieldset class="mw-field">
+                            <legend id="textarea-legend">Описание задачи (чем подробнее, тем лучше)</legend>
+                            <textarea name="textarea" id="textarea" class="field_item" rows="5"></textarea>
+                        </fieldset>
+                        <fieldset class="mw-field" id="url-field">
+                            <legend>Сылка на облако(яндекс/гугл диск и др) с файлами(документы, чертежи и т.д.)</legend>
+                            <input type="url" name="url" class="field_item">
+                        </fieldset>
+                        <button class="mw-button-send">Отправить запрос</button>
+                    </div>
+                    <div class="mw-button" id="mw-button">x</div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" async>
+        "use strict";
+
+        document.getElementById('mw-button').addEventListener('click', function () {
+            document.getElementById('contact-mw').style.display = 'none';
+            document.getElementById('body').style.overflow = 'visible';
+        });
+
+        document.getElementById('contact__box_calc').addEventListener('click', function () {
+            document.getElementById('contact-mw').style.display = 'block';
+            document.getElementById('mw-title').innerText = 'Заказать расчет на прочность';
+            document.getElementById('mw-title-i').value = 'Заказать расчет на прочность';
+            document.getElementById('textarea-legend').innerText = 'Описание задачи (чем подробнее, тем лучше)';
+            document.getElementById('body').style.overflow = 'hidden';
+            document.getElementById('url-field').style.display = 'block';
+        });
+
+        document.getElementById('contact__box_common').addEventListener('click', function () {
+            document.getElementById('contact-mw').style.display = 'block';
+            document.getElementById('mw-title').innerText = 'Форма общих вопросов';
+            document.getElementById('mw-title-i').value = 'Форма общих вопросов';
+            document.getElementById('textarea-legend').innerText = 'Задать вопрос (написать коментарий)';
+            document.getElementById('body').style.overflow = 'hidden';
+            document.getElementById('url-field').style.display = 'none';
+        });
+
+
+    </script>
+
+
+    <div class="contact__map">
+    <script type="text/javascript" charset="utf-8" async
+    src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A447544fdbddfb05b54edaa5c8d9b750f9f53f8d78dfdfae537a7c92a5d3d170f&amp;width=100%25&amp;height=400&amp;lang=ru_RU&amp;scroll=true"></script>
+
+    </div>
+
+
+</div>
