@@ -26,7 +26,7 @@ const uglify = require("gulp-uglify");
 
 let serverConfig = {
     proxy: "http://localhost:2999",
-    tunnel: true
+    // tunnel: true
 };
 
 const path = {

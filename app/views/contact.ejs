@@ -16,12 +16,32 @@
             <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A447544fdbddfb05b54edaa5c8d9b750f9f53f8d78dfdfae537a7c92a5d3d170f&amp;width=100%25&amp;height=800&amp;lang=ru_RU&amp;scroll=false"></script>
         </div>
         <div class="map-hover"></div>
-        <div class="container cc">
+        <div class="container container_cc">
 
-            <p>fghjkl</p>
+            <div class="cc-wrap">
+                <h2>Контакты</h2>
+                <div class="cc-contacts-wrap">
+                    <div class="cc-form-wrap">
+                        <form class="cc-form" action="/contact" method="POST">
+                            <div class="cc-name-phone">
+                                <input class="cc-input_name" type="text" name="name" placeholder="Имя и Фамилия" required>
+                                <input class="cc-input_phone" type="tel" name="phone" placeholder="Телефон" required>
+                            </div>
 
+                            <input class="cc-input_email" type="email" name="email" placeholder="Электропочта" required>
+                            <textarea class="cc-input_message" name="message" placeholder="Сообщение" required></textarea>
+                            <button class="cc-form-btn" type="submit">Отправить сообщение</button>
+                        </form>
+                    </div>
+                    <div class="cc-addr-wrap">
+                        <p>Город: Москва</p>
+                        <p>Электропочта: kolbert@yandex.ru</p>
+                        <p>Телефон: +7-999-998-78-78</p>
+                        <p>Telegram: <a href="https://telegram.me/kolbert">@kolbert</a></p>
+                    </div>
+                </div>
+            </div>
         </div>
-
     </div>
 
     <%- include('includes/footer.ejs')%>

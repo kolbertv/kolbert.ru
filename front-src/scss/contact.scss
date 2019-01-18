@@ -3,7 +3,6 @@
 @import "includes/navbar.scss";
 
 .navbar {
-
   @media (min-width: $lg) {
     background-color: #26262a;
   }
@@ -27,7 +26,7 @@
   opacity: 0.9;
 }
 
-.cc {
+.container_cc {
   position: absolute;
   top: 0;
   left: 0;
@@ -35,5 +34,93 @@
   bottom: 0;
   margin-top: 110px;
   color: white;
+  display: flex;
+  justify-content: center;
 
+}
+
+.cc {
+  &-wrap {
+    // width: 500px;
+    // height: 200px;
+    border: 1px solid green;
+
+    & h2 {
+      display: block;
+      text-align: center;
+      margin: 32px;
+      font-size: 40px;
+      letter-spacing: 0.05em;
+    }
+  }
+
+  &-contacts-wrap {
+    display: flex;
+    justify-content: flex-start;
+    margin: 70px 0px;
+  }
+
+  &-form-wrap {
+    & input {
+      box-sizing: border-box;
+      margin-bottom: 15px;
+      padding: 10px 10px 10px 10px;
+      border: 1px solid white;
+      background-color: transparent;
+      color: white;
+      letter-spacing: 0.05em;
+      font-size: 14px;
+
+      &::-webkit-input-placeholder {
+        color: white;
+      }
+
+      &::-moz-placeholder {
+        color: white;
+      }
+    }
+  }
+
+  &-form {
+    width: 450px;
+
+  }
+
+  &-input {
+
+    &_name {
+      // width: 200px;
+    }
+
+    &_phone {
+      // width: 200px;
+    }
+
+    &_email {
+      width: 450px;
+    }
+  }
+}
+
+.cc {
+  &-name-phone {
+    display: flex;
+    justify-content: space-between;
+
+    & input {
+      width: 48%;
+    }
+  }
+}
+
+.cc {
+  &-addr-wrap {
+    margin: 0px 20px;
+
+    & p {
+      margin: 0px 0px 15px 0;
+      font-size: 15px;
+      letter-spacing: 0.05em;
+    }
+  }
 }
