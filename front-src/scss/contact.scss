@@ -9,7 +9,8 @@
 }
 
 .contact-map {
-  min-height: 800px;
+  min-height: 940px;
+  background-color: #26262a;
 }
 
 .contact-wrapper {
@@ -26,6 +27,7 @@
   opacity: 0.9;
 }
 
+
 .container_cc {
   position: absolute;
   top: 0;
@@ -40,87 +42,87 @@
 }
 
 .cc {
-  &-wrap {
-    // width: 500px;
-    // height: 200px;
-    border: 1px solid green;
+  &-title {
+    text-align: center;
+    margin: 40px;
+    font-size: 20px;
+    letter-spacing: 0.05em;
+  }
 
-    & h2 {
-      display: block;
+  &-content {
+    & input, textarea, button {
+    padding: 10px 00px 10px 10px;
+    }
+  }
+
+  &-addr {
+    margin-bottom: 20px;
+    min-width: 300px;
+    & p {
       text-align: center;
-      margin: 32px;
-      font-size: 40px;
-      letter-spacing: 0.05em;
-    }
-  }
+      margin: 10px 10px 20px 10px;
 
-  &-contacts-wrap {
-    display: flex;
-    justify-content: flex-start;
-    margin: 70px 0px;
-  }
-
-  &-form-wrap {
-    & input {
-      box-sizing: border-box;
-      margin-bottom: 15px;
-      padding: 10px 10px 10px 10px;
-      border: 1px solid white;
-      background-color: transparent;
-      color: white;
-      letter-spacing: 0.05em;
-      font-size: 14px;
-
-      &::-webkit-input-placeholder {
-        color: white;
-      }
-
-      &::-moz-placeholder {
-        color: white;
+      & a {
+        display: inline;
       }
     }
   }
 
-  &-form {
-    width: 450px;
-
-  }
-
-  &-input {
-
-    &_name {
-      // width: 200px;
-    }
-
-    &_phone {
-      // width: 200px;
-    }
-
-    &_email {
-      width: 450px;
-    }
-  }
 }
 
 .cc {
+  &-form {
+    display: flex;
+    flex-direction: column;
+
+    & h2, input, textarea, button {
+      margin: 10px 0px;
+    }
+
+    & input, textarea, button {
+      background-color: transparent;
+      border: 1px solid white;
+      font-size: 16px;
+      color: white;
+    }
+
+    & button:hover {
+      background-color: white;
+      color: black;
+      cursor: pointer;
+      transition: all 0.2s ease-out;
+
+    }
+
+    & textarea {
+      height: 200px;
+      max-height: 200px;
+    }
+
+  }
+
   &-name-phone {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
 
-    & input {
-      width: 48%;
-    }
+  }
+
+}
+
+.cc-addr-btn {
+
+  &:hover {
+    cursor: pointer;
+    color: dimgray;
+    transition: all 0.2s ease-out;
+
   }
 }
 
-.cc {
-  &-addr-wrap {
-    margin: 0px 20px;
+.cc-btn_visible {
+  display: inline-block;
+}
 
-    & p {
-      margin: 0px 0px 15px 0;
-      font-size: 15px;
-      letter-spacing: 0.05em;
-    }
-  }
+.cc-btn_hide {
+  display: none;
 }

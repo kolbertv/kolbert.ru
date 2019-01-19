@@ -27,10 +27,25 @@ router.get("/blog", (req, res, next) => {
 
 
 router.get("/contact", (req, res, next) => {
+
+    let sendButton = '';
+    let sendButtonText = 'Отправить сообщение'
+
+    if (req.session.sendButtonDisabled) {
+        sendButton = 'disabled';
+        sendButtonText = 'Сообщение отправлено';
+    }
+    req.session.sendButtonDisabled = false;
+
     res.render('contact', {
         title: ' - контактные данные',
-        path: '/contact'
+        path: '/contact',
+        sendButton: sendButton,
+        sendButtonText: sendButtonText
     });
 });
+
+router.post('/contact', workController.postLetter)
+
 
 module.exports = router
