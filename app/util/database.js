@@ -1,0 +1,29 @@
+const mongodb = require('mongodb');
+const MongoClient = mongodb.MongoClient;
+const config = require('../config/configOAuth');
+
+let _db;
+
+const mongoConnect = cb => {
+
+    MongoClient.connect(`mongodb+srv://${config.dev.mongouser}:${config.dev.mongopass}@cluster0-zrs2t.mongodb.net/${config.dev.mongoDB}?retryWrites=true`)
+        .then(client => {
+            console.log('connected');
+            _db = client.db();
+            cb();
+        })
+        .catch(err => console.log(err));
+}
+
+const getDb = () => {
+    if (_db) {
+        return _db
+    }
+
+    throw 'No database found!';
+
+}
+
+
+exports.mongoConnect = mongoConnect;
+exports.getDb = getDb;

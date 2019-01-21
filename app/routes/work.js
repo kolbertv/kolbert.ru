@@ -45,7 +45,7 @@ router.get("/contact", (req, res, next) => {
     });
 });
 
-router.post('/contact', workController.postLetter)
+router.post('/contact', workController.postLetter);
 
 
-module.exports = router
+module.exports = router;

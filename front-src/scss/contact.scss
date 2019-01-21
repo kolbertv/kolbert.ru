@@ -27,7 +27,6 @@
   opacity: 0.9;
 }
 
-
 .container_cc {
   position: absolute;
   top: 0;
@@ -38,7 +37,6 @@
   color: white;
   display: flex;
   justify-content: center;
-
 }
 
 .cc {
@@ -50,14 +48,18 @@
   }
 
   &-content {
-    & input, textarea, button {
-    padding: 10px 00px 10px 10px;
+
+    & input,
+    textarea,
+    button {
+      padding: 10px 00px 10px 10px;
     }
   }
 
   &-addr {
     margin-bottom: 20px;
     min-width: 300px;
+
     & p {
       text-align: center;
       margin: 10px 10px 20px 10px;
@@ -67,7 +69,6 @@
       }
     }
   }
-
 }
 
 .cc {
@@ -75,11 +76,16 @@
     display: flex;
     flex-direction: column;
 
-    & h2, input, textarea, button {
+    & h2,
+    input,
+    textarea,
+    button {
       margin: 10px 0px;
     }
 
-    & input, textarea, button {
+    & input,
+    textarea,
+    button {
       background-color: transparent;
       border: 1px solid white;
       font-size: 16px;
@@ -91,31 +97,25 @@
       color: black;
       cursor: pointer;
       transition: all 0.2s ease-out;
-
     }
 
     & textarea {
       height: 200px;
       max-height: 200px;
     }
-
   }
 
   &-name-phone {
     display: flex;
     flex-direction: column;
-
   }
-
 }
 
 .cc-addr-btn {
-
   &:hover {
     cursor: pointer;
     color: dimgray;
     transition: all 0.2s ease-out;
-
   }
 }
 

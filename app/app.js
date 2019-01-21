@@ -6,6 +6,7 @@ const bodyParser = require("body-parser");
 
 const config = require("./lib/config");
 const errorController = require('./controllers/error');
+const mongoConnect = require('./util/database').mongoConnect;
 
 const app = express();
 
@@ -31,6 +32,10 @@ app.use(workRoutes);
 
 app.use(errorController.get404);
 
-app.listen(config.httpPort, () => {
-  console.log(`Example app listening on port ${config.httpPort}`);
-});
+
+mongoConnect(() => {
+  app.listen(config.httpPort, () => {
+    console.log(`Example app listening on port ${config.httpPort}`);
+  });
+
+})
