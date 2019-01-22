@@ -1,5 +1,4 @@
-const Work = require('../models/work')
-
+const Work = require('../models/work');
 
 exports.getAddWork = (req, res, next) => {
     res.render('add-work', {
@@ -23,15 +22,19 @@ exports.postAddWork = (req, res, next) => {
 }
 
 exports.listAddWork = (req, res, next) => {
-    Work.fetchAll(works => {
-        res.render('admin/portfolio', {
-            title: 'Admin - перечень выполненных работ',
-            // path: '/admin/portfolio',
-            yearId: req.params.year,
-            prod: works,
-            hasProducts: works.length > 0
+    Work.fetchAll()
+        .then(works => {
+            res.render('admin/portfolio', {
+                title: 'Admin - перечень выполненных работ',
+                path: 'admin/portfolio',
+                yearId: req.params.year,
+                prod: works,
+                hasProducts: works.length > 0
+            });
+        })
+        .catch(err => {
+            console.log(err);
         });
-    });
 }
 
 exports.indexAddWork = (req, res, next) => {
@@ -39,14 +42,15 @@ exports.indexAddWork = (req, res, next) => {
 }
 
 exports.editWork = (req, res, next) => {
-    Work.findById(req.params.id, work => {
-        res.render('admin/edit-work', {
-            work: work,
-            edit: true
-        })
+    Work.findById(req.params.id)
+        .then(work => {
+            res.render('admin/edit-work', {
+                work: work,
+                edit: true
+            });
 
-    })
-}
+        });
+};
 
 exports.postEditWork = (req, res, next) => {
     const work = new Work(
@@ -57,8 +61,12 @@ exports.postEditWork = (req, res, next) => {
         req.body.url,
         req.body.year
     )
-    work.save();
-    res.redirect(`/admin/portfolio/${req.body.year}`);
+    work.save()
+        .then(result => {
+            console.log('rerod updated');
+            res.redirect(`/admin/portfolio/${req.body.year}`);
+        })
+        .catch(err => console.log(err))
 
 }
 

@@ -1,21 +1,85 @@
 // const fs = require('fs')
 // const path = require('path')
+
+const mongodb = require('mongodb');
 const getDb = require('../util/database').getDb;
 
 class Work {
-    constructor(id, title, description, feature, imgUrl, year) {
+    constructor(id, title, descript, feature, url, year) {
         this.title = title;
-        this.descript = description;
+        this.descript = descript;
         this.feature = feature;
-        this.imgUrl = imgUrl;
+        this.url = url;
         this.year = year;
+        this._id = new mongodb.ObjectID(id);
     }
 
     save() {
         const db = getDb();
-        db.collection('works').insertOne(this)
-            .then(result => console.log(result))
+
+        let dbOp;
+
+        if (this._id) {
+            //update the works
+            console.log(this._id)
+            dbOp = db.collection('works').updateOne({
+                _id: this._id
+            }, {
+                $set: this
+            })
+
+        } else {
+            // add new work
+            dbOp = db.collection('works').insertOne(this)
+        }
+
+        return dbOp
+            // .then(result => console.log(result))
             .catch(err => console.log(err));
+    }
+
+    static fetchAll() {
+        const db = getDb();
+        return db
+            .collection('works')
+            .find()
+            .toArray()
+            .then(works => {
+                // console.log(works);
+                return works;
+            })
+            .catch(err => {
+                console.log(err);
+            });
+    }
+
+    static findById(workId) {
+        const db = getDb();
+        return db.collection('works')
+            .find({
+                _id: new mongodb.ObjectID(workId)
+            })
+            .next()
+            .then(work => {
+                // console.log(work);
+                return work;
+            })
+            .catch(err => {
+                console.log(err);
+            });
+
+    }
+
+    static deleteById(workId) {
+        const db = getDb();
+        return db
+            .collection('works')
+            .deleteOne({
+                _id: new mongodb.ObjectID(workId)
+            })
+            .catch(err => {
+                console.log(err);
+            });
 
     }
 }

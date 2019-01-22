@@ -3,18 +3,22 @@ const Letter = require('../models/letter')
 const url = require('url')
 
 exports.getWorks = (req, res, next) => {
-    Work.fetchAll(works => {
-        res.render('portfolio', {
-            title: '- перечень выполненных работ',
-            path: '/portfolio',
-            yearId: req.params.id,
-            prod: works,
-            hasProducts: works.length > 0
+    Work.fetchAll()
+        .then(works => {
+            res.render('portfolio', {
+                title: '- перечень выполненных работ',
+                path: '/portfolio',
+                yearId: req.params.id,
+                prod: works,
+                hasProducts: works.length > 0
+            });
+        })
+        .catch(err => {
+            console.log(err);
         });
-    });
-}
+};
 
-exports.postLetter = (req, res, next)=> {
+exports.postLetter = (req, res, next) => {
 
     const letter = new Letter(
         req.body.name,
