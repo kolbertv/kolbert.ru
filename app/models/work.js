@@ -11,7 +11,13 @@ class Work {
         this.feature = feature;
         this.url = url;
         this.year = year;
-        this._id = new mongodb.ObjectID(id);
+
+        console.log(new mongodb.ObjectID(id))
+
+        if (id) {
+            this._id = new mongodb.ObjectID(id);
+        }
+
     }
 
     save() {
