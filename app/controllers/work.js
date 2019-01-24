@@ -1,8 +1,26 @@
 const Work = require('../models/work')
 const Letter = require('../models/letter')
-const url = require('url')
 
-exports.getWorks = (req, res, next) => {
+exports.getIndexPage = (req, res, next) => {
+    Work.fetchByCount(4)
+        .then(works => {
+            res.status(200).render('index', {
+                title: '',
+                path: '/',
+                works: works
+            });
+        });
+};
+
+exports.getResumePage = (req, res, next) => {
+    res.render('resume', {
+        title: '- резюме',
+        path: '/resume'
+    });
+};
+
+
+exports.getPortfolioPage = (req, res, next) => {
     Work.fetchAll()
         .then(works => {
             res.render('portfolio', {
@@ -18,7 +36,7 @@ exports.getWorks = (req, res, next) => {
         });
 };
 
-exports.postLetter = (req, res, next) => {
+exports.postContactPage = (req, res, next) => {
 
     const letter = new Letter(
         req.body.name,
@@ -32,4 +50,28 @@ exports.postLetter = (req, res, next) => {
 
     req.session.sendButtonDisabled = true;
     res.redirect("/contact");
-}
+};
+
+exports.getContactPage = (req, res, next) => {
+
+    let sendButton = '';
+    let sendButtonText = 'Отправить сообщение'
+
+    if (req.session.sendButtonDisabled) {
+        sendButton = 'disabled';
+        sendButtonText = 'Сообщение отправлено';
+    }
+    req.session.sendButtonDisabled = false;
+
+    res.render('contact', {
+        title: ' - контактные данные',
+        path: '/contact',
+        sendButton: sendButton,
+        sendButtonText: sendButtonText
+    });
+};
+
+
+exports.getBlogPage = (req, res, next) => {
+    res.send("Страница блога находица в разработке");
+};

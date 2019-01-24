@@ -59,6 +59,26 @@ class Work {
             });
     }
 
+    /**
+     * Fetch of random documents with quantity by count
+     * @param {*} count 
+     */
+
+    static fetchByCount(count) {
+        const db = getDb();
+        return db.collection('works')
+            .aggregate([{
+                $sample: {
+                    size: count
+                }
+            }])
+            .toArray()
+            .then(result => result)
+            .catch(err => console.log(err))
+    }
+
+
+
     static findById(workId) {
         const db = getDb();
         return db.collection('works')
