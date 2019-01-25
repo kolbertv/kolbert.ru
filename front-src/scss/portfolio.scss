@@ -65,7 +65,7 @@
     max-width: 220px;
     opacity: 0.8;
     // padding: 5px;
-    // margin: 5px;
+    margin: 5px;
 
     &:hover {
         opacity: 0;
@@ -89,4 +89,20 @@
     display: flex;
     width: 180px;
     justify-content: space-between;
+}
+
+.portfolio-pdf-btn {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    display: block;
+    border: 1px solid white;
+    padding: 5px;
+    margin: 5px;
+    transition: 0.1s background-color linear, 0.1s color linear;
+
+    &:hover {
+        color: #26262a;
+        background-color: white;
+    }
 }
