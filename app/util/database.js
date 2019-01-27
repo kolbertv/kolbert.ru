@@ -1,12 +1,12 @@
 const mongodb = require('mongodb');
 const MongoClient = mongodb.MongoClient;
-const config = require('../config/configOAuth');
+const config = require('../lib/config');
 
 let _db;
 
 const mongoConnect = cb => {
 
-    MongoClient.connect(`mongodb+srv://${config.dev.mongouser}:${config.dev.mongopass}@cluster0-zrs2t.mongodb.net/${config.dev.mongoDB}?retryWrites=true`)
+    MongoClient.connect(`mongodb+srv://${config.mongouser}:${config.mongopass}@cluster0-zrs2t.mongodb.net/${config.mongoDB}?retryWrites=true`)
         .then(client => {
             console.log('connected');
             _db = client.db();

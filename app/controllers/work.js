@@ -73,5 +73,8 @@ exports.getContactPage = (req, res, next) => {
 
 
 exports.getBlogPage = (req, res, next) => {
-    res.send("Страница блога находица в разработке");
+    res.render('blog', {
+        title: ' - страница блога',
+        path: '/blog'
+    });
 };
