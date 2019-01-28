@@ -1,0 +1,40 @@
+// bytton contact style file
+
+@import "includes/container.scss";
+
+.rc {
+    height: 100px;
+    background-color: #edeeef;
+    width: 100%;
+    padding: 30px 0;
+
+    &__wrap {
+        text-align: center;
+    }
+
+    &__button {}
+}
+
+.rc__button__container {
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
+}
+
+.rc__button {
+    color: #26262a;
+    border: 2px solid #26262a;
+    background-color: transparent;
+    padding: 20px 20px;
+    transition: 0.1s background-color linear, 0.1s color linear;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    margin: 10px;
+
+    &:hover {
+        background-color: #26262a;
+        color: white;
+    }
+
+}

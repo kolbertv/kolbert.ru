@@ -1,166 +1,108 @@
 // portfolio style file
-$esm: 400px;
-$esmWidth: auto;
-$sm: 576px;
-$smWidth: 540px;
-$md: 768px;
-$mdWidth: 720px;
-$lg: 992px;
-$lgWidth: 960px;
-$xl: 1200px;
-$xlWidth: 1140px;
-
-a {
-  color: dimgray;
-}
+@import "includes/container.scss";
+@import "includes/media.scss";
+@import "includes/rc.scss";
 
 .portfolio {
-
-  //padding: 40px 0;
-
-  @media (min-width: $sm) and (max-width: $md) {
-    //padding-top: 30px;
-  }
-
-  @media (min-width: $md) and (max-width: $lg) {
-    //padding-top: 112px;
-  }
-
-  @media (min-width: $lg) and (max-width: $xl) {
-    //padding-top: 112px;
-  }
-
-  @media (min-width: $xl) {
-    //padding-top: 112px;
-  }
-
-  &__content {
-    margin: 0 auto;
-    max-width: $xlWidth;
-    //height: 500px;
-    //border: 2px solid red;
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
-  }
-
-  &__container__item {
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    @media (min-width: $sm) {
-      flex-direction: row;
-
-    }
-    justify-content: space-around;
-    padding-bottom: 40px;
-  }
-
-  &__item {
-    //width: 30%;
-    position: relative;
-    width: 70%;
-
-    @media (max-width: $sm) {
-      margin: 20px 0;
+    &__container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        // margin-bottom: 40px;
     }
 
-    @media (min-width: $sm) {
-      width: 30%;
+    &__item {
+        margin: 0px 10px;
+        margin-bottom: 20px;
+        height: 300px;
+        width: 240px;
+        // background-color: green;
+        // border: 1px solid red; 
+        // background-image: url('/public/img/фильтр-1.png');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        position: relative;
     }
 
-    //height: 20vw;
-    //min-width: 100px;
-    //min-height: 150px;
-    //border: 2px solid green;
-    //margin-bottom: 40px;
+    &__menu {
+        display: flex;
+        justify-content: center;
+    }
+}
+
+.menu {
+    &__container {
+        display: flex;
+        list-style: none;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin: 10px 0px;
+    }
+
+    &__item {
+        padding: 10px 20px;
+        position: relative;
+
+        & a {
+            font-size: 14px;
+            letter-spacing: 1px;
+            font-weight: 800;
+            color: dimgray;
+
+            &:hover {
+                color: black;
+            }
+        }
+    }
+}
+
+.portfolio__description {
+    position: absolute;
+    background-color: white;
+    // height: 100px;
+    max-width: 220px;
+    opacity: 0.8;
+    // padding: 5px;
+    margin: 5px;
 
     &:hover {
-      cursor: pointer;
-      background-color: #f0f0f0;
+        opacity: 0;
+        cursor: pointer;
     }
 
-    & img {
-
-      height: inherit;
-      opacity: 0.9;
-    }
-
-  }
-
-  &__year {
-    background-color: #edeeef;
-    height: 100px;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 40px;
-  }
-
-}
-
-.year__container {
-}
-
-.year__item {
-}
-
-.year {
-  &__container {
-    display: flex;
-    justify-content: center;
-
-  }
-
-  &__item {
-    margin: 0 10px;
-
-    @media (min-width: $sm) {
-      margin: 0 20px;
-    }
-
-    & a {
-      //color: dimgray;
-      text-transform: uppercase;
-      //font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-      font-size: 16px;
-      font-weight: 600;
-
-      &:hover {
+    & p {
         color: black;
-        transition: all .3s ease-out;
-      }
+        margin: 10px;
     }
-
-    &_active {
-      color: black;
-    }
-  }
-
 }
 
-.item__descipt {
-  position: absolute;
-  background-color: black;
-  z-index: 10;
-  bottom: 0;
-  right: 0;
-  opacity: 0.5;
-  color: white;
-  padding: 10px;
-  font-size: 12px;
-
+.menu__item__active {
+    color: black;
 }
 
-.container_hidden {
-
-  //display: none;
-
-  @media (min-width: $sm) {
+.portfolio__admin {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
     display: flex;
-  }
+    width: 180px;
+    justify-content: space-between;
+}
 
+.portfolio-pdf-btn {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    display: block;
+    border: 1px solid white;
+    padding: 5px;
+    margin: 5px;
+    transition: 0.1s background-color linear, 0.1s color linear;
+
+    &:hover {
+        color: #26262a;
+        background-color: white;
+    }
 }

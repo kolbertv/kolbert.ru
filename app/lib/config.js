@@ -1,13 +1,18 @@
 // Container for all configuration variables
 "use strict";
 
+const auth = require('../config/configOAuth');
+
 let environments = {};
 
 // development mode
 environments.staging = {
-    'httpPort': 3000,
+    'httpPort': 2999,
     'httpsPort': 3001,
     'envName': 'staging',
+    'mongopass': auth.dev.mongopass,
+    'mongouser': auth.dev.mongouser,
+    'mongoDB': auth.dev.mongoDB
 
 };
 
@@ -16,6 +21,9 @@ environments.production = {
     'httpPort': process.env.APP_PORT,
     'httpsPort': process.env.APP_PORT,
     'envName': 'production',
+    'mongopass': process.env.MONGO_PASS,
+    'mongouser': process.env.MONGO_USER,
+    'mongoDB': process.env.MONGO_DB
 };
 
 

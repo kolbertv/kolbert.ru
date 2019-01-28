@@ -1,14 +1,7 @@
+@import "includes/media.scss";
+@import "includes/rc.scss";
+
 /*resume style file*/
-$esm: 400px;
-$esmWidth: auto;
-$sm: 576px;
-$smWidth: 540px;
-$md: 768px;
-$mdWidth: 720px;
-$lg: 992px;
-$lgWidth: 960px;
-$xl: 1200px;
-$xlWidth: 1140px;
 
 h2 {
   font-weight: 300;
@@ -17,6 +10,7 @@ h2 {
   letter-spacing: .01em;
   line-height: 1.4em;
   text-transform: none;
+  margin-top: 20px;
 }
 
 h3 {
@@ -34,10 +28,12 @@ h3 {
 
 .content {
   position: relative;
+  margin: 15px;
   //margin-top: 100px;
 }
 
-.skills__width, .works__title__width {
+.skills__width,
+.works__title__width {
 
   @media (max-width: $esm) {
     width: auto;
@@ -65,7 +61,9 @@ h3 {
 
 }
 
-.skills, .works, .education {
+.skills,
+.works,
+.education {
   display: flex;
   line-height: 1.8em;
   margin-bottom: 0px;
@@ -78,7 +76,6 @@ h3 {
   }
 
   @media (min-width: $esm) and (max-width: $sm) {
-    margin-top: 30px;
     padding: 0px 10px;
     flex-direction: column;
   }
@@ -86,7 +83,6 @@ h3 {
   @media (min-width: $sm) and (max-width: $md) {
     margin: 20px auto;
     width: auto;
-    margin-top: 60px;
     justify-content: space-between;
     padding: 0px 10px;
   }
@@ -94,7 +90,6 @@ h3 {
   @media (min-width: $md) and (max-width: $lg) {
     width: $mdWidth;
     margin: 20px auto;
-    margin-top: 60px;
   }
 
   @media (min-width: $lg) and (max-width: $xl) {
@@ -105,7 +100,6 @@ h3 {
 
   @media (min-width: $xl) {
     margin: 20px auto;
-    margin-top: 60px;
     width: $xlWidth;
   }
 }
@@ -144,7 +138,7 @@ h3 {
   border-bottom: 1px solid #1a1a1a;
 
   &:hover {
-    color: rgba(26,26,26,.5);
+    color: rgba(26, 26, 26, .5);
   }
 
 }

@@ -1,30 +1,37 @@
 "use strict";
 
-let app = {};
+document.getElementById('navbar__button').onclick = () => {
 
-console.log('Привет из бабеля и файла JS для фронта');
+    document.getElementById('navbar__container').classList.toggle('container_toggle');
 
-document.getElementById('mobileMenuCheckbox').onclick = function () {
-    document.querySelector('body').style.overflow = this.checked ? 'hidden' : 'auto';
-};
+}
 
-// let menuContainer = document.getElementById('menu__container');
-//
-// menuContainer.addEventListener('mouseover', () => {
-//
-// // document.getElementsByClassName('menu__link')[0].style.color = '#0000';
-//
-//     if (event.target.tagName !== 'A') {
-//         console.log('ghjk');
-//         event.target.style.color = '#5555';
-//     }
-//
-// });
+let contact_p = document.getElementById('p');
+if (contact_p) {
+    contact_p.addEventListener('click', function (event) {
+        let p_id = contact_p.getElementsByTagName('*');
+        for (let i = 0; i < p_id.length; i++) {
+            if ((p_id[i].id === event.target.id)) {
+                p_id[i].style.color = 'white';
+                switch (p_id[i].id) {
+                    case 'p_1':
+                        p_id[i].innerHTML = 'kolbert' + '@' + 'yandex' + '.' + 'ru';
+                        break;
+                    case 'p_2':
+                        p_id[i].innerHTML = '+7' + '-999' + '-998' + '-78' + '-78';
+                        break;
+                    case 'p_3':
+                        p_id[i].innerHTML = '<a href="https://telegram.me/' + 'kolbert' + '">@' + 'kolbert</a>';
+                        break;
+                }
+            } else {
+                if (p_id[i].id) {
+                    p_id[i].innerHTML = 'ПОКАЗАТЬ';
+                    p_id[i].style.color = 'dimgray';
+                }
+            }
+        }
+    
+    })
 
-// menuContainer.addEventListener('mouseout', () => {
-//     if (event.target.tagName !== 'A') {
-//         console.log('ghjk');
-//         event.target.style.color = '#5555';
-//     }
-// });
-
+}

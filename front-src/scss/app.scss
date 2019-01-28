@@ -1,16 +1,11 @@
-/*scss*/
+/* app scss*/
+@import "includes/media.scss";
+@import "includes/container.scss";
+@import "includes/header.scss";
+@import "includes/navbar.scss";
+
 $borderColorDev: 1px solid green;
 $borderColorDev: 0px solid green;
-$esm: 400px;
-$esmWidth: auto;
-$sm: 576px;
-$smWidth: 540px;
-$md: 768px;
-$mdWidth: 720px;
-$lg: 992px;
-$lgWidth: 960px;
-$xl: 1200px;
-$xlWidth: 1140px;
 
 .textColorDev {
   color: black;
@@ -25,7 +20,15 @@ $xlWidth: 1140px;
   //overflow: hidden;
 }
 
-p, body, nav, img, a, h2, h1, h3 {
+p,
+body,
+nav,
+img,
+a,
+h2,
+h1,
+h3,
+ul {
   margin: 0;
   padding: 0;
   display: block;
@@ -33,7 +36,9 @@ p, body, nav, img, a, h2, h1, h3 {
 }
 
 body {
-  //position: relative;
+  position: relative;
+  width: 100%;
+  height: auto;
   z-index: 0;
 }
 
@@ -50,8 +55,6 @@ a {
   color: #26262a;
 }
 
-
-
 .page__wrapper {
   width: 100%;
   height: auto;
@@ -59,7 +62,6 @@ a {
 }
 
 .header {
-
   &__menuMobileContainer {
     // @media  (max-width: $sm)
 
@@ -80,17 +82,16 @@ a {
     @media (min-width: $sm) and (max-width: $md) {
       //height: 60px;
       padding: 20px 10px;
-
     }
 
     @media (min-width: $md) {
       display: none;
     }
-
   }
 
   &__logoButter {
     width: 50px;
+
     @media (min-width: $md) {
       width: auto;
     }
@@ -112,7 +113,6 @@ a {
       width: 35px;
       height: 30px;
       cursor: pointer;
-
     }
 
     &__icon {
@@ -132,9 +132,11 @@ a {
         width: 100%;
         height: 3px;
       }
+
       &::after {
         top: 8px;
       }
+
       &::before {
         top: -8px;
       }
@@ -158,11 +160,9 @@ a {
       transition: 0.2s;
       transition-delay: 0.2s;
       //border: 1px solid black;
-
     }
 
     &__list {
-
       margin-top: -100px;
       transition: 0.5s;
       transition-delay: 0.5s;
@@ -170,7 +170,6 @@ a {
 
     &__item {
       //padding-bottom: 15px;
-
     }
 
     &__link {
@@ -186,12 +185,11 @@ a {
     &__checkbox {
       display: none;
 
-      &:checked ~ {
+      &:checked~ {
         .mobileMenu {
           &__nav {
             opacity: 1;
             transition-delay: 0s;
-
           }
 
           &__container {
@@ -220,7 +218,6 @@ a {
         }
       }
     }
-
   }
 
   &__menuContainer {
@@ -257,14 +254,12 @@ a {
   }
 
   .menu {
-
     &__container {
       display: flex;
       font-size: 13px;
       text-transform: uppercase;
       letter-spacing: 0.15em;
       font-weight: 400;
-
     }
 
     &__link {
@@ -274,14 +269,12 @@ a {
 
       &:hover {
         color: dimgray;
-        transition: all .2s ease-out;
+        transition: all 0.2s ease-out;
       }
     }
 
     &__item {
       //font-family: 'Roboto', sans-serif;
-
-
     }
   }
 
@@ -300,13 +293,10 @@ a {
   @media (min-width: $xl) {
     padding-bottom: 112px;
   }
-
-
 }
 
 // картинка хеадера
 .header {
-
   &__imageContainer {
     width: 100%;
     min-height: 380px;
@@ -314,19 +304,16 @@ a {
 
     @media (min-width: $sm) and (max-width: $md) {
       height: 470px;
-
     }
 
     @media (min-width: $md) and (max-width: $lg) {
       height: 600px;
       margin: -112px 0px;
-
     }
 
     @media (min-width: $lg) and (max-width: $xl) {
       height: 700px;
       margin: -112px 0px;
-
     }
 
     @media (min-width: $xl) {
@@ -336,11 +323,9 @@ a {
   }
 }
 
-
 .image__container {
   //position: relative;
   z-index: 0;
-
 }
 
 .image__container__title {
@@ -359,7 +344,6 @@ a {
 }
 
 .image__container__image {
-
   position: relative;
   background-repeat: no-repeat;
   background-position: center;
@@ -376,7 +360,6 @@ a {
   @media (max-width: $sm) {
     background-image: url("/public/img/header-3-400.jpg");
     height: 400px;
-
   }
 
   @media (min-width: $sm) and (max-width: $md) {
@@ -401,9 +384,7 @@ a {
   }
 }
 
-
 .footer {
-
   display: block;
   position: relative;
   background-color: #26262a;
@@ -442,7 +423,6 @@ a {
       width: $xlWidth;
       border: $borderColorDev;
       padding: 30px 0px;
-
     }
   }
 
@@ -456,9 +436,7 @@ a {
     border: $borderColorDev;
   }
 
-  &__menu_item {
-
-  }
+  &__menu_item {}
 
   &__menu_link {
     padding: 0.5em 1.2em;
@@ -469,7 +447,7 @@ a {
 
     &:hover {
       color: dimgray;
-      transition: all .2s ease-out;
+      transition: all 0.2s ease-out;
     }
   }
 
@@ -495,38 +473,19 @@ a {
       }
 
       & span:hover {
-        color: white;
-        transition: all .3s ease-out;
+        color: dimgray;
+        transition: all 0.2s ease-out;
       }
-
     }
   }
 }
 
 .content {
-
   &::before {
     content: ".";
     display: block;
     height: 0;
     overflow: hidden;
-  }
-
-  @media (min-width: $sm) and (max-width: $md) {
-    //margin-top: 30px;
-  }
-
-  @media (min-width: $md) and (max-width: $lg) {
-    //margin-top: 110px;
-  }
-
-  @media (min-width: $lg) and (max-width: $xl) {
-    //margin-top: 110px;
-  }
-
-  @media (min-width: $xl) {
-    //margin-top: 110px;
-
   }
 
 }
