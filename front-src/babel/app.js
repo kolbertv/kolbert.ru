@@ -1,10 +1,13 @@
 "use strict";
 
-document.getElementById('navbar__button').onclick = () => {
-
-    document.getElementById('navbar__container').classList.toggle('container_toggle');
-
+let navbar__button = document.getElementById('navbar__button');
+if (navbar__button) {
+    navbar__button.onclick = () => {
+        document.getElementById('navbar__container').classList.toggle('container_toggle');
+    }
 }
+
+
 
 let contact_p = document.getElementById('p');
 if (contact_p) {

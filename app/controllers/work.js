@@ -48,26 +48,27 @@ exports.postContactPage = (req, res, next) => {
     letter.save();
     letter.send();
 
-    req.session.sendButtonDisabled = true;
+    // req.session.sendButtonDisabled = true;
     res.redirect("/contact");
 };
 
 exports.getContactPage = (req, res, next) => {
 
-    let sendButton = '';
-    let sendButtonText = 'Отправить сообщение'
+    // let sendButton = '';
+    // let sendButtonText = 'Отправить сообщение'
 
-    if (req.session.sendButtonDisabled) {
-        sendButton = 'disabled';
-        sendButtonText = 'Сообщение отправлено';
-    }
-    req.session.sendButtonDisabled = false;
+    // if (req.session.sendButtonDisabled) {
+    //     sendButton = 'disabled';
+    //     sendButtonText = 'Сообщение отправлено';
+    // }
+
+    // req.session.sendButtonDisabled = false;
 
     res.render('contact', {
         title: ' - контактные данные',
-        path: '/contact',
-        sendButton: sendButton,
-        sendButtonText: sendButtonText
+        path: '/contact'
+        // sendButton: sendButton,
+        // sendButtonText: sendButtonText
     });
 };
 

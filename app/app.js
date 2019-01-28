@@ -1,6 +1,6 @@
 const path = require('path')
 const express = require("express");
-const session = require('express-session')
+// const session = require('express-session')
 
 const bodyParser = require("body-parser");
 
@@ -11,13 +11,14 @@ const mongoConnect = require('./util/database').mongoConnect;
 const app = express();
 
 app.set('view engine', 'ejs')
-app.set('views', 'app/views')
+app.set('views', __dirname + '/views')
 
-app.use(session({
-  secret: '1111',
-  resave: true,
-  saveUninitialized: true
-}))
+// app.use(session({
+//   secret: '1111',
+//   resave: true,
+//   saveUninitialized: true
+// }))
+
 app.use(bodyParser.urlencoded({
   extended: false
 }));
