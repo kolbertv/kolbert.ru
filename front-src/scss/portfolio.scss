@@ -2,22 +2,18 @@
 @import "includes/container.scss";
 @import "includes/media.scss";
 @import "includes/rc.scss";
-
 .portfolio {
     &__container {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        align-items: center;
-        // margin-bottom: 40px;
+        align-items: center; // margin-bottom: 40px;
     }
-
     &__item {
         margin: 0px 10px;
         margin-bottom: 20px;
         height: 300px;
-        width: 240px;
-        // background-color: green;
+        width: 240px; // background-color: green;
         // border: 1px solid red; 
         // background-image: url('/public/img/фильтр-1.png');
         background-repeat: no-repeat;
@@ -25,7 +21,6 @@
         background-size: cover;
         position: relative;
     }
-
     &__menu {
         display: flex;
         justify-content: center;
@@ -39,18 +34,18 @@
         flex-wrap: wrap;
         justify-content: center;
         margin: 10px 0px;
+        & h2 {
+            text-align: center;
+        }
     }
-
     &__item {
         padding: 10px 20px;
         position: relative;
-
         & a {
             font-size: 14px;
             letter-spacing: 1px;
             font-weight: 800;
             color: dimgray;
-
             &:hover {
                 color: black;
             }
@@ -60,18 +55,14 @@
 
 .portfolio__description {
     position: absolute;
-    background-color: white;
-    // height: 100px;
+    background-color: white; // height: 100px;
     max-width: 220px;
-    opacity: 0.8;
-    // padding: 5px;
+    opacity: 0.8; // padding: 5px;
     margin: 5px;
-
     &:hover {
         opacity: 0;
         cursor: pointer;
     }
-
     & p {
         color: black;
         margin: 10px;
@@ -100,7 +91,6 @@
     padding: 5px;
     margin: 5px;
     transition: 0.1s background-color linear, 0.1s color linear;
-
     &:hover {
         color: #26262a;
         background-color: white;

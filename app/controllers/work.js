@@ -42,8 +42,8 @@ exports.postContactPage = (req, res, next) => {
         req.body.name,
         req.body.phone,
         req.body.email,
-        req.body.message,
-    )
+        req.body.message
+    );
 
     letter.save();
     letter.send();
