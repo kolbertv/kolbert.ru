@@ -1,5 +1,5 @@
-const Work = require('../models/work')
-const Letter = require('../models/letter')
+const Work = require('../models/work');
+const Letter = require('../models/letter');
 
 exports.getIndexPage = (req, res, next) => {
     Work.fetchByCount(4)

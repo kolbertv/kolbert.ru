@@ -12,11 +12,11 @@ class Work {
         this.url = url;
         this.year = year;
 
-        console.log(new mongodb.ObjectID(id))
+        this.id = id ? new mongodb.ObjectID(id) : null;
 
-        if (id) {
-            this._id = new mongodb.ObjectID(id);
-        }
+        // if (id) {
+        //     this._id = new mongodb.ObjectID(id);
+        // }
 
     }
 
@@ -27,16 +27,15 @@ class Work {
 
         if (this._id) {
             //update the works
-            console.log(this._id)
             dbOp = db.collection('works').updateOne({
                 _id: this._id
             }, {
                 $set: this
-            })
+            });
 
         } else {
             // add new work
-            dbOp = db.collection('works').insertOne(this)
+            dbOp = db.collection('works').insertOne(this);
         }
 
         return dbOp
@@ -74,7 +73,7 @@ class Work {
             }])
             .toArray()
             .then(result => result)
-            .catch(err => console.log(err))
+            .catch(err => console.log(err));
     }
 
 
@@ -103,6 +102,7 @@ class Work {
             .deleteOne({
                 _id: new mongodb.ObjectID(workId)
             })
+            .then()
             .catch(err => {
                 console.log(err);
             });

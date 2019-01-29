@@ -1,8 +1,8 @@
 const nodemailer = require('nodemailer');
-const auth = require('../config/configOAuth')
+const auth = require('../config/configOAuth');
 
-const fs = require('fs')
-const path = require('path')
+const fs = require('fs');
+const path = require('path');
 
 const p = path.join(path.dirname(process.mainModule.filename),
     'data',
@@ -12,12 +12,12 @@ const p = path.join(path.dirname(process.mainModule.filename),
 const getLettersFromFile = cb => {
     fs.readFile(p, (err, fileContent) => {
         if (err) {
-            cb([])
+            cb([]);
         } else {
-            cb(JSON.parse(fileContent))
+            cb(JSON.parse(fileContent));
         }
-    })
-}
+    });
+};
 
 
 module.exports = class Letter {
@@ -40,9 +40,11 @@ module.exports = class Letter {
             }
             letters.push(this);
             fs.writeFile(p, JSON.stringify(letters), (err) => {
-                console.log(err)
-            })
-        })
+                if (err) {
+                    console.log(err);
+                }
+            });
+        });
 
     }
 
@@ -56,7 +58,7 @@ module.exports = class Letter {
                 user: auth.dev.id,
                 pass: auth.dev.token
             }
-        })
+        });
         const message = {
             from: this.name + ' ' + this.email,
             to: auth.dev.user,
@@ -66,8 +68,8 @@ module.exports = class Letter {
             },
             subject: `Письмо с сайта kolbert.ru от ${this.name} номер письма:${this.id}`,
             text: this.message
-        }
+        };
         transport.sendMail(message).catch(err => console.log(err));
 
     }
-}
+};

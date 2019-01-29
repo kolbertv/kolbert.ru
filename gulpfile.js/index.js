@@ -1,6 +1,6 @@
 "use strict";
 
-require("babel-polyfill")
+require("babel-polyfill");
 
 const {
     src,
@@ -13,7 +13,7 @@ const {
 const browserSync = require("browser-sync").create();
 const plumber = require("gulp-plumber"); //чтобы не вылетал gulp при появлении ошибки при выполении таски
 const rename = require("gulp-rename");
-const sourcemap = require('gulp-sourcemaps')
+const sourcemap = require('gulp-sourcemaps');
 
 const sass = require("gulp-sass");
 // const csscomb = require('gulp-csscomb') //критически ошибки в модуле

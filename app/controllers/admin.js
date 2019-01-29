@@ -4,8 +4,8 @@ exports.getAddWork = (req, res, next) => {
     res.render('add-work', {
         pageTitle: 'Добавить новую работу в базу данных',
         path: '/admin/add-work',
-    })
-}
+    });
+};
 
 
 exports.postAddWork = (req, res, next) => {
@@ -16,10 +16,10 @@ exports.postAddWork = (req, res, next) => {
         req.body.feature,
         req.body.url,
         req.body.year
-    )
+    );
     work.save();
     res.redirect(`/admin/portfolio/${req.body.year}`);
-}
+};
 
 exports.listAddWork = (req, res, next) => {
     Work.fetchAll()
@@ -35,11 +35,11 @@ exports.listAddWork = (req, res, next) => {
         .catch(err => {
             console.log(err);
         });
-}
+};
 
 exports.indexAddWork = (req, res, next) => {
-    res.redirect("/admin/portfolio/exampl")
-}
+    res.redirect("/admin/portfolio/exampl");
+};
 
 exports.editWork = (req, res, next) => {
     Work.findById(req.params.id)
@@ -60,18 +60,18 @@ exports.postEditWork = (req, res, next) => {
         req.body.feature,
         req.body.url,
         req.body.year
-    )
+    );
     work.save()
         .then(result => {
-            console.log('rerod updated');
+            // console.log('rerod updated');
             res.redirect(`/admin/portfolio/${req.body.year}`);
         })
-        .catch(err => console.log(err))
+        .catch(err => console.log(err));
 
-}
+};
 
 
 exports.deleteWork = (req, res, next) => {
-    Work.deleteById(req.body.workId)
+    Work.deleteById(req.body.workId);
     res.redirect(`/admin/portfolio/${req.body.year}`);
-}
+};
