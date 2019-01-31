@@ -15,37 +15,51 @@ $borderColorDev: 0px solid green;
   color: darkgray;
 }
 
-.page__wrapper {
-  //position: relative;
-  //overflow: hidden;
-}
-
-p,
-body,
-nav,
-img,
-a,
-h2,
-h1,
-h3,
-ul {
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, img, small, strong, ol, ul, li, form, label, table, caption, tr, td, footer, header {
   margin: 0;
   padding: 0;
-  display: block;
-  //font-family: 'Roboto', sans-serif;
+  border: 0;
 }
 
+ol, ul {
+  list-style: none;
+}
+
+footer, header, menu, nav, section {
+  display: block;
+}
+
+
 body {
+  font-size: 16px;
+  min-width: 320px;
+  line-height: 1.6;
+  font-family: 'Roboto, sans-serif';
   position: relative;
-  width: 100%;
-  height: auto;
-  z-index: 0;
+  overflow-x: hidden;
+  color: #000000;
+  // width: 100%;
+  // height: auto;
+  // z-index: 0;
 }
 
 a {
   text-decoration: none;
-  color: white;
+  color:#959595;
+  font-weight: 300;
+  transition: all .3s linear;
+
+  &:hover {
+    text-decoration: none;
+    color: #000000;
+  }
+
+  &:focus {
+    text-decoration: none;
+  }
 }
+
+
 
 .white {
   color: white;
