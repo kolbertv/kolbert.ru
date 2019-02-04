@@ -15,8 +15,10 @@ exports.postAddWork = (req, res, next) => {
         req.body.descript,
         req.body.feature,
         req.body.url,
-        req.body.year
+        req.body.year,
+        req.user._id
     );
+
     work.save();
     res.redirect(`/admin/portfolio/${req.body.year}`);
 };
@@ -59,7 +61,8 @@ exports.postEditWork = (req, res, next) => {
         req.body.descript,
         req.body.feature,
         req.body.url,
-        req.body.year
+        req.body.year,
+        req.user._id
     );
     work.save()
         .then(result => {

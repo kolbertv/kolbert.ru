@@ -1,23 +1,22 @@
 // const fs = require('fs')
 // const path = require('path')
 
-const mongodb = require('mongodb');
-const getDb = require('../util/database').getDb;
+const mongodb = require("mongodb");
+const getDb = require("../util/database").getDb;
 
 class Work {
-    constructor(id, title, descript, feature, url, year) {
+    constructor(id, title, descript, feature, url, year, userId) {
         this.title = title;
         this.descript = descript;
         this.feature = feature;
         this.url = url;
         this.year = year;
-
-        this.id = id ? new mongodb.ObjectID(id) : null;
+        this._id = id ? new mongodb.ObjectID(id) : null;
+        this.userId = userId;
 
         // if (id) {
         //     this._id = new mongodb.ObjectID(id);
         // }
-
     }
 
     save() {
@@ -27,26 +26,27 @@ class Work {
 
         if (this._id) {
             //update the works
-            dbOp = db.collection('works').updateOne({
+            dbOp = db.collection("works").updateOne({
                 _id: this._id
             }, {
                 $set: this
             });
-
         } else {
             // add new work
-            dbOp = db.collection('works').insertOne(this);
+            dbOp = db.collection("works").insertOne(this);
         }
 
-        return dbOp
+        return (
+            dbOp
             // .then(result => console.log(result))
-            .catch(err => console.log(err));
+            .catch(err => console.log(err))
+        );
     }
 
     static fetchAll() {
         const db = getDb();
         return db
-            .collection('works')
+            .collection("works")
             .find()
             .toArray()
             .then(works => {
@@ -60,12 +60,13 @@ class Work {
 
     /**
      * Fetch of random documents with quantity by count
-     * @param {*} count 
+     * @param {*} count
      */
 
     static fetchByCount(count) {
         const db = getDb();
-        return db.collection('works')
+        return db
+            .collection("works")
             .aggregate([{
                 $sample: {
                     size: count
@@ -76,11 +77,10 @@ class Work {
             .catch(err => console.log(err));
     }
 
-
-
     static findById(workId) {
         const db = getDb();
-        return db.collection('works')
+        return db
+            .collection("works")
             .find({
                 _id: new mongodb.ObjectID(workId)
             })
@@ -92,13 +92,12 @@ class Work {
             .catch(err => {
                 console.log(err);
             });
-
     }
 
     static deleteById(workId) {
         const db = getDb();
         return db
-            .collection('works')
+            .collection("works")
             .deleteOne({
                 _id: new mongodb.ObjectID(workId)
             })
@@ -106,10 +105,8 @@ class Work {
             .catch(err => {
                 console.log(err);
             });
-
     }
 }
-
 
 // const p = path.join(path.dirname(process.mainModule.filename),
 //     'data',
@@ -125,7 +122,6 @@ class Work {
 //         }
 //     })
 // }
-
 
 // module.exports = class Work {
 //     constructor(id, title, descript, feature, url, year) {

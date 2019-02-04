@@ -3,6 +3,7 @@ const express = require("express");
 // const session = require('express-session')
 
 const bodyParser = require("body-parser");
+// const mongoose = require('mongoose');
 
 const config = require("./lib/config");
 const errorController = require('./controllers/error');
@@ -26,6 +27,15 @@ app.use(bodyParser.urlencoded({
 
 app.use('/public', express.static(path.join(__dirname, 'public')));
 
+app.use((req, res, next) => {
+  User.findById('5c52eb0878682e68f08244a9')
+    .then(user => {
+      req.user = user;
+      next();
+    })
+    .catch(err => console.log(err));
+})
+
 const adminRoutes = require('./routes/admin');
 const workRoutes = require('./routes/work');
 
@@ -41,3 +51,13 @@ mongoConnect(() => {
   });
 
 });
+
+// mongoose.connect(`mongodb+srv://${config.mongouser}:${config.mongopass}@cluster0-zrs2t.mongodb.net/${config.mongoDB}?retryWrites=true`)
+//   .then(result => {
+//     app.listen(config.httpPort, () => {
+//       console.log(`kolbert.ru started and listening on port ${config.httpPort}`);
+//     });
+//   })
+//   .catch(err => {
+//     console.log(err);
+//   });
