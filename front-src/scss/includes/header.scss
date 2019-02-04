@@ -1,37 +1,13 @@
 // header css
 
-@import "media.scss";
+@import "navbar.scss";
 
-.masterheader {
-  // margin-bottom: 50px;
-  height: 530px;
-  background-color: #26262a;
-  background-image: url(/public/img/header-3-400.jpg);
-  background-repeat: no-repeat;
+
+header {
+  background-image: url(/public/img/big-img.jpg);
   background-position: center;
   background-size: cover;
   position: relative;
-
-  @media (min-width: $md) {
-    background-image: url(/public/img/header-3-600.jpg);
-  }
-
-  @media (min-width: $lg) {
-    background-image: url(/public/img/header-3-700.jpg);
-  }
-
-  @media (min-width: $xl) {
-    background-image: url(/public/img/header-3-800.jpg);
-  }
-
-}
-
-.overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  background-color: #26262a;
-  opacity: 0.6;
+  height: 100vh;
+  position: relative;
 }

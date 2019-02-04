@@ -3,141 +3,96 @@
 @import "media.scss";
 @import "container.scss";
 
-.logo-w_visible {
-    display: none;
-    padding: 10px 20px;
-
-    &:hover {
-        transition: all 0.2s ease-out;
-        opacity: 0.2;
-    }
-}
-
-.logo-b_visible {
-    display: block;
-    padding: 10px 0;
-}
-
-@media (min-width: $lg) {
-    .logo-w_visible {
-        display: block;
-    }
-
-    .logo-b_visible {
-        display: none;
-    }
-
-}
 
 .navbar {
 
-    position: absolute;
     background-color: white;
-    padding: .5rem 1rem;
+    padding: 0 1rem;
+    width: 100%;
+    z-index: 1000;
+    box-sizing: border-box;
 
-    @media (min-width: $lg) {
+
+    @media (min-width: $sm) {
+        padding: 0 0;
         background-color: transparent;
-    }
+        border-bottom: 1px solid rgba(0, 0, 0, 0.19);
 
-    &_fixed-top {
-        z-index: 1000;
-        top: 0;
-        left: 0;
-        right: 0;
-    }
-
-
-    &__nav {
-        list-style: none;
         display: flex;
-        flex-direction: column;
-
-        @media (min-width: $lg) {
-            flex-direction: row;
-        }
-
-    }
-
-    &__button {
-        text-transform: uppercase;
-        padding: 13px;
-        background-color: transparent;
-        border: 1px solid transparent;
-        border-color: rgba(0, 0, 0, .1);
-        cursor: pointer;
-        font-size: 12px;
-        font-weight: 600;
-        letter-spacing: 1px;
-    }
-
-    &__container {
-        display: flex;
-        flex-wrap: wrap;
         align-items: center;
         justify-content: space-between;
-        height: 90px;
-        overflow: hidden;
-        transition: 0.3s;
 
-        @media (min-width: $lg) {
-            flex-wrap: nowrap;
-
+        .nav__item a{
+            padding: 0 5px;
+            text-transform: uppercase;
+            font-size: 14px;
+            font-weight: 500;
         }
 
+
+        .logo-btn {
+            display: none;
+        }
+
+        .navbar__collapse {
+            display: block;
+        
+            & .navbar__nav {
+                display: flex;
+            }
+        }
     }
 
-    &__logo {}
 
     &__collapse {
-        // display: none;
-        flex-basis: 100%;
-        padding: 10px 0;
-        border-top: 1px solid #26262a;
-
-        @media (min-width: $lg) {
-            flex-basis: auto;
-            // display: block;
-        }
-    }
-
-
-}
-
-
-.button_visible {
-    display: block;
-
-    @media (min-width: $lg) {
         display: none;
     }
 
+
 }
 
-.nav {
 
-    &__link {
-        text-decoration: none;
-        color: black;
-        text-transform: uppercase;
-        letter-spacing: 2px;
-        font-size: 13px;
-        font-weight: 800;
-        padding: 5px 0px;
+.logo-block {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
-        &:hover {
-            color: dimgray;
-            transition: all 0.2s ease-out;
-        }
+.logo-img {
+    line-height: 50px;
+    font-weight: 900;
+    font-size: 26px;
 
-        @media (min-width: $lg) {
-            color: white;
-            padding: 10px 10px;
-        }
-
+    & span {
+        font-size: 10px;
+        padding-left: 2px;
+        letter-spacing: 1px;
     }
 }
+
+.logo-btn {
+    display: block;
+    width: 28px;
+    height: 28px;
+    right: 22px;
+    top: 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+
+    &__item {
+        background-color: black;
+        height: 3px;
+        width: 100%;
+    }
+
+
+}
+
 
 
 .container_toggle {
     height: 240px;
+
 }

@@ -76,6 +76,7 @@ let styleBuild = () => {
         )
         // .pipe(csscomb())
         .pipe(sourcemap.write('/map'))
+        .pipe(plumber.stop())
         .pipe(dest(path.style.dest))
         // .pipe(csso())
         // .pipe(rename({
