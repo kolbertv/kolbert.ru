@@ -1,9 +1,19 @@
 "use strict";
 
-let navbar__button = document.getElementById('navbar__button');
+let navbar__button = document.getElementById('logo-btn');
 if (navbar__button) {
     navbar__button.onclick = () => {
-        document.getElementById('navbar__container').classList.toggle('container_toggle');
+        let toggleClass = 'mm_hidden';
+        let navbarMenu = document.getElementById('navbar__collapse');
+        let menuClassArr = navbarMenu.className.split(' ');
+        let indexClass = menuClassArr.indexOf(toggleClass);
+
+        if (indexClass >= 0) {
+            menuClassArr.splice(indexClass, 1);
+        } else {
+            menuClassArr.push(toggleClass);
+        }
+        navbarMenu.className = menuClassArr.join(' ');
     }
 }
 
@@ -34,7 +44,7 @@ if (contact_p) {
                 }
             }
         }
-    
+
     })
 
 }

@@ -3,6 +3,13 @@
 @import "media.scss";
 @import "container.scss";
 
+.mm_hidden {
+    display: none;
+}
+
+.nav__item {
+    padding: 5px 0;
+}
 
 .navbar {
 
@@ -11,6 +18,11 @@
     width: 100%;
     z-index: 1000;
     box-sizing: border-box;
+
+    &__collapse {
+        padding: 0 0 10px 0;
+        text-align: right;
+    }
 
 
     @media (min-width: $sm) {
@@ -22,11 +34,12 @@
         align-items: center;
         justify-content: space-between;
 
-        .nav__item a{
+        .nav__item a {
             padding: 0 5px;
             text-transform: uppercase;
             font-size: 14px;
             font-weight: 500;
+
         }
 
 
@@ -36,7 +49,9 @@
 
         .navbar__collapse {
             display: block;
-        
+            padding: 0;
+
+
             & .navbar__nav {
                 display: flex;
             }
@@ -45,7 +60,7 @@
 
 
     &__collapse {
-        display: none;
+        // display: none;
     }
 
 
