@@ -74,3 +74,40 @@
         justify-content: space-around;
     }
 }
+
+.contact {
+    &_form {
+        padding: 20px 0px;
+
+    }
+}
+
+
+.form {
+    &-input {
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        border-bottom: 1px solid #898989;
+        padding: 10px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    &-button {
+        background-color: transparent;
+        color: #1c1c1c;
+        padding: 15px 35px 13px 35px;
+        border: 1px solid #1c1c1c;
+        text-transform: uppercase;
+        font-weight: 700;
+        line-height: 1;
+        text-align: center;
+        margin: 40px 0;
+    }
+
+    &-wrap {
+        text-align: center;
+    }
+
+}
