@@ -4,7 +4,7 @@ $borderColorDev: 0px solid green;
 .footer {
     display: block;
     position: relative;
-    background-color: #26262a;
+    background-color: #f0f0f0;
     color: white;
     border: $borderColorDev;
     width: auto;
@@ -60,7 +60,8 @@ $borderColorDev: 0px solid green;
         font-size: 12px;
         text-transform: uppercase;
         letter-spacing: 0.15em;
-        color: gainsboro;
+        color: black;
+        font-weight: 500;
 
         &:hover {
             color: dimgray;
@@ -86,7 +87,7 @@ $borderColorDev: 0px solid green;
                 font-family: "Fontello";
                 font-style: normal;
                 font-size: 24px;
-                color: gainsboro;
+                color: gray;
             }
 
             & span:hover {
