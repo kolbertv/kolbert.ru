@@ -38,10 +38,11 @@ app.use((req, res, next) => {
 
 const adminRoutes = require('./routes/admin');
 const workRoutes = require('./routes/work');
+const authRoutes = require('./routes/auth');
 
 app.use(adminRoutes);
 app.use(workRoutes);
-
+app.use(authRoutes);
 app.use(errorController.get404);
 
 
