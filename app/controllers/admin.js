@@ -40,8 +40,12 @@ exports.listAddWork = (req, res, next) => {
 };
 
 exports.indexAddWork = (req, res, next) => {
-    res.redirect("/admin/portfolio/exampl");
+    res.render('admin/index', {
+        pageTitle: 'Страница авторизации'
+        // path: '/admin/index'
+    });
 };
+
 
 exports.editWork = (req, res, next) => {
     Work.findById(req.params.id)
