@@ -13,3 +13,12 @@ exports.postLogin = (req, res, next) => {
     res.redirect('admin/portfolio/2018');
 
 };
+
+exports.postLogout = (req, res, next) => {
+
+    req.session.destroy(()=> {
+        res.redirect('/admin');
+    })
+
+
+};
