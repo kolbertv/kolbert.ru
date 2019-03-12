@@ -9,6 +9,7 @@ exports.getLogin = (req, res, next) => {
 
 exports.postLogin = (req, res, next) => {
 
-    res.redirect('/');
+    req.session.isLoggedIn = true;
+    res.redirect('admin/portfolio/2018');
 
 };
