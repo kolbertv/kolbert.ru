@@ -12,13 +12,13 @@
 </head>
 
 <body class="login-body">
-    <form class="login-form" action="/login" method="POST">
+    <form class="login-form" action="/signup" method="POST">
         <div class="login-container">
             <input type="email" name="email" placeholder="Адрес электронной почты">
             <input type="password" name="password" placeholder="Пароль">
+            <input type="password" name="confirmPassword" placeholder="Повторить пароль">
             <div class="login-btn">
-                <a class="login-btn-item" href="/signup">Регистрация</a>
-                <button class="login-btn-item" type="submit">Войти</button>
+                <button class="login-btn-signup" type="submit">Регистрация</button>
             </div>
         </div>
     </form>

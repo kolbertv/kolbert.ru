@@ -36,14 +36,14 @@ app.use(session({
 }));
 
 
-app.use((req, res, next) => {
-  User.findById('5c52eb0878682e68f08244a9')
-    .then(user => {
-      req.session.user = user;
-      next();
-    })
-    .catch(err => console.log(err));
-});
+// app.use((req, res, next) => {
+//   User.findById('5c52eb0878682e68f08244a9')
+//     .then(user => {
+//       req.session.user = user;
+//       next();
+//     })
+//     .catch(err => console.log(err));
+// });
 
 const adminRoutes = require('./routes/admin');
 const workRoutes = require('./routes/work');
