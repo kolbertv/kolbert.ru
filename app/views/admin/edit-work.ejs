@@ -11,6 +11,7 @@
 <body>
     <main>
         <form action="/admin/edit-work" method="POST" style="display:flex; flex-direction: column; width: 200px">
+            <input type="hidden" name="_csrf" value="<%= csrfToken%>">
             <input type="text" name="title" placeholder="title" value="<%= work.title %>">
             <input type="text" name="descript" placeholder="descript" value="<%= work.descript %>">
             <input type="text" name="feature" placeholder="feature" value="<%= work.feature %>">

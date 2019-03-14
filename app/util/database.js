@@ -6,7 +6,9 @@ let _db;
 
 const mongoConnect = cb => {
 
-    MongoClient.connect(`mongodb+srv://${config.mongouser}:${config.mongopass}@cluster0-zrs2t.mongodb.net/${config.mongoDB}?retryWrites=true`)
+    MongoClient.connect(`mongodb+srv://${config.mongouser}:${config.mongopass}@cluster0-zrs2t.mongodb.net/${config.mongoDB}?retryWrites=true`, {
+            useNewUrlParser: true
+        })
         .then(client => {
             console.log('mongodb connected');
             _db = client.db();

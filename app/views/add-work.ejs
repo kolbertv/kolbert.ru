@@ -14,6 +14,7 @@
     <main>
 
         <form action="/admin/add-work" method="POST" style="display:flex; flex-direction: column; width: 200px">
+            <input type="hidden" name="_csrf" value="<%= csrfToken%>">
             <input type="text" name="title" placeholder="title">
             <input type="text" name="descript" placeholder="descript">
             <input type="text" name="feature" placeholder="feature">
