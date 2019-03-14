@@ -1,3 +1,5 @@
+const crypto = require('crypto');
+
 const User = require('../models/user');
 const bcrypt = require('bcryptjs');
 
@@ -83,4 +85,41 @@ exports.postSignup = (req, res, next) => {
                 });
         })
         .catch(err => console.log(err));
+};
+
+exports.getReset = (req, res, next) => {
+    res.render('admin/reset', {
+        pageTitle: 'Восстановление пароля',
+        errorMessage: req.flash('error')
+    });
+
+};
+
+exports.postReset = (req, res, next) => {
+    crypto.randomBytes(32, (err, buffer)=>{
+        if (err) {
+            console.log(err);
+            return res.redirect('/reset');
+        }
+        const token = buffer.toString('hex');
+        User.findOne({email:req.body.email})
+        .then(user=>{
+            if (!user) {
+                req.flash('error', 'Аккаунта с такой почтой не существует');
+                return res.redirect('/reset');
+            }
+
+            user.resetToken = token;
+            user.resetTokenExpiration = Date.now() + 3600000;
+            return new User(user).save();
+        })
+        .then(result=> {
+            console.log(result)
+        })
+        .catch(err=>{
+            console.log(err)
+        })
+
+    })
+
 };

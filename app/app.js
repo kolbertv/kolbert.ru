@@ -33,6 +33,7 @@ app.use(bodyParser.urlencoded({
 
 app.use('/public', express.static(path.join(__dirname, 'public')));
 
+
 app.use(session({
   secret: 'my secret',
   resave: false,
