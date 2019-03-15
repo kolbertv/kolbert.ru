@@ -2,12 +2,12 @@ const mongodb = require("mongodb");
 const ObjectId = mongodb.ObjectID;
 
 const nodemailer = require('nodemailer');
-const auth = require('../config/configOAuth');
+// const auth = require('../config/configOAuth');
 const transport = nodemailer.createTransport({
-    service: auth.dev.service,
+    service: process.env.MAIL_SERVICE,
     auth: {
-        user: auth.dev.id,
-        pass: auth.dev.token
+        user: process.env.MAIL_ID,
+        pass: process.env.MAIL_TOKEN
     }
 });
 
@@ -148,7 +148,7 @@ exports.postReset = (req, res, next) => {
                 res.redirect('/admin');
                 return transport.sendMail({
                     to: req.body.email,
-                    from: auth.dev.id,
+                    from: process.env.MAIL_ID,
                     subject: 'Password reset',
                     html: `
                     <p>Вами был инициирован запрос на сброс паролья</p>

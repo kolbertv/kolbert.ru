@@ -1,5 +1,5 @@
 const nodemailer = require('nodemailer');
-const auth = require('../config/configOAuth');
+// const auth = require('../config/configOAuth');
 
 
 const fs = require('fs');
@@ -54,18 +54,18 @@ module.exports = class Letter {
         // console.log(`this from send ${this.name}`)
 
         let transport = nodemailer.createTransport({
-            service: auth.dev.service,
+            service: process.env.MAIL_SERVICE,
             auth: {
-                user: auth.dev.id,
-                pass: auth.dev.token
+                user: process.env.MAIL_ID,
+                pass: process.env.MAIL_TOKEN
             }
         });
         const message = {
             from: this.name + ' ' + this.email,
-            to: auth.dev.user,
+            to: process.env.MAIL_USER,
             envelope: {
-                from: auth.dev.id,
-                to: auth.dev.user
+                from: process.env.MAIL_ID,
+                to: process.env.MAIL_USER
             },
             subject: `Письмо с сайта kolbert.ru от ${this.name} номер письма:${this.id}`,
             text: this.message

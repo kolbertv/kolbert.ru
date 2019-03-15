@@ -6,7 +6,9 @@ let _db;
 
 const mongoConnect = cb => {
 
-    MongoClient.connect(`mongodb+srv://${config.mongouser}:${config.mongopass}@cluster0-zrs2t.mongodb.net/${config.mongoDB}?retryWrites=true`, {
+    const MONGODB_URI = `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@cluster0-zrs2t.mongodb.net/${process.env.MONGO_DB}?retryWrites=true`;
+
+    MongoClient.connect(MONGODB_URI, {
             useNewUrlParser: true
         })
         .then(client => {

@@ -13,12 +13,12 @@ const fs = require('fs');
 
 // const mongoose = require('mongoose');
 
-const config = require("./lib/config");
+// const config = require("./lib/config");
 const errorController = require('./controllers/error');
 const mongoConnect = require('./util/database').mongoConnect;
 const User = require('./models/user');
 
-const MONGODB_URI = `mongodb+srv://${process.env.MONGO_USER || config.mongouser}:${process.env.MONGO_PASSWORD || config.mongopass}@cluster0-zrs2t.mongodb.net/${process.env.MONGO_DB || config.mongoDB}?retryWrites=true`;
+const MONGODB_URI = `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@cluster0-zrs2t.mongodb.net/${process.env.MONGO_DB}?retryWrites=true`;
 
 const app = express();
 const store = new MongoDBStore({
@@ -86,8 +86,10 @@ app.use(errorController.get404);
 
 
 mongoConnect(() => {
-  app.listen(process.env.PORT || config.httpPort, () => {
-    console.log(`kolbert.ru started and listening on port ${process.env.PORT || config.httpPort}`);
+
+  let port = process.env.PORT || 2999;
+  app.listen(port, () => {
+    console.log(`kolbert.ru started and listening on port ${port}`);
   });
 
 });
