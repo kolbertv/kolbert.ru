@@ -43,6 +43,7 @@ class User {
 
   static findOne(data) {
     const db = getDb();
+    // data._id = new ObjectId(data._id);
     return db.collection("users").findOne(data);
   }
 }

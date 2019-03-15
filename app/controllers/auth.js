@@ -1,3 +1,6 @@
+const mongodb = require("mongodb");
+const ObjectId = mongodb.ObjectID;
+
 const nodemailer = require('nodemailer');
 const auth = require('../config/configOAuth');
 const transport = nodemailer.createTransport({
@@ -7,7 +10,6 @@ const transport = nodemailer.createTransport({
         pass: auth.dev.token
     }
 });
-
 
 
 const crypto = require('crypto');
@@ -33,7 +35,8 @@ exports.postLogin = (req, res, next) => {
         })
         .then(user => {
             if (!user) {
-                res.redirect('/admin');
+                req.flash('error', 'Пользователя с такой почтой не зарегистрирован');
+                return res.redirect('/admin');
 
             }
             bcrypt
@@ -76,6 +79,11 @@ exports.postSignup = (req, res, next) => {
     const email = req.body.email;
     const password = req.body.password;
     const confirmPassword = req.body.confirmPassword;
+
+    if (password !== confirmPassword) {
+        req.flash('error', 'Пароли не совпадают');
+        return res.redirect('/signup');
+    }
 
     User.findOne({
             email: email
@@ -151,8 +159,67 @@ exports.postReset = (req, res, next) => {
             })
             .catch(err => {
                 console.log(err);
-            })
+            });
 
-    })
+    });
+
+};
+
+exports.getNewPassword = (req, res, next) => {
+    const token = req.params.token;
+
+    User.findOne({
+            resetToken: token,
+            resetTokenExpiration: {
+                $gt: Date.now()
+            }
+        })
+        .then(user => {
+
+            res.render('admin/new-password', {
+                pageTitle: 'Форма смены пароля',
+                errorMessage: req.flash('error'),
+                userId: user._id.toString(),
+                passwordToken: token
+            });
+
+        })
+        .catch(err => console.log(err));
+
+};
+
+exports.postNewPasword = (req, res, next) => {
+    const newPassword = req.body.password;
+    const confirmNewPassword = req.body.confirmPassword;
+    const userId = req.body.userId;
+    const passwordToken = req.body.passwordToken;
+    let resetUser;
+
+    if (newPassword !== confirmNewPassword) {
+        req.flash('error', 'Пароли не совпадают');
+        return res.redirect(`/reset/${passwordToken}`);
+    }
+
+    User.findOne({
+            resetToken: passwordToken,
+            resetTokenExpiration: {
+                $gt: Date.now()
+            },
+            _id: new ObjectId(userId)
+        })
+        .then(user => {
+            resetUser = user;
+            return bcrypt.hash(newPassword, 12);
+        })
+        .then(hashedPassword => {
+            resetUser.password = hashedPassword;
+            resetUser.resetToken = undefined;
+            resetUser.resetTokenExpiration = undefined;
+            return new User(resetUser).save();
+        })
+        .then(result => {
+            return res.redirect('/admin');
+        })
+        .catch(err => console.log(err));
 
 };

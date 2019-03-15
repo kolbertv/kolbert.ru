@@ -12,7 +12,7 @@ const flash = require('connect-flash');
 const config = require("./lib/config");
 const errorController = require('./controllers/error');
 const mongoConnect = require('./util/database').mongoConnect;
-// const User = require('./models/user');
+const User = require('./models/user');
 
 const MONGODB_URI = `mongodb+srv://${config.mongouser}:${config.mongopass}@cluster0-zrs2t.mongodb.net/${config.mongoDB}?retryWrites=true`;
 
@@ -44,14 +44,20 @@ app.use(session({
 app.use(csrfProtection);
 app.use(flash());
 
-// app.use((req, res, next) => {
-//   User.findById('5c52eb0878682e68f08244a9')
-//     .then(user => {
-//       req.session.user = user;
-//       next();
-//     })
-//     .catch(err => console.log(err));
-// });
+app.use((req, res, next) => {
+  if (!req.session.user) {
+    return next();
+  }
+
+  User.findById(req.session.user._id)
+    .then(user => {
+      req.user = user;
+      next();
+    })
+    .catch(err => console.log(err));
+
+});
+
 
 app.use((req, res, next) => {
   res.locals.csrfToken = req.csrfToken();
