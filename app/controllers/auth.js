@@ -1,3 +1,15 @@
+const nodemailer = require('nodemailer');
+const auth = require('../config/configOAuth');
+const transport = nodemailer.createTransport({
+    service: auth.dev.service,
+    auth: {
+        user: auth.dev.id,
+        pass: auth.dev.token
+    }
+});
+
+
+
 const crypto = require('crypto');
 
 const User = require('../models/user');
@@ -54,7 +66,8 @@ exports.postLogout = (req, res, next) => {
 
 exports.getSignup = (req, res, next) => {
     res.render('admin/signup', {
-        pageTitle: 'Регистрация пользователя'
+        pageTitle: 'Регистрация пользователя',
+        errorMessage: req.flash('error')
     });
 
 };
@@ -69,6 +82,7 @@ exports.postSignup = (req, res, next) => {
         })
         .then(userDoc => {
             if (userDoc) {
+                req.flash('error', 'Пользователь с данным емвйл уже зарегистрирован');
                 return res.redirect('/signup');
             }
             return bcrypt
@@ -82,7 +96,14 @@ exports.postSignup = (req, res, next) => {
                 })
                 .then(result => {
                     res.redirect('/admin');
-                });
+                    return transport.sendMail({
+                        to: email,
+                        from: auth.dev.id,
+                        subject: 'Регистрация успешная',
+                        html: `<h1>Вы успешно зарегистрировались</h1>`
+                    });
+                })
+                .catch(err => console.log(err));
         })
         .catch(err => console.log(err));
 };
@@ -96,29 +117,41 @@ exports.getReset = (req, res, next) => {
 };
 
 exports.postReset = (req, res, next) => {
-    crypto.randomBytes(32, (err, buffer)=>{
+    crypto.randomBytes(32, (err, buffer) => {
         if (err) {
             console.log(err);
             return res.redirect('/reset');
         }
         const token = buffer.toString('hex');
-        User.findOne({email:req.body.email})
-        .then(user=>{
-            if (!user) {
-                req.flash('error', 'Аккаунта с такой почтой не существует');
-                return res.redirect('/reset');
-            }
+        User.findOne({
+                email: req.body.email
+            })
+            .then(user => {
+                if (!user) {
+                    req.flash('error', 'Аккаунта с такой почтой не существует');
+                    return res.redirect('/reset');
+                }
 
-            user.resetToken = token;
-            user.resetTokenExpiration = Date.now() + 3600000;
-            return new User(user).save();
-        })
-        .then(result=> {
-            console.log(result)
-        })
-        .catch(err=>{
-            console.log(err)
-        })
+                user.resetToken = token;
+                user.resetTokenExpiration = Date.now() + 3600000;
+                return new User(user).save();
+            })
+            .then(result => {
+                res.redirect('/admin');
+                return transport.sendMail({
+                    to: req.body.email,
+                    from: auth.dev.id,
+                    subject: 'Password reset',
+                    html: `
+                    <p>Вами был инициирован запрос на сброс паролья</p>
+                    <p>Нажмите эту <a href="http://localhost:3000/reset/${token}">сылку</a> для установки нового пароля.</p>
+                    `
+                });
+
+            })
+            .catch(err => {
+                console.log(err);
+            })
 
     })
 
