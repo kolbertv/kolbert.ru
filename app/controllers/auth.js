@@ -35,7 +35,7 @@ exports.postLogin = (req, res, next) => {
         })
         .then(user => {
             if (!user) {
-                req.flash('error', 'Пользователя с такой почтой не зарегистрирован');
+                req.flash('error', 'Пользователь с такой почтой не зарегистрирован');
                 return res.redirect('/admin');
 
             }

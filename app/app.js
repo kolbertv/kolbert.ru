@@ -5,6 +5,10 @@ const session = require('express-session');
 const MongoDBStore = require('connect-mongodb-session')(session);
 const csrf = require('csurf');
 const flash = require('connect-flash');
+const compression = require('compression');
+
+const morgan = require('morgan');
+const fs = require('fs');
 
 
 // const mongoose = require('mongoose');
@@ -14,7 +18,7 @@ const errorController = require('./controllers/error');
 const mongoConnect = require('./util/database').mongoConnect;
 const User = require('./models/user');
 
-const MONGODB_URI = `mongodb+srv://${config.mongouser}:${config.mongopass}@cluster0-zrs2t.mongodb.net/${config.mongoDB}?retryWrites=true`;
+const MONGODB_URI = `mongodb+srv://${process.env.MONGO_USER || config.mongouser}:${process.env.MONGO_PASSWORD || config.mongopass}@cluster0-zrs2t.mongodb.net/${process.env.MONGO_DB || config.mongoDB}?retryWrites=true`;
 
 const app = express();
 const store = new MongoDBStore({
@@ -26,6 +30,11 @@ const csrfProtection = csrf();
 
 app.set('view engine', 'ejs');
 app.set('views', __dirname + '/views');
+
+app.use(compression());
+
+const accessLogStream = fs.createWriteStream(path.join(__dirname, 'access.log'), {flags: 'a'});
+app.use(morgan('combined', {stream:accessLogStream}));
 
 app.use(bodyParser.urlencoded({
   extended: false
@@ -74,9 +83,11 @@ app.use(authRoutes);
 app.use(errorController.get404);
 
 
+
+
 mongoConnect(() => {
-  app.listen(config.httpPort, () => {
-    console.log(`kolbert.ru started and listening on port ${config.httpPort}`);
+  app.listen(process.env.PORT || config.httpPort, () => {
+    console.log(`kolbert.ru started and listening on port ${process.env.PORT || config.httpPort}`);
   });
 
 });

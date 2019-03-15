@@ -20,6 +20,7 @@
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.3",
+    "compression": "^1.7.3",
     "connect-flash": "^0.1.1",
     "connect-mongodb-session": "^2.1.1",
     "csurf": "^1.9.0",
@@ -28,6 +29,7 @@
     "express-session": "^1.15.6",
     "mongodb": "^3.1.12",
     "mongoose": "^5.4.9",
+    "morgan": "^1.9.1",
     "nodemailer": "^5.0.0"
   },
   "devDependencies": {
