@@ -1,8 +1,0 @@
-{
-    "ignore": ["*.json", "*.scss", "*.css", "*.ejs", "*.html"],
-    "env" : {
-        "MONGO_DB" : "hj",
-        "MONGO_USER" : "hj",
-        "MONGO_PASSWORD" : "hj"
-    }
-}
