@@ -90,10 +90,11 @@ exports.postSignup = (req, res, next) => {
     }
 
     const errors = validationResult(req);
+    console.log(errors.array());
     if (!errors.isEmpty()) {
-        return res.status(422).render('dmin/signup', {
+        return res.status(422).render('admin/signup', {
             pageTitle: 'Регистрация пользователя',
-            errorMessage: errors.array()
+            errorMessage: errors.array()[0].msg
         });
     }
 
