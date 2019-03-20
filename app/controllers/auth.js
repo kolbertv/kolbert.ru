@@ -1,6 +1,10 @@
 const mongodb = require("mongodb");
 const ObjectId = mongodb.ObjectID;
 
+const {
+    validationResult
+} = require('express-validator/check');
+
 const nodemailer = require('nodemailer');
 // const auth = require('../config/configOAuth');
 const transport = nodemailer.createTransport({
@@ -83,6 +87,14 @@ exports.postSignup = (req, res, next) => {
     if (password !== confirmPassword) {
         req.flash('error', 'Пароли не совпадают');
         return res.redirect('/signup');
+    }
+
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+        return res.status(422).render('dmin/signup', {
+            pageTitle: 'Регистрация пользователя',
+            errorMessage: errors.array()
+        });
     }
 
     User.findOne({
