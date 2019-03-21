@@ -52,3 +52,12 @@
     width: 100%;
   }
 }
+
+
+.login-errorMessage {
+  border: 1px solid red;
+  background-color: rgb(253, 190, 190);
+  color: red;
+  text-align: center;
+  padding: 10px;
+}

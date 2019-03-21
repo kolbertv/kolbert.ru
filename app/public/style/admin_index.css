@@ -56,4 +56,11 @@
   .login-btn-signup {
     width: 100%; }
 
+.login-errorMessage {
+  border: 1px solid red;
+  background-color: #fdbebe;
+  color: red;
+  text-align: center;
+  padding: 10px; }
+
 /*# sourceMappingURL=map/admin_index.css.map */
