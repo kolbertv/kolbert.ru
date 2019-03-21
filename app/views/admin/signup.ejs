@@ -23,9 +23,9 @@
         <form class="login-form" action="/signup" method="POST">
             <div class="login-container">
                 <input type="hidden" name="_csrf" value="<%= csrfToken%>">
-                <input type="" name="email" placeholder="Адрес электронной почты">
-                <input type="" name="password" placeholder="Пароль">
-                <input type="" name="confirmPassword" placeholder="Повторить пароль">
+                <input type="" name="email" placeholder="Адрес электронной почты" value="<%= oldInput.email %>">
+                <input type="" name="password" placeholder="Пароль"  value="<%= oldInput.password %>">
+                <input type="" name="confirmPassword" placeholder="Повторить пароль" value="<%= oldInput.confirmPassword %>">
                 <div class="login-btn">
                     <button class="login-btn-signup" type="submit">Регистрация</button>
                 </div>

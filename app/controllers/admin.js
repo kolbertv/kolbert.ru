@@ -42,7 +42,11 @@ exports.listAddWork = (req, res, next) => {
 exports.indexAddWork = (req, res, next) => {
     res.render('admin/index', {
         pageTitle: 'Страница авторизации',
-        errorMessage: req.flash('error')
+        errorMessage: req.flash('error'),
+        oldInput: {
+            email: '',
+            password: ''
+        }
         // path: '/admin/index'
     });
 };

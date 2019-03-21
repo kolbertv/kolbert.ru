@@ -11,7 +11,20 @@ const User = require('../models/user');
 
 router.get("/login", authController.getLogin);
 
-router.post("/login", authController.postLogin);
+router.post("/login",
+    [
+        body('email')
+        .isEmail()
+        .withMessage('Указан неправильный email')
+        .normalizeEmail(),
+        body('password', 'Введенный пароль не правильный')
+        .isLength({
+            min: 5
+        })
+        .isAlphanumeric()
+        .trim()
+    ],
+    authController.postLogin);
 
 router.post("/logout", authController.postLogout);
 
@@ -31,10 +44,11 @@ router.post(
                 })
                 .then(userDoc => {
                     if (userDoc) {
-                        return Promise.reject('ользователь с данным емайлом уже зарегистрирован.');
+                        return Promise.reject('Пользователь с данным емайлом уже зарегистрирован.');
                     }
-                })
-        }),
+                });
+        })
+        .normalizeEmail(),
         body(
             'password',
             'Пароль может состоять только из цифр и букв, не менее 5 знаков'
@@ -42,7 +56,8 @@ router.post(
         .isLength({
             min: 5
         })
-        .isAlphanumeric(),
+        .isAlphanumeric()
+        .trim(),
         body('confirmPassword')
         .custom((value, {
             req
@@ -52,7 +67,7 @@ router.post(
             }
             return true;
         })
-
+        .trim()
     ],
     authController.postSignup);
 

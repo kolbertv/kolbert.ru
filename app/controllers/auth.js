@@ -23,7 +23,11 @@ exports.getLogin = (req, res, next) => {
     res.render('auth/login', {
         path: '/login',
         pageTitle: 'Login',
-        errorMessage: req.flash('error')
+        errorMessage: req.flash('error'),
+        oldInput: {
+            email: '',
+            password: ''
+        }
     });
 
 };
@@ -31,13 +35,32 @@ exports.getLogin = (req, res, next) => {
 exports.postLogin = (req, res, next) => {
     const email = req.body.email;
     const password = req.body.password;
+    const errors = validationResult(req);
+
+    if (!errors.isEmpty()) {
+        return res.status(422).render('admin/index', {
+            pageTitle: 'Страница авторизации',
+            errorMessage: errors.array()[0].msg,
+            oldInput: {
+                email: email,
+                password: password
+            }
+        });
+    }
+
     User.findOne({
             email: email
         })
         .then(user => {
             if (!user) {
-                req.flash('error', 'Пользователь с такой почтой не зарегистрирован');
-                return res.redirect('/admin');
+                return res.status(422).render('admin/index', {
+                    pageTitle: 'Страница авторизации',
+                    errorMessage: 'Пользователь с такой почтой не зарегистрирован',
+                    oldInput: {
+                        email: email,
+                        password: password
+                    }
+                });
 
             }
             bcrypt
@@ -47,12 +70,17 @@ exports.postLogin = (req, res, next) => {
                         req.session.isLoggedIn = true;
                         req.session.user = user;
                         return req.session.save(err => {
-                            console.log(err);
                             res.redirect('/admin/portfolio/2018');
                         });
                     }
-                    req.flash('error', 'Неправильный логин или пароль');
-                    return res.redirect('/admin');
+                    return res.status(422).render('admin/index', {
+                        pageTitle: 'Страница авторизации',
+                        errorMessage: 'Неправильный пароль',
+                        oldInput: {
+                            email: email,
+                            password: password
+                        }
+                    });
                 })
                 .catch(err => {
                     res.redirect('/admin');
@@ -71,7 +99,12 @@ exports.postLogout = (req, res, next) => {
 exports.getSignup = (req, res, next) => {
     res.render('admin/signup', {
         pageTitle: 'Регистрация пользователя',
-        errorMessage: req.flash('error')
+        errorMessage: req.flash('error'),
+        oldInput: {
+            email: '',
+            password: '',
+            confirmPassword: ''
+        }
     });
 
 };
@@ -84,7 +117,12 @@ exports.postSignup = (req, res, next) => {
     if (!errors.isEmpty()) {
         return res.status(422).render('admin/signup', {
             pageTitle: 'Регистрация пользователя',
-            errorMessage: errors.array()[0].msg
+            errorMessage: errors.array()[0].msg,
+            oldInput: {
+                email: email,
+                password: password,
+                confirmPassword: req.body.confirmPassword
+            }
         });
     }
 
