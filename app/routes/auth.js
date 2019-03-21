@@ -1,11 +1,13 @@
 const express = require('express');
 const {
-    check
+    check,
+    body
 } = require('express-validator/check');
 
 const authController = require('../controllers/auth');
 
 const router = express.Router();
+const User = require('../models/user');
 
 router.get("/login", authController.getLogin);
 
@@ -15,7 +17,44 @@ router.post("/logout", authController.postLogout);
 
 router.get("/signup", authController.getSignup);
 
-router.post("/signup", check('email').isEmail().withMessage('Указан неправильный email'), authController.postSignup);
+router.post(
+    "/signup",
+    [
+        check('email')
+        .isEmail()
+        .withMessage('Указан неправильный email')
+        .custom((value, {
+            req
+        }) => {
+            return User.findOne({
+                    email: value
+                })
+                .then(userDoc => {
+                    if (userDoc) {
+                        return Promise.reject('ользователь с данным емайлом уже зарегистрирован.');
+                    }
+                })
+        }),
+        body(
+            'password',
+            'Пароль может состоять только из цифр и букв, не менее 5 знаков'
+        )
+        .isLength({
+            min: 5
+        })
+        .isAlphanumeric(),
+        body('confirmPassword')
+        .custom((value, {
+            req
+        }) => {
+            if (value !== req.body.password) {
+                throw new Error('Введенные пароли не совпадают');
+            }
+            return true;
+        })
+
+    ],
+    authController.postSignup);
 
 router.get("/reset", authController.getReset);
 

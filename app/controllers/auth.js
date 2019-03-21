@@ -1,5 +1,8 @@
 const mongodb = require("mongodb");
 const ObjectId = mongodb.ObjectID;
+const crypto = require('crypto');
+const User = require('../models/user');
+const bcrypt = require('bcryptjs');
 
 const {
     validationResult
@@ -14,12 +17,6 @@ const transport = nodemailer.createTransport({
         pass: process.env.MAIL_TOKEN
     }
 });
-
-
-const crypto = require('crypto');
-
-const User = require('../models/user');
-const bcrypt = require('bcryptjs');
 
 exports.getLogin = (req, res, next) => {
 
@@ -82,15 +79,8 @@ exports.getSignup = (req, res, next) => {
 exports.postSignup = (req, res, next) => {
     const email = req.body.email;
     const password = req.body.password;
-    const confirmPassword = req.body.confirmPassword;
-
-    if (password !== confirmPassword) {
-        req.flash('error', 'Пароли не совпадают');
-        return res.redirect('/signup');
-    }
-
     const errors = validationResult(req);
-    console.log(errors.array());
+
     if (!errors.isEmpty()) {
         return res.status(422).render('admin/signup', {
             pageTitle: 'Регистрация пользователя',
@@ -98,31 +88,22 @@ exports.postSignup = (req, res, next) => {
         });
     }
 
-    User.findOne({
-            email: email
+    bcrypt
+        .hash(password, 12)
+        .then(hashedPassword => {
+            const user = new User({
+                email: email,
+                password: hashedPassword
+            });
+            return user.save();
         })
-        .then(userDoc => {
-            if (userDoc) {
-                req.flash('error', 'Пользователь с данным емвйл уже зарегистрирован');
-                return res.redirect('/signup');
-            }
-            return bcrypt
-                .hash(password, 12)
-                .then(hashedPassword => {
-                    const user = new User({
-                        email: email,
-                        password: hashedPassword
-                    });
-                    return user.save();
-                })
-                .then(result => {
-                    res.redirect('/admin');
-                    return transport.sendMail({
-                        to: email,
-                        from: auth.dev.id,
-                        subject: 'Регистрация успешная',
-                        html: `<h1>Вы успешно зарегистрировались</h1>`
-                    });
+        .then(result => {
+            res.redirect('/admin');
+            return transport.sendMail({
+                    to: email,
+                    from: process.env.MAIL_ID,
+                    subject: 'Регистрация успешная',
+                    html: `<h1>Вы успешно зарегистрировались</h1>`
                 })
                 .catch(err => console.log(err));
         })
