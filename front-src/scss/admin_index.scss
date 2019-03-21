@@ -53,6 +53,11 @@
   }
 }
 
+.login-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
 .login-errorMessage {
   border: 1px solid red;

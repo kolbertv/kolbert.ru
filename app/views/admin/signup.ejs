@@ -12,22 +12,28 @@
 </head>
 
 <body class="login-body">
-    <% if (errorMessage) { %>
-    <div>
+    <div class="login-wrap">
+
+    <% if (errorMessage.length>=1) { %>
+    <div class="login-errorMessage">
         <%= errorMessage %>
     </div>
     <% } %>
-    <form class="login-form" action="/signup" method="POST">
-        <div class="login-container">
-            <input type="hidden" name="_csrf" value="<%= csrfToken%>">
-            <input type="" name="email" placeholder="Адрес электронной почты">
-            <input type="" name="password" placeholder="Пароль">
-            <input type="" name="confirmPassword" placeholder="Повторить пароль">
-            <div class="login-btn">
-                <button class="login-btn-signup" type="submit">Регистрация</button>
+
+        <form class="login-form" action="/signup" method="POST">
+            <div class="login-container">
+                <input type="hidden" name="_csrf" value="<%= csrfToken%>">
+                <input type="" name="email" placeholder="Адрес электронной почты">
+                <input type="" name="password" placeholder="Пароль">
+                <input type="" name="confirmPassword" placeholder="Повторить пароль">
+                <div class="login-btn">
+                    <button class="login-btn-signup" type="submit">Регистрация</button>
+                </div>
             </div>
-        </div>
-    </form>
+        </form>
+    </div>
+
+
 </body>
 
 
