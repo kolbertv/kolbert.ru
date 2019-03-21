@@ -23,7 +23,7 @@
         <form class="login-form" action="/reset" method="POST">
             <div class="login-container">
                 <input type="hidden" name="_csrf" value="<%= csrfToken%>">
-                <input type="email" name="email" placeholder="Адрес электронной почты">
+                <input type="email" name="email" placeholder="Адрес электронной почты" value="<%= oldInput.email %>">
                 <button class="login-btn-item" type="submit">Восстановить пароль</button>
             </div>
         </form>

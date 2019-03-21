@@ -151,12 +151,28 @@ exports.postSignup = (req, res, next) => {
 exports.getReset = (req, res, next) => {
     res.render('admin/reset', {
         pageTitle: 'Восстановление пароля',
-        errorMessage: req.flash('error')
+        errorMessage: req.flash('error'),
+        oldInput: {email: ''}
     });
 
 };
 
 exports.postReset = (req, res, next) => {
+    const email = req.body.email;
+    const errors = validationResult(req);
+
+    console.log(errors.array())
+
+    if (!errors.isEmpty()) {
+        return res.status(422).render('admin/reset', {
+            pageTitle: 'Восстановление пароля',
+            errorMessage: errors.array()[0].msg,
+            oldInput: { email: email}
+        })
+    }
+
+
+
     crypto.randomBytes(32, (err, buffer) => {
         if (err) {
             console.log(err);
@@ -179,7 +195,7 @@ exports.postReset = (req, res, next) => {
             .then(result => {
                 res.redirect('/admin');
                 return transport.sendMail({
-                    to: req.body.email,
+                    to: email,
                     from: process.env.MAIL_ID,
                     subject: 'Password reset',
                     html: `

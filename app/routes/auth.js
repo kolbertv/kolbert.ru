@@ -73,7 +73,27 @@ router.post(
 
 router.get("/reset", authController.getReset);
 
-router.post("/reset", authController.postReset);
+router.post("/reset",
+
+    [
+        body('email')
+        .isEmail()
+        .withMessage('Указан не верный почтовый ящик')
+        .custom((value, {
+            req
+        }) => {
+            return User.findOne({
+                    email: value
+                })
+                .then(userDoc => {
+                    if (!userDoc) {
+                        return Promise.reject('Пользователя с таким email не существует.')
+                    }
+                })
+        })
+        .normalizeEmail()
+    ],
+    authController.postReset);
 
 router.get("/reset/:token", authController.getNewPassword);
 
