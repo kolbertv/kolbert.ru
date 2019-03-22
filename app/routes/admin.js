@@ -17,6 +17,9 @@ router.post("/admin/edit-work", isAuth, adminController.postEditWork);
 
 router.get("/admin/edit-work/:year/:id", isAuth, adminController.editWork);
 
-router.post("/admin/delete-work/", isAuth, adminController.deleteWork);
+router.post("/admin/delete-work/", isAuth, adminController.postDeleteWork);
+
+router.delete("/admin/delete-work/:workId", isAuth, adminController.deleteWork);
+
 
 module.exports = router;

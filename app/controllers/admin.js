@@ -83,7 +83,19 @@ exports.postEditWork = (req, res, next) => {
 };
 
 
-exports.deleteWork = (req, res, next) => {
+exports.postDeleteWork = (req, res, next) => {
     Work.deleteById(req.body.workId);
     res.redirect(`/admin/portfolio/${req.body.year}`);
+};
+
+exports.deleteWork = (req, res, next) => {
+    Work.deleteById(req.params.workId)
+        .then(() => {
+            res.status(200).json({
+                "message": "Успешно удалено"
+            });
+        })
+        .catch(err => res.status(500).json());
+
+
 };

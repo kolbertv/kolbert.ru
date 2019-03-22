@@ -65,12 +65,12 @@
                     </p>
                 </div>
                 <div class="portfolio__admin">
-                    <form action="/admin/delete-work/" method="POST">
-                        <input type="hidden" value="<%= product._id %>" name="workId">
-                        <input type="hidden" value="<%= product.year %>" name="year">
-                        <button class="portfolio__adminButton">Удалить</button>
-                    </form>
-                    <a href="/admin/edit-work/<%= product.year %>/<%= product._id %>" style="color:white">Редактировать</a>
+                    <input type="hidden" name="_csrf" value="<%= csrfToken%>">
+                    <input type="hidden" value="<%= product._id %>" name="workId">
+                    <input type="hidden" value="<%= product.year %>" name="year">
+                    <button class="portfolio__adminButton" onClick="deleteProduct(this)">Удалить</button>
+                    <a href="/admin/edit-work/<%= product.year %>/<%= product._id %>"
+                        style="color:white">Редактировать</a>
                 </div>
             </div>
             <% } %>
@@ -79,6 +79,29 @@
 
         <% } %>
     </div>
+
+    <script>
+        const deleteProduct = btn => {
+            const prodId = btn.parentNode.querySelector("[name=workId]").value;
+            const csrf = btn.parentNode.querySelector("[name=_csrf]").value;
+            fetch('/admin/delete-work/' + prodId, {
+                    method: 'DELETE',
+                    headers: {
+                        'csrf-token': csrf
+                    }
+                })
+                .then(result => {
+                   return result.json();
+                })
+                .then(data=> {
+                    console.log(data)
+                })
+                .catch(err => {
+                    console.log(err);
+                })
+
+        };
+    </script>
 
     <script src="../../public/js/app.js"></script>
 
