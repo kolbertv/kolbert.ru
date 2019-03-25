@@ -4,52 +4,128 @@
 @import "includes/rc.scss";
 
 .gallery {
-    &-container {
-        margin-top: 20px;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: center;
+  &-container {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &-item {
+    margin: 0 10px;
+    margin-bottom: 20px;
+    height: 300px;
+    width: 240px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+  }
+
+  &-description {
+    position: absolute;
+    background-color: white;
+    max-width: 220px;
+    opacity: 0.8;
+    margin: 5px;
+
+    &:hover {
+      opacity: 0.1;
+      cursor: pointer;
     }
 
-    &-item {
-        margin: 0 10px;
-        margin-bottom: 20px;
-        height: 300px;
-        width: 240px;
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: cover;
-        position: relative;
+    & p {
+      color: black;
+      margin: 10px;
     }
+  }
 
-    &-description {
-        position: absolute;
-        background-color: white;
-        max-width: 220px;
-        opacity: 0.8;
-        margin: 5px;
+  &-title {
+    text-align: center;
+    letter-spacing: 0.05em;
 
-        &:hover {
-            opacity: 0.1;
-            cursor: pointer;
-        }
-
-        & p {
-            color: black;
-            margin: 10px;
-        }
+    &_wrap {
+      padding: 30px 0px 0px 0px;
     }
+  }
+}
 
-    &-title {
-        text-align: center;
-        letter-spacing: 0.05em;
+.resume-wrap {
+  padding-top: 10px;
+  margin-top: 20px;
+}
 
-        &_wrap {
+.resume-sec1-wrap {
+  // display: flex;
+  // margin: 10px;
+  justify-content: space-between;
+  margin: 20px 0;
 
-            padding: 30px 0px 0px 0px;
-        }
+  @media (min-width: $lg) {
+    display: flex;
+  }
+}
+
+.sec1-item {
+  text-align: justify;
+
+  & p {
+    font-size: 14px;
+  }
+
+  // border: 1px solid red;
+  // margin: 20px 10px;
+  // padding: 20px 10px;
+
+  @media (max-width: $sm) {
+    padding: 20px 20px;
+  }
+
+  @media (min-width: $lg) {
+    width: 30%;
+  }
+}
+
+.resume-sec2-cont {
+  background-color: #f0f0f0;
+  padding: 20px 0;
+}
+
+.resume-sec2-wrap {
+  display: flex;
+  justify-content: space-around;
+}
+
+.sec2-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+}
+
+.resume-sec1-block-wrap {
+  margin: 30px 0;
+  display: flex;
+  justify-content: space-between;
 
 
-    }
+}
+
+.resume-sec1-block-item {
+  // width: 100px;
+  // height: 100px;
+  border: 1px solid rgba(0, 0, 0, 0.27);
+  width: 45%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
+
+  & p {
+    text-align: center;
+  }
 }
