@@ -88,12 +88,20 @@
 
 
 
-    <section class="container" id="portfolio">
+    <section class="container portfolio-wrap" id="portfolio">
         <div class="rc-title">
             <div>
                 <h2>Портфолио</h2>
             </div>
         </div>
+
+        <div class="year-wrapper">
+        <a href="" class="year-item">2018</a>
+        <a href="" class="year-item">2017</a>
+        <a href="" class="year-item">2016</a>
+        <a href="" class="year-item">2015</a>
+        </div>
+
         <div class="gallery-container">
             <% for (work of works) {%>
             <div class="gallery-item" style="background-image: url('<%= work.url %>');">

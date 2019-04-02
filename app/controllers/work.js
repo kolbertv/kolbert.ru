@@ -2,7 +2,7 @@ const Work = require('../models/work');
 const Letter = require('../models/letter');
 
 exports.getIndexPage = (req, res, next) => {
-    Work.fetchByCount(4)
+    Work.fetchByCount(12)
         .then(works => {
             res.status(200).render('index', {
                 title: '',

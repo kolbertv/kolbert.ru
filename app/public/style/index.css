@@ -91,7 +91,7 @@
     padding: 0 20px; }
   .rc-title h2 {
     font-size: 16px;
-    font-weight: 400;
+    font-weight: 700;
     text-transform: uppercase;
     text-align: center; }
 
@@ -195,7 +195,7 @@
     font-size: 14px; }
 
 .gallery-container {
-  margin-top: 20px;
+  margin-top: 40px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -367,5 +367,22 @@
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center; }
+
+.portfolio-wrap {
+  padding-top: 10px;
+  margin-top: 20px; }
+
+.year-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin: 30px 0 0 0; }
+
+.year-item {
+  margin: 0 50px;
+  font-weight: 400; }
 
 /*# sourceMappingURL=map/index.css.map */

@@ -5,7 +5,7 @@
 
 .gallery {
     &-container {
-        margin-top: 20px;
+        margin-top: 40px;
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
@@ -173,4 +173,22 @@
 .button-resume_wrap {
     display: flex;
     justify-content: center;
+}
+
+.portfolio-wrap {
+    padding-top: 10px;
+    margin-top: 20px;
+}
+
+.year-wrapper {
+    display: flex;
+    justify-content: center;
+    // border: 1px solid green;
+    margin: 30px 0 0 0;
+
+}
+
+.year-item {
+    margin: 0 50px;
+    font-weight: 400;
 }
