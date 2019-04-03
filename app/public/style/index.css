@@ -383,6 +383,9 @@
 
 .year-item {
   margin: 0 50px;
-  font-weight: 400; }
+  font-weight: 400;
+  cursor: pointer; }
+  .year-item:hover {
+    font-weight: 700; }
 
 /*# sourceMappingURL=map/index.css.map */
