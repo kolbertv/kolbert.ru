@@ -1,16 +1,24 @@
 const Work = require('../models/work');
 const Letter = require('../models/letter');
 
-exports.getIndexPage = (req, res, next) => {
-    Work.fetchByCount(12)
-        .then(works => {
-            res.status(200).render('index', {
-                title: '',
-                path: '/',
-                works: works
-            });
-        });
-};
+exports.getIndexPage = async (req, res, next) => {
+    try {
+        const works = await Work.fetchByCount(12);
+        res.status(200).render('index', {
+            title: '',
+            path: '/',
+            works: works
+        })
+
+    } catch (err) {
+        if (!err.statusCode) {
+            err.statusCode = 500
+        }
+        console.log(err);
+        next(err);
+    }
+
+}
 
 exports.getResumePage = (req, res, next) => {
     res.render('resume', {
@@ -20,20 +28,25 @@ exports.getResumePage = (req, res, next) => {
 };
 
 
-exports.getPortfolioPage = (req, res, next) => {
-    Work.fetchAll()
-        .then(works => {
-            res.render('portfolio', {
-                title: '- перечень выполненных работ',
-                path: '/portfolio',
-                yearId: req.params.id,
-                prod: works,
-                hasProducts: works.length > 0
-            });
-        })
-        .catch(err => {
-            console.log(err);
+exports.getPortfolioPage = async (req, res, next) => {
+    try {
+
+        const works = await Work.fetchAll();
+        res.render('portfolio', {
+            title: '- перечень выполненных работ',
+            path: '/portfolio',
+            yearId: req.params.id,
+            prod: works,
+            hasProducts: works.length > 0
         });
+
+    } catch (err) {
+        if (!err.statusCode) {
+            err.statusCode = 500;
+        }
+        console.log(err);
+        next(err)
+    }
 };
 
 exports.postContactPage = (req, res, next) => {
