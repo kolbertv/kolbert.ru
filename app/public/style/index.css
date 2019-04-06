@@ -209,10 +209,9 @@
   align-items: center; }
 
 .gallery-item {
-  margin: 0 10px;
-  margin-bottom: 20px;
+  margin: 1px 1px;
   height: 300px;
-  width: 240px;
+  width: 300px;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;

@@ -3,7 +3,7 @@ const Letter = require('../models/letter');
 
 exports.getIndexPage = async (req, res, next) => {
     try {
-        const works = await Work.fetchByCount(12);
+        const works = await Work.fetchByCount(9);
         res.status(200).render('index', {
             title: '',
             path: '/',
