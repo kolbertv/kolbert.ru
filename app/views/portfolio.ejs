@@ -10,7 +10,14 @@
 
 <body id="body">
 
-    <%- include('includes/header.ejs')%>
+
+
+    <div class="container">
+
+        <%- include('includes/navbar.ejs') %>
+
+    </div>
+
 
     <div class="container">
         <div class="portfolio__menu">
@@ -36,7 +43,7 @@
         <% if (yearId =='exampl') { %>
 
         <div class="portfolio__container">
-        <!--
+            <!--
             <div class="portfolio__item" style="background-image: url('/public/img/фильтр-1.png');">
                 <div class="portfolio__description">
                     <p>Пример расчета на прочность сосуда работающего под давлением</p>
@@ -48,7 +55,7 @@
                 </div>
             </div>
         -->
-        <!--
+            <!--
             <div class="portfolio__item" style="background-image: url('/public/img/фильтр-1.png');">
                 <div class="portfolio__description">
                     <p>Пример расчета на прочность сосуда работающего под давлением</p>
@@ -70,7 +77,7 @@
                     <a class="portfolio-pdf-btn" href="/public/pdf/fr300-160.pdf" download>Пример оформления расчета</a>
                 </div>
             </div>
-        <!--
+            <!--
             <div class="portfolio__item" style="background-image: url('/public/img/фильтр-1.png');">
                 <div class="portfolio__description">
                     <p>Пример расчета на прочность рамы блока</p>
