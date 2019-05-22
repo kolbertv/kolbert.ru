@@ -102,6 +102,11 @@
 .resume-sec2-wrap {
     display: flex;
     justify-content: space-around;
+    flex-direction: column;
+
+    @media (min-width: $sm) {
+        flex-direction: row;
+    }
 }
 
 .sec2-item {
