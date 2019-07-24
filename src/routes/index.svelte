@@ -10,4 +10,4 @@
   <title>Кольберт Владимир</title>
 </svelte:head>
 
-<h1>Great success!</h1>
+<h1>main section!</h1>
