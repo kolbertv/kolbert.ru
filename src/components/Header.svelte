@@ -9,6 +9,7 @@
     justify-content: space-between;
     align-items: center;
     height: 60px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.19)
   }
 </style>
 

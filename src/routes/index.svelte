@@ -1,8 +1,7 @@
 <style type="text/sass">
-  $red: red;
 
   h1 {
-    color: $red;
+    color: red;
   }
 </style>
 
