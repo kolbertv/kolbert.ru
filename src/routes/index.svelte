@@ -10,4 +10,7 @@
   <title>Кольберт Владимир</title>
 </svelte:head>
 
-<h1>main section!</h1>
+<div class="container">
+  <h1>main section!</h1>
+
+</div>
