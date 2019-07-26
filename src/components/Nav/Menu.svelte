@@ -1,19 +1,18 @@
 <script>
-  import Item from './Item.svelte';
-
+  export let footer;
+  import Item from "./Item.svelte";
 </script>
 
 <style type="text/sass">
   ul {
     display: flex;
   }
-
 </style>
 
 <ul>
-  <Item>Главная</Item>
-  <Item>Резюме</Item>
-  <Item>Портфолио</Item>
-  <Item>Блог</Item>
-  <Item>Контакты</Item>
+  <Item link={'/'} {footer}>Главная</Item>
+  <Item link={'/#resume'} {footer}>Резюме</Item>
+  <Item link={'/#porfolio'} {footer}>Портфолио</Item>
+  <Item link={'/#blog'} {footer}>Блог</Item>
+  <Item link={'/#contact'} {footer}>Контакты</Item>
 </ul>

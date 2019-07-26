@@ -1,6 +1,6 @@
 <script type="text/sass">
   import Header from "../components/Header.svelte";
-  import Footer from "../components/Footer.svelte";
+  import Footer from "../components/Footer/Footer.svelte";
 
   export let segment;
 </script>
