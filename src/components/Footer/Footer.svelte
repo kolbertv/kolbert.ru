@@ -14,8 +14,9 @@
   .wrap {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
+    padding: 25px 0;
   }
 </style>
 
@@ -25,10 +26,10 @@
       <Menu footer="true" />
     </Row>
     <Row>
-      <h2>footer section</h2>
+      <a href="/">Кольберт Владимир</a>
     </Row>
     <Row>
-      <h2>footer section</h2>
+      <a href="/">Кольберт Владимир</a>
     </Row>
   </div>
 </footer>
