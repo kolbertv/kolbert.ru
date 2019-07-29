@@ -19,6 +19,9 @@
     align-items: center;
     padding: 25px 0;
   }
+  span {
+    font-size: 12px;
+  }
 </style>
 
 <footer class="back_gray">
@@ -27,7 +30,9 @@
       <Menu footer="true" />
     </Row>
     <Row>
-      <a href="/">Кольберт Владимир / Vladimir Kolbert</a>
+      <a href="/">
+        <span>Кольберт Владимир / Vladimir Kolbert</span>
+      </a>
     </Row>
     <Row>
       <Social />
