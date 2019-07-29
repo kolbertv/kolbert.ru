@@ -1,6 +1,7 @@
 <script>
   import Row from "./FooterRow.svelte";
   import Menu from "../Nav/Menu.svelte";
+  import Social from "../Social/Social.svelte";
 
   let footer = 1;
 </script>
@@ -26,10 +27,10 @@
       <Menu footer="true" />
     </Row>
     <Row>
-      <a href="/">Кольберт Владимир</a>
+      <a href="/">Кольберт Владимир / Vladimir Kolbert</a>
     </Row>
     <Row>
-      <a href="/">Кольберт Владимир</a>
+      <Social />
     </Row>
   </div>
 </footer>
