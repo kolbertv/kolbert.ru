@@ -1,5 +1,6 @@
 <script>
   import Image from '../components/Header/Image.svelte'
+  import Contact from '../components/Contact/Contact.svelte'
 
 </script>
 
@@ -9,6 +10,7 @@
     color: red;
   }
 
+
   
 </style>
 
@@ -16,15 +18,12 @@
   <title>Кольберт Владимир</title>
 </svelte:head>
 
-
 <Image />
+<Contact></Contact>
 
 
 <div class="container">
-  <div class="">
-  </div>
-  <h1>main section!</h1>
-
+  <h1>sdfghjkl</h1>
 </div>
 
 
