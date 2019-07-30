@@ -11,5 +11,10 @@
 </style>
 
 <div>
-  <a href="/">К<span>ольберт</span> В<span>ладимир</span></a>
+  <a href="/">
+    К
+    <span>ольберт</span>
+    В
+    <span>ладимир</span>
+  </a>
 </div>

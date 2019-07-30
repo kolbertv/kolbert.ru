@@ -11,8 +11,8 @@
     align-items: center;
   }
   .content {
-      font-weight: 700;
-      font-size: 16px;
+    font-weight: 700;
+    font-size: 16px;
   }
 </style>
 

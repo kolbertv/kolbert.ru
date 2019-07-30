@@ -12,13 +12,13 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    padding: 10px 0;
+    padding: 20px 0;
   }
 </style>
 
 <div class="back_gray wrap">
   <div class="container border flex">
-    <Item title={'Телефон'} cont={'+7(999)998-78-78'}></Item>
-    <Item title={'Почта'} cont={'kolbert@yandex.ru'}></Item>
+    <Item title={'Телефон'} cont={'+7(999)998-78-78'} />
+    <Item title={'Почта'} cont={'kolbert@yandex.ru'} />
   </div>
 </div>

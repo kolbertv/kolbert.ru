@@ -34,9 +34,17 @@
 
 <div class="image-wrap">
   <div class="container title">
-    <div class="welcome"><span>WELCOME. I AM</span></div>
-    <div class="name"><span>VLADIMIR KOLBERT</span></div>
-    <div class="prof"><span>Pressure Vessel Design and Calculation</span></div>
-    <div class="prof"><span>Full Stack Javascript Developer</span></div>
+    <div class="welcome">
+      <span>WELCOME. I AM</span>
+    </div>
+    <div class="name">
+      <span>VLADIMIR KOLBERT</span>
+    </div>
+    <div class="prof">
+      <span>Pressure Vessel Design and Calculation</span>
+    </div>
+    <div class="prof">
+      <span>Full Stack Javascript Developer</span>
+    </div>
   </div>
 </div>

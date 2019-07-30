@@ -1,17 +1,13 @@
 <script>
-  import Image from '../components/Header/Image.svelte'
-  import Contact from '../components/Contact/Contact.svelte'
-
+  import Image from "../components/Header/Image.svelte";
+  import Contact from "../components/Contact/Contact.svelte";
+  import Title from "../components/Title.svelte";
 </script>
 
 <style type="text/sass">
-
   h1 {
     color: red;
   }
-
-
-  
 </style>
 
 <svelte:head>
@@ -19,11 +15,10 @@
 </svelte:head>
 
 <Image />
-<Contact></Contact>
-
+<Contact />
+<Title name={'Резюме'} id={'resume'} />
+<Title name={'Портфолио'} id={'portfolio'} />
 
 <div class="container">
   <h1>sdfghjkl</h1>
 </div>
-
-
