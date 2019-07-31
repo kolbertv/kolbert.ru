@@ -3,6 +3,7 @@
   import Contact from "../components/Contact/Contact.svelte";
   import Title from "../components/Title.svelte";
   import About from "../components/About/About.svelte";
+  import Portfolio from "../components/Portfolio/Portfolio.svelte";
 </script>
 
 <style type="text/sass">
@@ -20,7 +21,7 @@
 <Title name={'Резюме'} id={'resume'} />
 <About />
 <Title name={'Портфолио'} id={'portfolio'} />
-
+<Portfolio />
 <div class="container">
   <h1>sdfghjkl</h1>
 </div>
