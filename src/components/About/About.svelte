@@ -53,9 +53,9 @@
 
 <div class="back_gray top">
   <div class="container wrap center heigth">
-    <Count></Count>
-    <Count></Count>
-    <Count></Count>
-    <Count></Count>
+    <Count name={'заказчиков'} count={7}></Count>
+    <Count name={'выполненых проектов'} count={130}></Count>
+    <Count name={'расчетов на прочность'} count={560}></Count>
+    <Count name={'IoT Хакатон'} count={1}></Count>
   </div>
 </div>
