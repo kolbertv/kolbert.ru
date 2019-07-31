@@ -1,12 +1,23 @@
 <script>
   import Item from "./Item.svelte";
+  import Prof from "./Prof.svelte";
+  import Count from "./Count.svelte";
 </script>
 
 <style type="text/sass">
   .wrap {
     display: flex;
     justify-content: space-between;
+  }
+  .top {
+    margin-top: 60px;
+  }
+  .center {
     align-items: center;
+
+  }
+  .heigth {
+    height: 90px;
   }
 </style>
 
@@ -26,4 +37,25 @@
     С 2017 года увлекся веб разработкой. В 2018, На IoT Хакатоне Ростелекома и
     Майл.ру, разработал API на Node.js для общения IoT устройств между собой.
   </Item>
+</div>
+
+<div class="container wrap top sec">
+  <Prof title={'Расчеты на прочность'} icon={'icon'}>
+    Колонные аппараты, горизонтальные сосуды, адсорберы, ...
+  </Prof>
+  <Prof title={'Разработка ПО'} icon={'icon'}>
+    HTML, CSS, JavaScript, Node.js, Express.js, Mongo, Mongoose, Svelte, Sapper
+  </Prof>
+  <Prof title={'Разработка ПО'} icon={'icon'}>
+    HTML, CSS, JavaScript, Node.js, Express.js, ejs, Svelte, Sapper
+  </Prof>
+</div>
+
+<div class="back_gray top">
+  <div class="container wrap center heigth">
+    <Count></Count>
+    <Count></Count>
+    <Count></Count>
+    <Count></Count>
+  </div>
 </div>
