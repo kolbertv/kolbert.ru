@@ -16,6 +16,9 @@
     .count {
         font-weight: 700;
     }
+    .name {
+        text-align: center;
+    }
 
 
 </style>
