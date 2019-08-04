@@ -41,13 +41,13 @@
 
 <div class="container wrap top sec">
   <Prof title={'Расчеты на прочность'} icon={'icon'}>
-    Колонные аппараты, горизонтальные сосуды, адсорберы, ...
+    Колонные аппараты, горизонтальные сосуды, адсорберы, сепараторы, фильтры,...
   </Prof>
   <Prof title={'Разработка ПО'} icon={'icon'}>
-    HTML, CSS, JavaScript, Node.js, Express.js, Mongo, Mongoose, Svelte, Sapper
+    HTML, CSS/SCSS, JavaScript, Node.js, Express.js, Mongo, Mongoose, Svelte.js, Sapper, Gulp
   </Prof>
-  <Prof title={'Разработка ПО'} icon={'icon'}>
-    HTML, CSS, JavaScript, Node.js, Express.js, ejs, Svelte, Sapper
+  <Prof title={'Инструменты'} icon={'icon'}>
+    PVP-Design, MathCad, SolidWorks, СТАРТ, VSCode 
   </Prof>
 </div>
 
