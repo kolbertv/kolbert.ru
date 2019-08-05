@@ -10,6 +10,7 @@
   footer {
     height: 180px;
     display: flex;
+    margin-top: 40px;
   }
 
   .wrap {
