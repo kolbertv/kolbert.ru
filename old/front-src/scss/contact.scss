@@ -1,0 +1,128 @@
+@import "includes/container.scss";
+@import "includes/media.scss";
+@import "includes/navbar.scss";
+
+.navbar {
+  @media (min-width: $lg) {
+    background-color: #26262a;
+  }
+}
+
+.contact-map {
+  min-height: 940px;
+  background-color: #26262a;
+}
+
+.contact-wrapper {
+  position: relative;
+}
+
+.map-hover {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: #26262a;
+  opacity: 0.9;
+}
+
+.container_cc {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin-top: 110px;
+  color: white;
+  display: flex;
+  justify-content: center;
+}
+
+.cc {
+  &-title {
+    text-align: center;
+    margin: 40px;
+    font-size: 20px;
+    letter-spacing: 0.05em;
+  }
+
+  &-content {
+
+    & input,
+    textarea,
+    button {
+      padding: 10px 00px 10px 10px;
+    }
+  }
+
+  &-addr {
+    margin-bottom: 20px;
+    min-width: 300px;
+
+    & p {
+      text-align: center;
+      margin: 10px 10px 20px 10px;
+
+      & a {
+        display: inline;
+      }
+    }
+  }
+}
+
+.cc {
+  &-form {
+    display: flex;
+    flex-direction: column;
+
+    & h2,
+    input,
+    textarea,
+    button {
+      margin: 10px 0px;
+    }
+
+    & input,
+    textarea,
+    button {
+      background-color: transparent;
+      border: 1px solid white;
+      font-size: 16px;
+      color: white;
+    }
+
+    & button:hover {
+      background-color: white;
+      color: black;
+      cursor: pointer;
+      transition: all 0.2s ease-out;
+    }
+
+    & textarea {
+      height: 200px;
+      max-height: 200px;
+    }
+  }
+
+  &-name-phone {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.cc-addr-btn {
+  &:hover {
+    cursor: pointer;
+    color: dimgray;
+    transition: all 0.2s ease-out;
+  }
+}
+
+.cc-btn_visible {
+  display: inline-block;
+}
+
+.cc-btn_hide {
+  display: none;
+}

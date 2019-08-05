@@ -1,0 +1,99 @@
+$borderColorDev: 1px solid green;
+$borderColorDev: 0px solid green;
+
+.footer {
+    display: block;
+    position: relative;
+    background-color: #f0f0f0;
+    color: white;
+    border: $borderColorDev;
+    width: auto;
+
+    &__container {
+        border: $borderColorDev;
+        width: $esmWidth;
+        margin: 0 auto;
+        padding: 20px 0px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        @media (min-width: $sm) and (max-width: $md) {
+            width: $smWidth;
+            border: $borderColorDev;
+            padding: 35px 0px;
+        }
+
+        @media (min-width: $md) and (max-width: $lg) {
+            width: $mdWidth;
+            border: $borderColorDev;
+            padding: 35px 0px;
+        }
+
+        @media (min-width: $lg) and (max-width: $xl) {
+            width: $lgWidth;
+            border: $borderColorDev;
+            padding: 50px 0px;
+        }
+
+        @media (min-width: $xl) {
+            width: $xlWidth;
+            border: $borderColorDev;
+            padding: 30px 0px;
+        }
+    }
+
+    &__menu {
+        //margin: 0 auto;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        border: $borderColorDev;
+    }
+
+    &__menu_item {}
+
+    &__menu_link {
+        padding: 0.5em 1.2em;
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        color: black;
+        font-weight: 500;
+
+        &:hover {
+            color: dimgray;
+            transition: all 0.2s ease-out;
+        }
+    }
+
+    &__reserved {
+        font-size: 12px;
+        //text-transform: uppercase;
+        letter-spacing: 0.15em;
+        padding: 10px;
+    }
+
+    &__social {
+        display: flex;
+
+        &_item {
+            padding: 0 15px;
+            margin-top: 10px;
+
+            & span {
+                font-family: "Fontello";
+                font-style: normal;
+                font-size: 24px;
+                color: gray;
+            }
+
+            & span:hover {
+                color: dimgray;
+                transition: all 0.2s ease-out;
+            }
+        }
+    }
+}

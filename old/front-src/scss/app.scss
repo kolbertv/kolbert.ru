@@ -1,0 +1,77 @@
+/* app scss*/
+html,
+body,
+nav,
+div,
+span,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+img,
+small,
+strong,
+ol,
+ul,
+li,
+form,
+label,
+table,
+caption,
+tr,
+td,
+footer,
+header {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+footer,
+header,
+menu,
+nav,
+section,
+a {
+  display: block;
+}
+
+body {
+
+  font-size: 16px;
+  min-width: 320px;
+  line-height: 1.6;
+  font-family: 'Roboto', sans-serif;
+  position: relative;
+  z-index: 0;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+  font-weight: 300;
+  transition: all .3s linear;
+
+  &:hover {
+    text-decoration: none;
+    color: black;
+  }
+}
+
+
+@import "includes/header.scss";
+@import "includes/contact.scss";
+@import "includes/footer.scss";

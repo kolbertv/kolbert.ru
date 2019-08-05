@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+
+    <%- include('includes/head.ejs')%>
+    <link rel="stylesheet" href="../public/style/index.css">
+
+</head>
+
+<body id="body">
+
+    <%- include('includes/header.ejs')%>
+
+    <%- include('includes/contact.ejs')%>
+
+    <section class="container resume-wrap" id="resume">
+        <div class="rc-title">
+            <div>
+                <h2>Резюме</h2>
+            </div>
+        </div>
+        <div class="resume-sec1-wrap">
+            <div class="sec1-item">
+                <p class="sec1-p">
+                    C 2002 по 2008 год занимался экспертизой промышленной безопасности
+                    и техническим диагностированием сосудов и аппаратов.
+                    Был инженером по неразрушающему контролю, методы контроля ВИК, УЗК, ПВК, АЭ.
+                </p>
+            </div>
+            <div class="sec1-item">
+                <p class="sec1-p">
+                    С 2002 по текущий день, выполняю работы по расчетам на прочность
+                    оборудования работающего под давлением, такое как подземные емкости,
+                    колонное оборудование, абсорберы, адсорберы, теплообменное оборудование и т.д.
+                </p>
+            </div>
+            <div class="sec1-item">
+                <p class="sec1-p">
+                    С 2017 года увлекся веб разработкой, преимущественно MERN стеком. На IoT Хакатоне
+                    разработал API для общения IoT устройств между собой.
+                </p>
+            </div>
+        </div>
+
+        <div class="resume-sec1-block-wrap">
+            <div class="resume-sec1-block-item">
+                <h4>Расчеты на прочность</h4>
+                <p>Сосуды, колонные аппараты, горизонтальные сосуды, сепараторы,
+                    теплообменное оборудование, абсорберы, адсорберы и др.</p>
+
+            </div>
+            <div class="resume-sec1-block-item">
+                <h4>Разработка ПО</h4>
+                <p>HTML, CSS, JavaScript, Node.js, Express.js, React.js, ejs</p>
+            </div>
+        </div>
+        <div class="rc-wrap">
+            <div class="rc-button">
+                <a class="rc__button" href="/resume">Посмотреть резюме</a>
+            </div>
+        </div>
+
+
+    </section>
+
+    <section class="resume-sec2-cont">
+
+        <div class="container resume-sec2-wrap">
+            <div class="sec2-item">
+                <h4>7</h4>
+                <p>заказчиков</p>
+            </div>
+            <div class="sec2-item">
+                <h4>130</h4>
+                <p>выполненых проектов</p>
+            </div>
+            <div class="sec2-item">
+                <h4>560</h4>
+                <p>расчетов на прочность</p>
+            </div>
+            <div class="sec2-item">
+                <h4>1</h4>
+                <p>IoT Хакатон</p>
+            </div>
+        </div>
+    </section>
+
+
+
+    <section class="container portfolio-wrap" id="portfolio">
+        <div class="rc-title">
+            <div>
+                <h2>Портфолио</h2>
+            </div>
+        </div>
+        <div class="year-wrapper">
+            <div class="year-item">2018</div>
+            <div class="year-item">2017</div>
+            <div class="year-item">2016</div>
+            <div class="year-item">2015</div>
+        </div>
+
+        <div class="gallery-container">
+            <% for (work of works) {%>
+            <div class="gallery-item" style="background-image: url('<%= work.url %>');">
+                <div class="gallery-description">
+                    <p>
+                        <%= work.descript %>
+                    </p>
+                    <p>
+                        <%= work.title %>
+                    </p>
+                    <p>
+                        <%= work.feature %>
+                    </p>
+                    <p>
+                        Год:
+                        <%= work.year %>
+                    </p>
+                </div>
+            </div>
+            <% } %>
+        </div>
+        <div class="rc-wrap">
+            <div class="rc-button">
+                <a class="rc__button" href="/portfolio/exampl">Посмотреть другие работы</a>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="blog-wrap" id="blog">
+        <div class="container">
+            <div class="rc-title">
+                <div style="background-color: #f0f0f0">
+                    <h2>Блог</h2>
+                </div>
+            </div>
+
+            <div class="blog-content_wrap">
+
+                <div class="blog-item">
+
+                    <div class="blog-img">
+                        <div class="blog-img-content">
+                            <h4>Тема статьи</h4>
+                            <p>Очень длинное содержание статьи для проверки блока на то, как он реагирует на длинные тексты, и как реагиорует почти не понятно</p>
+
+
+                            <a href="">Читать далее....-></a>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="blog-item">
+
+                    <div class="blog-img">
+                        <div class="blog-img-content">
+                            <h4>Тема статьи</h4>
+                            <p>Очень длинное содержание статьи для проверки блока на то</p>
+
+
+                            <a href="">Читать далее....-></a>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+
+    <%- include('includes/rc.ejs')%>
+
+    <%- include('includes/footer.ejs')%>
+
+    <script src="../public/js/app.js"></script>
+
+</body>
+
+</html>

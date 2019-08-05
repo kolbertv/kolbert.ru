@@ -1,0 +1,29 @@
+@import "media.scss";
+@import "container.scss";
+.section {
+    padding: 30px 0;
+}
+
+.contact-header {
+    width: 100%;
+    background-color: #f0f0f0;
+    text-align: center;
+    &_style {
+        padding: 20px 10px;
+    }
+    & p {
+        font-size: 14px;
+        & span {
+            font-size: 16px;
+            font-weight: 700;
+        }
+    }
+    &_row {
+        border-top: 1px solid rgba(0, 0, 0, 0.19);
+        padding: 30px 0;
+        @media (min-width: $sm) {
+            display: flex;
+            justify-content: space-around;
+        }
+    }
+}
