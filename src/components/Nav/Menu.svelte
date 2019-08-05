@@ -1,6 +1,6 @@
 <script>
-  export let footer;
-  export let header;
+  export let footer = false;
+  export let header = false;
   import Item from "./Item.svelte";
 
   let cl = false;
@@ -75,13 +75,15 @@
   }
 </style>
 
-<div class="burger" id="burger" on:click={handleClick}>
-  <div class="bar1 {cl ? 'bar1-tr' : ''}" />
-  <div class="bar2 {cl ? 'bar2-tr' : ''}" />
-  <div class="bar3 {cl ? 'bar3-tr' : ''}" />
-</div>
+{#if header}
+  <div class="burger" id="burger" on:click={handleClick}>
+    <div class="bar1 {cl ? 'bar1-tr' : ''}" />
+    <div class="bar2 {cl ? 'bar2-tr' : ''}" />
+    <div class="bar3 {cl ? 'bar3-tr' : ''}" />
+  </div>
+{/if}
 
-<ul class="{header ? 'header' : 'com'} { cl ? 'visible': 'none'} ">
+<ul class="{header ? 'header' : 'com'} {cl ? 'visible' : 'none'} ">
   <Item link={'/'} {footer}>Главная</Item>
   <Item link={'/#resume'} {footer}>Резюме</Item>
   <Item link={'/#portfolio'} {footer}>Портфолио</Item>

@@ -7,9 +7,8 @@
 </script>
 
 <style type="text/sass">
-  h1 {
-    color: red;
-  }
+
+
 </style>
 
 <svelte:head>
