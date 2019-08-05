@@ -22,6 +22,5 @@
 <About />
 <Title name={'Портфолио'} id={'portfolio'} />
 <Portfolio />
-<div class="container">
-  <h1>sdfghjkl</h1>
-</div>
+<Title name={'Блог'} id={'blog'} />
+<Title name={'Контакты'} id={'contact'} />
