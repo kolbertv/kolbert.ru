@@ -1,6 +1,6 @@
 <script>
   import Menu from './Menu.svelte';
-  export let segment;
+  // export let segment;
 </script>
 
 <style type="text/sass">
@@ -8,5 +8,5 @@
 </style>
 
 <nav>
-  <Menu />
+  <Menu header={true}/>
 </nav>

@@ -1,14 +1,17 @@
 <script>
+  import {onMount} from 'svelte';
   import Item from "./Item.svelte";
   import Prof from "./Prof.svelte";
   import Count from "./Count.svelte";
 
-  let rank = '';
-  fetch('https://cors-anywhere.herokuapp.com/https://www.codewars.com/api/v1/users/kolbert')
-  .then(r => r.json())
-  .then(r=> {rank = r.ranks.overall.name})
+  let rank = 'Загрузка...';
+  onMount(() => {
+    fetch('https://cors-anywhere.herokuapp.com/https://www.codewars.com/api/v1/users/kolbert')
+    .then(r=>r.json())
+    .then(r=>{rank=r.ranks.overall.name})
+  })
 
-</script>
+ </script>
 
 <style type="text/sass">
   .wrap {

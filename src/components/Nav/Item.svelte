@@ -11,9 +11,19 @@
     text-transform: uppercase;
     font-weight: 500;
   }
-  .header {
-    font-size: 14px;
+
+  @media (max-width: 599px) {
+    .header {
+      font-size: 26px;
+    }
   }
+
+  @media (min-width: 600px) {
+    .header {
+      font-size: 14px;
+    }
+  }
+
   .footer {
     font-size: 12px;
   }
