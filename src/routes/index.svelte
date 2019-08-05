@@ -4,10 +4,11 @@
   import Title from "../components/Title.svelte";
   import About from "../components/About/About.svelte";
   import Portfolio from "../components/Portfolio/Portfolio.svelte";
+  import Blog from "../components/Blog/Blog.svelte";
+  import Connect from "../components/Connect/Connect.svelte";
 </script>
 
 <style type="text/sass">
-
 
 </style>
 
@@ -22,4 +23,6 @@
 <Title name={'Портфолио'} id={'portfolio'} />
 <Portfolio />
 <Title name={'Блог'} id={'blog'} />
-<Title name={'Контакты'} id={'contact'} />
+<Blog />
+<Title name={'Контакты'} id={'connect'} />
+<Connect />
