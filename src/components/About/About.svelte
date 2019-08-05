@@ -1,31 +1,51 @@
 <script>
-  import {onMount} from 'svelte';
+  import { onMount } from "svelte";
   import Item from "./Item.svelte";
   import Prof from "./Prof.svelte";
   import Count from "./Count.svelte";
 
-  let rank = 'Загрузка...';
+  let rank = "Загрузка...";
   onMount(() => {
-    fetch('https://cors-anywhere.herokuapp.com/https://www.codewars.com/api/v1/users/kolbert')
-    .then(r=>r.json())
-    .then(r=>{rank=r.ranks.overall.name})
-  })
-
- </script>
+    fetch(
+      "https://cors-anywhere.herokuapp.com/https://www.codewars.com/api/v1/users/kolbert"
+    )
+      .then(r => r.json())
+      .then(r => {
+        rank = r.ranks.overall.name;
+      });
+  });
+</script>
 
 <style type="text/sass">
-  .wrap {
-    display: flex;
-    justify-content: space-between;
+  @media (min-width: 700px) {
+    .wrap {
+      display: flex;
+      justify-content: space-between;
+    }
   }
+
+  @media (max-width: 699px) {
+    .wrap {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
   .top {
-    margin-top: 60px;
+    margin-top: 40px;
   }
   .center {
     align-items: center;
   }
   .heigth {
     height: 90px;
+  }
+
+  .flex {
+    display: flex;
+    justify-content: space-between;
   }
 </style>
 
@@ -61,10 +81,10 @@
 </div>
 
 <div class="back_gray top">
-  <div class="container wrap center heigth">
+  <div class="container flex center heigth">
     <Count name={'выполненых проектов'} count={130} />
     <Count name={'расчетов на прочность'} count={560} />
-    <Count name={'Codewars'} count={rank} />
+    <Count name={'Codewars Rank'} count={rank} />
     <Count name={'IoT Хакатон'} count={1} />
 
   </div>
