@@ -88,5 +88,5 @@
   <Item link={'/#resume'} {footer}>Резюме</Item>
   <Item link={'/#portfolio'} {footer}>Портфолио</Item>
   <Item link={'/#blog'} {footer}>Блог</Item>
-  <Item link={'/#contact'} {footer}>Контакты</Item>
+  <Item link={'/#connect'} {footer}>Контакты</Item>
 </ul>
