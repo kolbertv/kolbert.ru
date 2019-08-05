@@ -2,6 +2,12 @@
   import Item from "./Item.svelte";
   import Prof from "./Prof.svelte";
   import Count from "./Count.svelte";
+
+  let rank = '';
+  fetch('https://cors-anywhere.herokuapp.com/https://www.codewars.com/api/v1/users/kolbert')
+  .then(r => r.json())
+  .then(r=> {rank = r.ranks.overall.name})
+
 </script>
 
 <style type="text/sass">
@@ -14,7 +20,6 @@
   }
   .center {
     align-items: center;
-
   }
   .heigth {
     height: 90px;
@@ -44,18 +49,20 @@
     Колонные аппараты, горизонтальные сосуды, адсорберы, сепараторы, фильтры,...
   </Prof>
   <Prof title={'Разработка ПО'} icon={'icon'}>
-    HTML, CSS/SCSS, JavaScript, Node.js, Express.js, Mongo, Mongoose, Svelte.js, Sapper, Gulp
+    HTML, CSS/SCSS, JavaScript, Node.js, Express.js, Mongo, Mongoose, Svelte.js,
+    Sapper, Gulp
   </Prof>
   <Prof title={'Инструменты'} icon={'icon'}>
-    PVP-Design, MathCad, SolidWorks, СТАРТ, VSCode 
+    PVP-Design, MathCad, SolidWorks, СТАРТ, VSCode
   </Prof>
 </div>
 
 <div class="back_gray top">
   <div class="container wrap center heigth">
-    <Count name={'заказчиков'} count={7}></Count>
-    <Count name={'выполненых проектов'} count={130}></Count>
-    <Count name={'расчетов на прочность'} count={560}></Count>
-    <Count name={'IoT Хакатон'} count={1}></Count>
+    <Count name={'выполненых проектов'} count={130} />
+    <Count name={'расчетов на прочность'} count={560} />
+    <Count name={'Codewars'} count={rank} />
+    <Count name={'IoT Хакатон'} count={1} />
+
   </div>
 </div>
