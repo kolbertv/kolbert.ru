@@ -13,7 +13,7 @@
 </style>
 
 <svelte:head>
-  <title>Кольберт Владимир</title>
+  <title>Кольберт Владимир / Vladimir Kolbert</title>
 </svelte:head>
 
 <Image />
