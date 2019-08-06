@@ -5,7 +5,7 @@
 
 <style type="text/sass">
   li {
-    margin: 0 0 0 1rem;
+    margin: 0 0.3rem 0 0.3rem;
   }
   a {
     text-transform: uppercase;
